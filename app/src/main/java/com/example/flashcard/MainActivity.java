@@ -2,7 +2,10 @@ package com.example.flashcard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 
