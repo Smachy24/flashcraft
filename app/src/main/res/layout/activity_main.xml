@@ -6,85 +6,126 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/bg_minecraft" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop" />
+
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="389dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_minecraft" />
 
     <Button
         android:id="@+id/questionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
         android:text="QUESTION"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/summaryButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
         android:text="SUMMARY"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/questionButton"
         app:layout_constraintTop_toBottomOf="@+id/questionButton" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/statsButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
         android:text="STAT"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/summaryButton"
+        app:layout_constraintStart_toStartOf="@+id/summaryButton"
+        app:layout_constraintTop_toBottomOf="@+id/summaryButton" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ABOUT"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ALL QUESTIONS"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TIME ATTACK"
-        app:layout_constraintStart_toStartOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/hardcoreButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
         android:text="HARDCORE"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/statsButton"
+        app:layout_constraintTop_toBottomOf="@+id/statsButton" />
+
+    <Button
+        android:id="@+id/allQuestionsButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
+        android:text="ALL QUESTIONS"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/hardcoreButton"
+        app:layout_constraintTop_toBottomOf="@+id/hardcoreButton" />
+
+    <Button
+        android:id="@+id/timeAttackButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
+        android:text="TIME ATTACK"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/allQuestionsButton"
+        app:layout_constraintTop_toBottomOf="@+id/allQuestionsButton" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
+        android:text="ABOUT"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/timeAttackButton"
+        app:layout_constraintTop_toBottomOf="@+id/timeAttackButton" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/bold"
+        android:textColor="#FFFFFF"
+        android:text="CREATED BY GROUP 3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
