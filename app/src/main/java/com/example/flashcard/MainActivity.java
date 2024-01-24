@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.Drawables.listDrawables();
-
         videoView = findViewById(R.id.videoView);
 
         MediaController mediaController = new MediaController(this);
