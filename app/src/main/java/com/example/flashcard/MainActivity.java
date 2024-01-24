@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.Api.getQuestionById(this, 1);
+        Utils.Api.getQuestionsByLevel(this, "easy");
 
         videoView = findViewById(R.id.videoView);
 
