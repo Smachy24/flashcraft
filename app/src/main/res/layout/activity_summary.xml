@@ -6,4 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".SummaryActivity">
 
+    <ImageView
+        android:id="@+id/backgroundLightDirtImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/minecraft_dirt" />
+
+    <ImageView
+        android:id="@+id/backgroundDarkDirtImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="520dp"
+        android:layout_marginBottom="100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundLightDirtImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dirt_background_minecraft" />
+
+    <TextView
+        android:id="@+id/difficultyLevelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        tools:text="Niveau de difficulté : Facile" />
+
+    <TextView
+        android:id="@+id/good_answersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/difficultyLevelTextView"
+        app:layout_constraintStart_toStartOf="@+id/difficultyLevelTextView"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyLevelTextView"
+        tools:text="4 / 6 bonnes réponses" />
+
+    <TextView
+        android:id="@+id/percentageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="@+id/difficultyLevelTextView"
+        app:layout_constraintStart_toStartOf="@+id/difficultyLevelTextView"
+        app:layout_constraintTop_toBottomOf="@+id/good_answersTextView"
+        tools:text="30%" />
+
+    <ImageView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/statistiques__minecraft" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
