@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".AllQuestionActivity">
 
+    <ImageView
+        android:id="@+id/imageZoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_dirt" />
+
+    <ImageButton
+        android:id="@+id/thumb_button_1"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_marginRight="1dp"
+        android:src="@drawable/bg_dirt"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/bg_dirt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
             }
         });
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         summaryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, SummaryActivity.class));
             }
         });
@@ -59,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, StatsActivity.class));
             }
         });
@@ -67,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         hardcoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, Hardcore.class));
             }
         });
@@ -75,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         allQuestionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, AllQuestionActivity.class));
             }
         });
@@ -83,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         timeAttackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, TimeAttackActivity.class));
             }
         });
@@ -91,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
             }
         });
