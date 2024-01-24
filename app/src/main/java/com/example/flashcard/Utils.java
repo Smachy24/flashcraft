@@ -92,7 +92,10 @@ public class Utils {
             assert level != null;
             assert level != "easy" || level != "medium" || level !="hard";
             requestGet(listener, BASE_URL+"?level="+level);
+        }
 
+        public static void getQuestionById(OnQuestionsListener listener, int id){
+            requestGet(listener, BASE_URL+ id);
         }
 
     }

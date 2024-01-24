@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.Api.getQuestionsByLevel(this, "easy");
+        Utils.Api.getQuestionById(this, 1);
 
         videoView = findViewById(R.id.videoView);
 
@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
-                startActivity(new Intent(MainActivity.this, TimeAttackActivity.class));
+                Intent intent = new Intent(MainActivity.this, TimeAttackActivity.class);
+                intent.putExtra("questions", questions);
+                startActivity(intent);
             }
         });
 
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     @Override
     public void onQuestionsLoaded(ArrayList<Question> questions) {
         this.questions = questions;
-        System.out.println(this.questions);
+        System.out.println(this.questions.get(0));
 
     }
   
