@@ -1,0 +1,66 @@
+GET : /questions
+Return all questions
+
+GET : /questions/$level
+Return all questions of one level (easy, medium, hard)
+
+Response format :
+{
+    "results": [
+        {
+            "id": int PK A_I,
+            "prompt": String,
+            "level": String,
+            "icon": String,
+            "good_answer": String,
+            "answers": List<String>
+        },
+        {
+            ...
+        }
+    ]
+}
+
+__________________________________
+
+GET: /questions/$id
+Retrieve one question
+
+Response format :
+{
+    "results":
+        {
+            "id": int PK A_I,
+            "prompt": String,
+            "level": String,
+            "icon": String,
+            "good_answer": String,
+            "answers": List<String>
+        }
+}
+_________________________
+
+POST : /questions
+Create a question
+
+Body format:
+{
+    "question": {
+        "id": int PK A_I,
+        "prompt": String,
+        "level": String,
+        "icon": String,
+        "good_answer": String,
+        "answers": List<String>
+    }
+}
+
+__________________________________
+
+DELETE: /questions/$id
+Delete one question
+
+Response format :
+{
+    "status": "Success"
+}
