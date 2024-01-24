@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     @Override
     public void onQuestionsLoaded(ArrayList<Question> questions) {
         this.questions = questions;
-        System.out.println(this.questions.get(0));
+        System.out.println(this.questions);
 
     }
   
