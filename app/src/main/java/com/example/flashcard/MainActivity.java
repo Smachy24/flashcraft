@@ -1,5 +1,7 @@
 package com.example.flashcard;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
+                showDifficultyDialog();
             }
         });
 
@@ -117,4 +119,23 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         videoView.stopPlayback();
     }
+
+    private void showDifficultyDialog() {
+        final String[] difficultyLevels = {"Facile", "Moyen", "Difficile"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choisissez la difficulté")
+                .setItems(difficultyLevels, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .create()
+                .show();
+    }
+
 }
+
+
+
