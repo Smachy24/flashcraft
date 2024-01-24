@@ -1,7 +1,7 @@
 GET : /questions
 Return all questions
 
-GET : /questions/$level
+GET : /questions?level=$level
 Return all questions of one level (easy, medium, hard)
 
 Response format :
