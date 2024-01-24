@@ -34,8 +34,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 // Get the view of the checked radio button
                 RadioButton checkedRadioButton = findViewById(checkedId);
                 // Apply change to the visual of the button
-                checkedRadioButton.setScaleX(radioButton2.getScaleX()*1.1f);
-                checkedRadioButton.setScaleY(radioButton2.getScaleY()*1.1f);
+                Log.d("question", "answer" + checkedId + "selected" );
             }
         });
 
@@ -43,7 +42,7 @@ public class QuestionsActivity extends AppCompatActivity {
         radioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("question", "answer 1 selected" );
+                //Log.d("question", "answer 1 selected" );
                 //checkButton(v);
 
             }
@@ -52,7 +51,7 @@ public class QuestionsActivity extends AppCompatActivity {
         radioButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("question", "answer 2 selected" );
+                //Log.d("question", "answer 2 selected" );
                 // radioButton2.setScaleX(radioButton2.getScaleX()*1.1f);
                 // radioButton2.setScaleY(radioButton2.getScaleY()*1.1f);
                 //checkButton(v);
@@ -64,7 +63,7 @@ public class QuestionsActivity extends AppCompatActivity {
         radioButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("question", "answer 3 selected" );
+                //Log.d("question", "answer 3 selected" );
                 //checkButton(v);
             }
         });
@@ -72,22 +71,9 @@ public class QuestionsActivity extends AppCompatActivity {
         radioButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("question", "answer 4 selected" );
+                //Log.d("question", "answer 4 selected" );
             }
         });
 
-    }
-
-    public void checkButton(View v) {
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        RadioButton checkedRadioButton = findViewById(radioId);
-        checkedRadioButton.setScaleX(radioButton2.getScaleX()*1.1f);
-        checkedRadioButton.setScaleY(radioButton2.getScaleY()*1.1f);
-
-        Toast.makeText(
-                this,
-                "Selected Radio Button: ",
-                Toast.LENGTH_SHORT
-        ).show();
     }
 }
