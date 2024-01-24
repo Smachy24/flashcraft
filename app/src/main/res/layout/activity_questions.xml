@@ -108,4 +108,34 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/answer_rectangular_placeholder" />
 
+    <TextView
+        android:id="@+id/currentQuestionIdText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/separationCharacterText"
+        app:layout_constraintEnd_toStartOf="@+id/separationCharacterText"
+        app:layout_constraintTop_toTopOf="@+id/separationCharacterText"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/separationCharacterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="589dp" />
+
+    <TextView
+        android:id="@+id/totalQuestionId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/separationCharacterText"
+        app:layout_constraintStart_toEndOf="@+id/separationCharacterText"
+        app:layout_constraintTop_toTopOf="@+id/separationCharacterText"
+        tools:text="0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
