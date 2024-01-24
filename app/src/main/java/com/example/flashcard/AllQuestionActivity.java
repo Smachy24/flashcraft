@@ -17,12 +17,6 @@ public class AllQuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_question);
-        binding.thumbButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                zoomImageFromThumb(thumb1View, R.drawable.imageZoom);
-            }
-        });
 
         // Retrieve and cache the system's default "short" animation time.
         shortAnimationDuration = getResources().getInteger(
@@ -36,17 +30,10 @@ public class AllQuestionActivity extends AppCompatActivity {
             currentAnimator.cancel();
         }
 
-        binding.expandedImage.setImageResource(imageResId);
-
         final Rect startBounds = new Rect();
         final Rect finalBounds = new Rect();
         final Point globalOffset = new Point();
 
-        thumbView.getGlobalVisibleRect(startBounds);
-        findViewById(R.id.container)
-                .getGlobalVisibleRect(finalBounds, globalOffset);
-        startBounds.offset(-globalOffset.x, -globalOffset.y);
-        finalBounds.offset(-globalOffset.x, -globalOffset.y);
 
         float startScale;
         if ((float) finalBounds.width() / finalBounds.height()
@@ -65,9 +52,5 @@ public class AllQuestionActivity extends AppCompatActivity {
         }
 
         thumbView.setAlpha(0f);
-
-        animateZoomToLargeImage(startBounds, finalBounds, startScale);
-
-        setDismissLargeImageAnimation(thumbView, startBounds, startScale);
     }
 }
