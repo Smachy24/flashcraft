@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
-                startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
+                showDifficultyDialog();
+                //startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
             }
         });
 
@@ -104,7 +105,9 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
-                startActivity(new Intent(MainActivity.this, TimeAttackActivity.class));
+                Intent intent = new Intent(MainActivity.this, TimeAttackActivity.class);
+                intent.putExtra("questions", questions);
+                startActivity(intent);
             }
         });
 
@@ -155,8 +158,11 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         builder.setTitle("Choisissez la difficulté")
                 .setItems(difficultyLevels, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
+                    public void onClick(DialogInterface dialog, int selectedDifficult) {
+                        //Log.i("selected", difficultyLevels[selectedDifficult]);
+                    Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
+                    intent.putExtra("Difficulty", difficultyLevels[selectedDifficult]);
+                    startActivity(intent);
                     }
                 })
                 .create()
