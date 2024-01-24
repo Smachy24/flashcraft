@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".QuestionsActivity">
 
+    <TextView
+        android:id="@+id/promptTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Comment crafter une épée en diamant ?" />
+
+    <ImageView
+        android:id="@+id/promptLogoImageView"
+        android:layout_width="131dp"
+        android:layout_height="118dp"
+        app:layout_constraintEnd_toEndOf="@+id/promptTextView"
+        app:layout_constraintStart_toStartOf="@+id/promptTextView"
+        app:layout_constraintTop_toBottomOf="@+id/promptTextView"
+        app:srcCompat="@drawable/prompt_icon_diamond_sword" />
+
+    <RadioGroup
+        android:id="@+id/answersRadioGroup"
+        android:layout_width="352dp"
+        android:layout_height="558dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/promptLogoImageView">
+
+        <RadioButton
+            android:id="@+id/answersRadioButton1"
+            android:layout_width="167dp"
+            android:layout_height="90dp"
+            android:background="@drawable/answer_rectangular_placeholder"
+            android:button="@color/black"
+            android:checked="true"
+            android:visibility="visible" />
+
+        <RadioButton
+            android:id="@+id/answersRadioButton2"
+            android:layout_width="167dp"
+            android:layout_height="88dp"
+            android:background="@drawable/answer_rectangular_placeholder"
+            android:button="@color/black"
+            android:visibility="visible" />
+
+        <RadioButton
+            android:id="@+id/answersRadioButton3"
+            android:layout_width="167dp"
+            android:layout_height="108dp"
+            android:background="@drawable/answer_rectangular_placeholder"
+            android:button="@color/black"
+            android:visibility="visible" />
+
+        <RadioButton
+            android:id="@+id/answersRadioButton4"
+            android:layout_width="167dp"
+            android:layout_height="99dp"
+            android:background="@drawable/answer_rectangular_placeholder"
+            android:button="@color/black" />
+
+        <Button
+            android:id="@+id/answerValidationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CRAFT !" />
+
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
