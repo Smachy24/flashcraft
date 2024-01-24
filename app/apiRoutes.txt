@@ -13,7 +13,7 @@ Response format :
             "level": String,
             "icon": String,
             "good_answer": String,
-            "answers": List<String>
+            "answers": ArrayList<String>
         },
         {
             ...
@@ -35,7 +35,7 @@ Response format :
             "level": String,
             "icon": String,
             "good_answer": String,
-            "answers": List<String>
+            "answers": ArrayList<String>
         }
 }
 _________________________

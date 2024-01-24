@@ -2,10 +2,10 @@ package com.example.flashcard.models;
 
 import java.util.ArrayList;
 
-public class Party {
+public class Game {
     private ArrayList<Question> questions;
 
-    public Party(ArrayList<Question> questions) {
+    public Game(ArrayList<Question> questions) {
         this.questions = questions;
     }
 

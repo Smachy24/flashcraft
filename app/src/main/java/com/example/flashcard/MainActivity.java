@@ -11,14 +11,21 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.flashcard.models.Question;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements Utils.OnQuestionsListener {
 
     private VideoView videoView;
+    ArrayList<Question> questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Utils.Api.getQuestions(this);
 
         videoView = findViewById(R.id.videoView);
 
@@ -116,5 +123,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         videoView.stopPlayback();
+    }
+
+    @Override
+    public void onQuestionsLoaded(ArrayList<Question> questions) {
+        this.questions = questions;
     }
 }
