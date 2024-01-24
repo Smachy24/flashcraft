@@ -1,8 +1,11 @@
 package com.example.flashcard.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Question {
+public class Question implements Parcelable {
     private int id;
     private String prompt;
     private String level;
@@ -18,6 +21,42 @@ public class Question {
         this.good_answer = good_answer;
         this.answers = answers;
     }
+
+    protected Question(Parcel in) {
+        id = in.readInt();
+        prompt = in.readString();
+        level = in.readString();
+        icon = in.readString();
+        good_answer = in.readString();
+        answers = in.createStringArrayList();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(prompt);
+        dest.writeString(level);
+        dest.writeString(icon);
+        dest.writeString(good_answer);
+        dest.writeStringList(answers);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 
     public int getId() {
         return id;
