@@ -36,16 +36,16 @@ public class Utils {
     }
 
     public interface OnQuestionsListener{
-        public void onQuestionsLoaded(ArrayList<Question> questions);
+        void onQuestionsLoaded(ArrayList<Question> questions);
     }
 
     public static class Api {
-        public static final String BASE_URL = "https://students.gryt.tech/api/L2/flashcraft/questions";
-        public static void getQuestions(OnQuestionsListener listener){
-            OkHttpClient client = new OkHttpClient();
+        public static String BASE_URL = "https://students.gryt.tech/api/L2/flashcraft/questions/";
 
+        private static void requestGet(OnQuestionsListener listener, String url){
+            OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url(BASE_URL)
+                    .url(url)
                     .build();
 
             Call call = client.newCall(request);
@@ -57,28 +57,44 @@ public class Utils {
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     if (response.isSuccessful()) {
-                        // Get response
-                        assert response.body() != null;
-                        String jsonResponse = response.body().string();
-                        // Parse response to Json
-                        JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
-                        // Get response["results"]
-                        JsonArray resultsArray = jsonObject.getAsJsonArray("results");
-
-                        ArrayList<Question> questions = new ArrayList<>();
-
-                        // Create an object Question for each line
-                        for (int i = 0; i < resultsArray.size(); i++) {
-                            JsonObject resultObject = resultsArray.get(i).getAsJsonObject();
-                            Gson gson = new Gson();
-                            Question question = gson.fromJson(resultObject, Question.class);
-                            questions.add(question);
-                        }
+                        ArrayList<Question> questions = getArrayListQuestions(response);
                         listener.onQuestionsLoaded(questions);
                     }
                 }
             });
         }
+        private static ArrayList<Question> getArrayListQuestions(Response response) throws IOException{
+            // Get response
+            assert response.body() != null;
+            String jsonResponse = response.body().string();
+            // Parse response to Json
+            JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
+            // Get response["results"]
+            JsonArray resultsArray = jsonObject.getAsJsonArray("results");
+
+            ArrayList<Question> questions = new ArrayList<>();
+
+            // Create an object Question for each line
+            for (int i = 0; i < resultsArray.size(); i++) {
+                JsonObject resultObject = resultsArray.get(i).getAsJsonObject();
+                Gson gson = new Gson();
+                Question question = gson.fromJson(resultObject, Question.class);
+                questions.add(question);
+            }
+            return questions;
+        }
+
+        public static void getQuestions(OnQuestionsListener listener){
+            requestGet(listener, BASE_URL);
+        }
+
+        public static void getQuestionsByLevel(OnQuestionsListener listener, String level){
+            assert level != null;
+            assert level != "easy" || level != "medium" || level !="hard";
+            requestGet(listener, BASE_URL+"?level="+level);
+
+        }
+
     }
 
 }

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.Api.getQuestions(this);
+        Utils.Api.getQuestionsByLevel(this, "easy");
 
         videoView = findViewById(R.id.videoView);
 
@@ -144,6 +144,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     @Override
     public void onQuestionsLoaded(ArrayList<Question> questions) {
         this.questions = questions;
+        System.out.println(this.questions);
+
     }
   
     private void showDifficultyDialog() {
