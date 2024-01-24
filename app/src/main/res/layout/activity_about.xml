@@ -2,20 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".AboutActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="760dp"
+        android:layout_width="450dp"
+        android:layout_height="780dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.51"
         app:srcCompat="@drawable/grass" />
 
     <TextView
@@ -23,8 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
-        android:text="ABOUT US"
         android:fontFamily="@font/bold"
+        android:text="ABOUT US"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,4 +61,20 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="342dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
+        android:text="HOME"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/aboutVersion"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/aboutVersion"
+        app:layout_constraintTop_toBottomOf="@+id/aboutVersion" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

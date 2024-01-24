@@ -17,11 +17,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="389dp"
-        android:layout_height="210dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="407dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_minecraft" />
@@ -30,16 +30,15 @@
         android:id="@+id/questionButton"
         android:layout_width="342dp"
         android:layout_height="43dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button_minecraft"
         android:fontFamily="@font/regular"
         android:text="QUESTION"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
 
     <Button
         android:id="@+id/summaryButton"
@@ -127,5 +126,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="@font/regular"
+        android:rotation="-15"
+        android:text="ROBIN ON T'AIME :3"
+        android:textColor="#B222CA"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

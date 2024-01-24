@@ -3,8 +3,11 @@ package com.example.flashcard;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
@@ -30,6 +33,14 @@ public class AboutActivity extends AppCompatActivity {
 
         aboutVersion.setText(myVersionName);
 
+        Button closeButton = (Button) findViewById(R.id.homeButton);
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 }
