@@ -2,10 +2,15 @@ package com.example.flashcard;
 
 import androidx.annotation.NonNull;
 
+import com.example.flashcard.models.Question;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -30,9 +35,13 @@ public class Utils {
         }
     }
 
+    public interface OnQuestionsListener{
+        public void onQuestionsLoaded(ArrayList<Question> questions);
+    }
+
     public static class Api {
         public static final String BASE_URL = "https://students.gryt.tech/api/L2/flashcraft/questions";
-        public static void getQuestions(){
+        public static void getQuestions(OnQuestionsListener listener){
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
@@ -48,18 +57,24 @@ public class Utils {
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     if (response.isSuccessful()) {
-                        // Obtenez le corps de la réponse en tant que chaîne JSON
+                        // Get response
+                        assert response.body() != null;
                         String jsonResponse = response.body().string();
+                        // Parse response to Json
+                        JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
+                        // Get response["results"]
+                        JsonArray resultsArray = jsonObject.getAsJsonArray("results");
 
-                        Gson gson = new Gson();
-                        // VotreObjet obj = gson.fromJson(jsonResponse, VotreObjet.class);
+                        ArrayList<Question> questions = new ArrayList<>();
 
-                        // Vous pouvez maintenant utiliser l'objet 'obj' comme nécessaire
-                        // Par exemple, imprimez un attribut de l'objet
-                        // System.out.println("Attribute from JSON: " + obj);
-
-                    } else {
-                        System.out.println("Response not successful. Code: " + response.code());
+                        // Create an object Question for each line
+                        for (int i = 0; i < resultsArray.size(); i++) {
+                            JsonObject resultObject = resultsArray.get(i).getAsJsonObject();
+                            Gson gson = new Gson();
+                            Question question = gson.fromJson(resultObject, Question.class);
+                            questions.add(question);
+                        }
+                        listener.onQuestionsLoaded(questions);
                     }
                 }
             });
