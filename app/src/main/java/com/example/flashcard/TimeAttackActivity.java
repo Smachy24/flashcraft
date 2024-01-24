@@ -1,19 +1,12 @@
 package com.example.flashcard;
 
 import android.content.ClipData;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.DragEvent;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TimeAttackActivity extends AppCompatActivity {
@@ -28,9 +21,11 @@ public class TimeAttackActivity extends AppCompatActivity {
         bind();
     }
 
+    /**
+     * Set children of crafting table dropable elements
+     */
     private void bind() {
         FrameLayout craftingTableFrameLayout = findViewById(R.id.craftingTableFrameLayout);
-
         for (int i = 0; i < craftingTableFrameLayout.getChildCount(); i++) {
             View child = craftingTableFrameLayout.getChildAt(i);
 
@@ -42,11 +37,15 @@ public class TimeAttackActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     private static class DragItemTouchListener implements View.OnTouchListener {
 
+        /**
+         * Return if image is pressed
+         * @param view        The view the touch event has been dispatched to.
+         * @param motionEvent The MotionEvent object containing full information about
+         *                    the event.
+         * @return
+         */
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -57,18 +56,25 @@ public class TimeAttackActivity extends AppCompatActivity {
             }
         }
 
+        /**
+         * Drag and move the image
+         * @param view  The view the touch event has been dispatched to.
+         */
         private void dragMultiple(View view) {
             ClipData data = ClipData.newPlainText("", "");
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-            ViewGroup parent = (ViewGroup) view.getParent();
-
             view.startDragAndDrop(data, shadowBuilder, view, 0);
-//            parent.removeView(view);
         }
     }
 
     private class DragListener implements View.OnDragListener {
 
+        /**
+         * Drop the image
+         * @param v     The {@code View} that received the drag event.
+         * @param event The event object for the drag event.
+         * @return true
+         */
         @Override
         public boolean onDrag(View v, DragEvent event) {
             if (event.getAction() == DragEvent.ACTION_DROP) {
@@ -77,13 +83,9 @@ public class TimeAttackActivity extends AppCompatActivity {
                 // Vérifier si la vue cible est une instance de ImageView et si la vue draggée est l'image d'exemple
                 if (v instanceof ImageView && draggedView.getId() == R.id.exempleImage) {
 
-                    // Obtenez l'ID de la vue cible
-                     int targetImageId = v.getId();
-
                     // Changez l'image de la vue cible pour qu'elle soit la même que celle de la vue draggée
                     ((ImageView) v).setImageDrawable(draggedView.getDrawable());
 
-                    v.invalidate();
                 }
             }
             return true;
