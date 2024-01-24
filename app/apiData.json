@@ -1,0 +1,109 @@
+{
+  "questions": [
+    {
+      "prompt": "Comment fabriquer une épée en bois ?",
+      "level": "easy",
+      "icon": "question_item_wooden_sword",
+      "good_answer": "question_craft_wooden_sword_0",
+      "answers": ["question_craft_wooden_sword_0","question_craft_wooden_sword_1","question_craft_wooden_sword_2"]
+    },
+    {
+      "prompt": "Comment fabriquer une hache en fer ?",
+      "level": "easy",
+      "icon": "question_item_iron_axe",
+      "good_answer": "question_craft_iron_axe_0",
+      "answers": ["question_craft_iron_axe_0","question_craft_iron_axe_1","question_craft_iron_axe_2"]
+    },
+    {
+      "prompt": "Comment fabriquer une pelle en diamant ?",
+      "level": "easy",
+      "icon": "question_item_diamond_shovel",
+      "good_answer": "question_craft_diamond_shovel_0",
+      "answers": ["question_craft_diamond_shovel_0","question_craft_diamond_shovel_1","question_craft_diamond_shovel_2"]
+    },
+    {
+      "prompt": "Comment fabriquer un casque en or ?",
+      "level": "easy",
+      "icon": "question_item_golden_helmet",
+      "good_answer": "question_craft_golden_helmet_0",
+      "answers": ["question_craft_golden_helmet_0","question_craft_golden_helmet_1","question_craft_golden_helmet_2","question_craft_golden_helmet_3"]
+    },
+    {
+      "prompt": "Comment fabriquer une pioche en pierre ?",
+      "level": "easy",
+      "icon": "question_item_stone_pickaxe",
+      "good_answer": "question_craft_stone_pickage_0",
+      "answers": ["question_craft_stone_pickage_0","question_craft_stone_pickage_1","question_craft_stone_pickage_2","question_craft_stone_pickage_3"]
+    },
+    {
+      "prompt": "Comment fabriquer des escaliers en briques ?",
+      "level": "medium",
+      "icon": "question_item_brick_stairs",
+      "good_answer": "question_craft_brick_stairs_0",
+      "answers": ["question_craft_brick_stairs_0","question_craft_brick_stairs_1","question_craft_brick_stairs_2","question_craft_brick_stairs_3"]
+    },
+    {
+      "prompt": "Comment fabriquer des dalles en sapin ?",
+      "level": "medium",
+      "icon": "question_item_spruce_slab",
+      "good_answer": "question_craft_spruce_slab_0",
+      "answers": ["question_craft_spruce_slab_0","question_craft_spruce_slab_1","question_craft_spruce_slab_2"]
+    },
+    {
+      "prompt": "Comment fabriquer un seau ?",
+      "level": "medium",
+      "icon": "question_item_bucket",
+      "good_answer": "question_craft_bucket_0",
+      "answers": ["question_craft_bucket_0","question_craft_bucket_1","question_craft_bucket_2"]
+    },
+    {
+      "prompt": "Comment fabriquer des torches ?",
+      "level": "medium",
+      "icon": "question_item_torch",
+      "good_answer": "question_craft_torch_0",
+      "answers": ["question_craft_torch_0","question_craft_torch_1","question_craft_torch_2","question_craft_torch_3"]
+    },
+    {
+      "prompt": "Comment fabriquer un bloc de cuivre ?",
+      "level": "medium",
+      "icon": "question_item_block_of_copper",
+      "good_answer": "question_craft_block_of_copper_0",
+      "answers": ["question_craft_block_of_copper_0","question_craft_block_of_copper_1","question_craft_block_of_copper_2"]
+    },
+    {
+      "prompt": "Comment fabriquer un gateau ?",
+      "level": "hard",
+      "icon": "question_item_cake",
+      "good_answer": "question_craft_cake_0",
+      "answers": ["question_craft_cake_0","question_craft_cake_1","question_craft_cake_2","question_craft_cake_3"]
+    },
+    {
+      "prompt": "Comment fabriquer un bouclier ?",
+      "level": "hard",
+      "icon": "question_item_shield",
+      "good_answer": "question_craft_shield_0",
+      "answers": ["question_craft_shield_0","question_craft_shield_1","question_craft_shield_2","question_craft_shield_3"]
+    },
+    {
+      "prompt": "Comment fabriquer un observateur ?",
+      "level": "hard",
+      "icon": "question_item_observer",
+      "good_answer": "question_craft_observer_0",
+      "answers": ["question_craft_observer_0","question_craft_observer_1","question_craft_observer_2","question_craft_observer_3"]
+    },
+    {
+      "prompt": "Comment fabriquer un haut fourneau ?",
+      "level": "hard",
+      "icon": "question_item_blast_furnace",
+      "good_answer": "question_craft_blast_furnace_0",
+      "answers": ["question_craft_blast_furnace_0","question_craft_blast_furnace_1","question_craft_blast_furnace_2","question_craft_blast_furnace_3"]
+    },
+    {
+      "prompt": "Comment fabriquer un cristal de l'End ?",
+      "level": "hard",
+      "icon": "question_item_end_crystal",
+      "good_answer": "question_craft_end_crystal_0",
+      "answers": ["question_craft_end_crystal_0","question_craft_end_crystal_1","question_craft_end_crystal_2","question_craft_end_crystal_3"]
+    }
+  ]
+}
