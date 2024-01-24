@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Button questionButton = findViewById(R.id.questionButton);
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) 
+            public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
