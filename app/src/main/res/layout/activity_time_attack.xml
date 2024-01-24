@@ -6,4 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".TimeAttackActivity">
 
+    <FrameLayout
+        android:id="@+id/craftingTableFrameLayout"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/crafting_table_background"
+        android:padding="4dp"
+        android:paddingStart="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/craftingFrame0"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame1"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame2"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="top|right"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame3"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="center|left"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame4"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="center"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame5"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="center|right"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame6"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="bottom|left"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame7"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="center|bottom"
+            android:background="@drawable/crafting_table_slot" />
+
+        <View
+            android:id="@+id/craftingFrame8"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/crafting_table_slot" />
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/exempleImage"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:background="@drawable/question_item_diamond_shovel"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="423dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,14 +20,17 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements Utils.OnQuestionsListener {
 
     private VideoView videoView;
-    ArrayList<Question> questions;
+    ArrayList<Question> allQuestions;
+    ArrayList<Question> easyQuestions;
+    ArrayList<Question> mediumQuestions;
+    ArrayList<Question> hardQuestions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.Api.getQuestionsByLevel(this, "easy");
+        Utils.Api.getQuestions(this);
 
         videoView = findViewById(R.id.videoView);
 
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
                 Intent intent = new Intent(MainActivity.this, TimeAttackActivity.class);
-                intent.putExtra("questions", questions);
+                intent.putExtra("questions", allQuestions);
                 startActivity(intent);
             }
         });
@@ -146,11 +149,38 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
 
     @Override
     public void onQuestionsLoaded(ArrayList<Question> questions) {
-        this.questions = questions;
-        System.out.println(this.questions);
+        this.allQuestions = questions;
+        filterQuestionsByLevel("easy");
+        filterQuestionsByLevel("medium");
+        filterQuestionsByLevel("hard");
+
+        // Afficher les listes de questions
+        System.out.println("All Questions: " + this.allQuestions);
+        System.out.println("Easy Questions: " + this.easyQuestions);
+        System.out.println("Medium Questions: " + this.mediumQuestions);
+        System.out.println("Hard Questions: " + this.hardQuestions);
 
     }
-  
+
+    private void filterQuestionsByLevel(String level) {
+        ArrayList<Question> filteredQuestions = new ArrayList<>();
+
+        for (Question question : this.allQuestions) {
+            if (question.getLevel().equalsIgnoreCase(level)) {
+                filteredQuestions.add(question);
+            }
+        }
+
+        if (level.equalsIgnoreCase("easy")) {
+            this.easyQuestions = filteredQuestions;
+        } else if (level.equalsIgnoreCase("medium")) {
+            this.mediumQuestions = filteredQuestions;
+        } else if (level.equalsIgnoreCase("hard")) {
+            this.hardQuestions = filteredQuestions;
+        }
+    }
+
+
     private void showDifficultyDialog() {
         final String[] difficultyLevels = {"Facile", "Moyen", "Difficile"};
 
