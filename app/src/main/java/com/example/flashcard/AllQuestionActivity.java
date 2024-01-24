@@ -1,56 +1,48 @@
 package com.example.flashcard;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.animation.Animator;
-import android.graphics.Point;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 public class AllQuestionActivity extends AppCompatActivity {
 
-    private Animator currentAnimator;
-    private int shortAnimationDuration;
+    private ImageView expandedImage;
+    private ImageView closeButton;
+    public ViewGroup.LayoutParams originalParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_question);
 
-        // Retrieve and cache the system's default "short" animation time.
-        shortAnimationDuration = getResources().getInteger(
-                android.R.integer.config_shortAnimTime);
+        expandedImage = findViewById(R.id.expanded_image);
+        closeButton = findViewById(R.id.closeButton);
+
+        originalParams = expandedImage.getLayoutParams();
     }
 
-    private void zoomImageFromThumb(final View thumbView, int imageResId) {
-        // If there's an animation in progress, cancel it immediately and
-        // proceed with this one.
-        if (currentAnimator != null) {
-            currentAnimator.cancel();
-        }
+    public void onImageClick(View view) {
+        // SET IMAGE TO MATCH PARENT PARAMS
+        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT);
+        expandedImage.setLayoutParams(params);
+        //SET CLOSE BUTTON VISIBLE
+        closeButton.setVisibility(View.VISIBLE);
+        //SET 1 ST IMAGE GONE
+        expandedImage.setClickable(false);
+    }
 
-        final Rect startBounds = new Rect();
-        final Rect finalBounds = new Rect();
-        final Point globalOffset = new Point();
+    public void onCloseButtonClick(View view) {
+        expandedImage.setLayoutParams(originalParams);
 
+        closeButton.setVisibility(View.GONE);
 
-        float startScale;
-        if ((float) finalBounds.width() / finalBounds.height()
-                > (float) startBounds.width() / startBounds.height()) {
-            startScale = (float) startBounds.height() / finalBounds.height();
-            float startWidth = startScale * finalBounds.width();
-            float deltaWidth = (startWidth - startBounds.width()) / 2;
-            startBounds.left -= deltaWidth;
-            startBounds.right += deltaWidth;
-        } else {
-            startScale = (float) startBounds.width() / finalBounds.width();
-            float startHeight = startScale * finalBounds.height();
-            float deltaHeight = (startHeight - startBounds.height()) / 2;
-            startBounds.top -= deltaHeight;
-            startBounds.bottom += deltaHeight;
-        }
-
-        thumbView.setAlpha(0f);
+        expandedImage.setClickable(true);
     }
 }
+
