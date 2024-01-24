@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 public class QuestionsActivity extends AppCompatActivity {
     public static final String TAG = "QuestionActivity";
@@ -16,6 +16,10 @@ public class QuestionsActivity extends AppCompatActivity {
     private RadioButton radioButton2;
     private RadioButton radioButton3;
     private RadioButton radioButton4;
+
+    private RadioButton checkedRadioButton;
+
+    private Button answerValidationButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +32,25 @@ public class QuestionsActivity extends AppCompatActivity {
         radioButton3 = findViewById(R.id.answersRadioButton3);
         radioButton4 = findViewById(R.id.answersRadioButton4);
 
+        answerValidationButton = findViewById(R.id.answerValidationButton);
+
+
+
+        // click of the validation button to confirm choice
+        answerValidationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String finalAnswer = checkedRadioButton.getText().toString();
+                Log.i("ANSWER", "DEFINITIVE CHOISE IS : " + finalAnswer);
+            }
+        });
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // Get the view of the checked radio button
-                RadioButton checkedRadioButton = findViewById(checkedId);
+                checkedRadioButton = findViewById(checkedId);
                 // Apply change to the visual of the button
                 Log.d("question", "answer" + checkedId + "selected" );
             }

@@ -22,6 +22,7 @@
         android:layout_width="131dp"
         android:layout_height="118dp"
         android:layout_marginTop="12dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/promptTextView"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/promptTextView"
@@ -44,24 +45,28 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:checked="true"
+            android:text="default"
             android:visibility="visible" />
 
         <RadioButton
             android:id="@+id/answersRadioButton2"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:text="default2"
             android:visibility="visible" />
 
         <RadioButton
             android:id="@+id/answersRadioButton3"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:text="default3"
             android:visibility="visible" />
 
         <RadioButton
             android:id="@+id/answersRadioButton4"
             android:layout_width="match_parent"
-            android:layout_height="90dp" />
+            android:layout_height="90dp"
+            android:text="default4" />
 
         <Button
             android:id="@+id/answerValidationButton"
