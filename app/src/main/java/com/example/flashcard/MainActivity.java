@@ -1,5 +1,7 @@
 package com.example.flashcard;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
             }
         });
@@ -58,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         summaryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, SummaryActivity.class));
             }
         });
@@ -66,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, StatsActivity.class));
             }
         });
@@ -74,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         hardcoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, Hardcore.class));
             }
         });
@@ -82,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         allQuestionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, AllQuestionActivity.class));
             }
         });
@@ -90,6 +102,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         timeAttackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, TimeAttackActivity.class));
             }
         });
@@ -98,6 +112,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
+                mediaPlayer.start();
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
             }
         });
@@ -129,4 +145,23 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     public void onQuestionsLoaded(ArrayList<Question> questions) {
         this.questions = questions;
     }
+  
+    private void showDifficultyDialog() {
+        final String[] difficultyLevels = {"Facile", "Moyen", "Difficile"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choisissez la difficulté")
+                .setItems(difficultyLevels, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .create()
+                .show();
+    }
+
 }
+
+
+
