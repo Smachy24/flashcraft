@@ -94,7 +94,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemListRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp" />

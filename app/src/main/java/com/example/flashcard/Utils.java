@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -112,13 +113,67 @@ public class Utils {
 
         private static void initCrafts(){
             craftList = new ArrayList<>();
-            crateCraft("Epee en bois", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList("bucket", "diamond_shovel", "empty", "empty", "empty", "empty", "empty", "empty", "empty")));
-            crateCraft("Gateau", R.drawable.question_item_cake, new ArrayList<>(Arrays.asList("diamond_shovel", "bucket", "empty", "empty", "empty", "empty", "empty", "empty", "empty")));
+            crateCraft("Pain", R.drawable.question_item_bread, new ArrayList<>(Arrays.asList(
+                    "empty", "empty", "empty",
+                    "wheat", "wheat", "wheat",
+                    "empty", "empty", "empty")));
+            crateCraft("Epee en fer", R.drawable.question_item_iron_sword, new ArrayList<>(Arrays.asList(
+                    "empty", "iron_ingot", "empty",
+                    "empty", "iron_ingot", "empty",
+                    "empty", "stick", "empty")));
+            crateCraft("Casque en fer", R.drawable.question_item_iron_helmet, new ArrayList<>(Arrays.asList(
+                    "iron_ingot", "iron_ingot", "iron_ingot",
+                    "iron_ingot", "empty", "iron_ingot",
+                    "empty", "empty", "empty")));
+            crateCraft("Plastron en fer", R.drawable.question_item_iron_chestplate, new ArrayList<>(Arrays.asList(
+                    "iron_ingot", "empty", "iron_ingot",
+                    "iron_ingot", "iron_ingot", "iron_ingot",
+                    "iron_ingot", "iron_ingot", "iron_ingot")));
+            crateCraft("Pantalon en fer", R.drawable.question_item_iron_leggings, new ArrayList<>(Arrays.asList(
+                    "iron_ingot", "iron_ingot", "iron_ingot",
+                    "iron_ingot", "empty", "iron_ingot",
+                    "iron_ingot", "empty", "iron_ingot")));
+            crateCraft("Bottes en fer", R.drawable.question_item_iron_boots, new ArrayList<>(Arrays.asList(
+                    "empty", "empty", "empty",
+                    "iron_ingot", "empty", "iron_ingot",
+                    "iron_ingot", "empty", "iron_ingot")));
+            crateCraft("Four", R.drawable.question_item_furnace, new ArrayList<>(Arrays.asList(
+                    "cobblestone", "cobblestone", "cobblestone",
+                    "cobblestone", "empty", "cobblestone",
+                    "cobblestone", "cobblestone", "cobblestone")));
+            crateCraft("Hache en fer", R.drawable.question_item_iron_axe, new ArrayList<>(Arrays.asList(
+                    "iron_ingot", "iron_ingot", "empty",
+                    "iron_ingot", "stick", "empty",
+                    "empty", "stick", "empty")));
+            crateCraft("Pioche en fer", R.drawable.question_item_iron_pickaxe, new ArrayList<>(Arrays.asList(
+                    "iron_ingot", "iron_ingot", "iron_ingot",
+                    "empty", "stick", "empty",
+                    "empty", "stick", "empty")));
+            crateCraft("Pelle en fer", R.drawable.question_item_iron_shovel, new ArrayList<>(Arrays.asList(
+                    "empty", "iron_ingot", "empty",
+                    "empty", "stick", "empty",
+                    "empty", "stick", "empty")));
+            crateCraft("Houe en fer", R.drawable.question_item_iron_hoe, new ArrayList<>(Arrays.asList(
+                    "iron_ingot", "iron_ingot", "empty",
+                    "empty", "stick", "empty",
+                    "empty", "stick", "empty")));
+            crateCraft("Escalier en pierre", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList(
+                    "empty", "empty", "cobblestone",
+                    "empty", "cobblestone", "cobblestone",
+                    "cobblestone", "cobblestone", "cobblestone")));
+
         }
 
         public static ArrayList<Craft> getCraftList(){
             initCrafts();
-            return craftList;
+            Collections.shuffle(craftList);
+
+            ArrayList<Craft> randomCraft = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                randomCraft.add(craftList.get(i));
+            }
+
+            return randomCraft;
         }
     }
 
