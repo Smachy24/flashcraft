@@ -43,43 +43,43 @@
             android:id="@+id/craftingSlotImage3"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            app:srcCompat="@drawable/crafting_table_slot"
-            android:layout_gravity="center|left"/>
+            android:layout_gravity="center|left"
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage4"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            app:srcCompat="@drawable/crafting_table_slot"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage5"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            app:srcCompat="@drawable/crafting_table_slot"
-            android:layout_gravity="center|right"/>
+            android:layout_gravity="center|right"
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage6"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            app:srcCompat="@drawable/crafting_table_slot"
-            android:layout_gravity="bottom|left"/>
+            android:layout_gravity="bottom|left"
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage7"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            app:srcCompat="@drawable/crafting_table_slot"
-            android:layout_gravity="bottom|center"/>
+            android:layout_gravity="bottom|center"
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage8"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            app:srcCompat="@drawable/crafting_table_slot"
-            android:layout_gravity="bottom|right"/>
+            android:layout_gravity="bottom|right"
+            app:srcCompat="@drawable/crafting_table_slot" />
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -89,5 +89,62 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp" />
+
+    <TextView
+        android:id="@+id/itemCraftedTextView"
+        android:layout_width="177dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/craftingTableFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/craftingTableFrameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/craftingTableFrameLayout" />
+
+    <ImageView
+        android:id="@+id/itemCraftedImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/itemCraftedTextView"
+        app:layout_constraintStart_toStartOf="@+id/itemCraftedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/itemCraftedTextView"
+        app:srcCompat="@drawable/crafting_table_slot" />
+
+    <TextView
+        android:id="@+id/currentCraftTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/itemCraftedImageView"
+        app:layout_constraintTop_toBottomOf="@+id/itemCraftedImageView" />
+
+    <TextView
+        android:id="@+id/totalCraftTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/itemCraftedImageView"
+        app:layout_constraintTop_toBottomOf="@+id/itemCraftedImageView" />
+
+    <Button
+        android:id="@+id/validateCraftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Valider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentCraftTextView" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="30"
+        app:layout_constraintEnd_toEndOf="@+id/validateCraftButton"
+        app:layout_constraintStart_toStartOf="@+id/validateCraftButton"
+        app:layout_constraintTop_toBottomOf="@+id/validateCraftButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

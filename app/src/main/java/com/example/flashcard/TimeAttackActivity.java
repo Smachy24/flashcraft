@@ -3,11 +3,15 @@ package com.example.flashcard;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,7 +43,8 @@ public class TimeAttackActivity extends AppCompatActivity {
                 // Check if the resource name starts with "question_item"
                 if (resourceName.startsWith("question_item")) {
                     int resourceId = field.getInt(null);
-                    items.add(new Item(resourceId));
+                    String itemName = resourceName.substring("question_item_".length());
+                    items.add(new Item(resourceId, itemName));
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -55,12 +60,66 @@ public class TimeAttackActivity extends AppCompatActivity {
 
         bind();
 
+        initGame();
+
+    }
+
+    private void initGame(){
         Intent srcIntent = getIntent();
         TimeAttackGame game = srcIntent.getParcelableExtra("game");
-        System.out.println(game);
-        System.out.println("AAAAAAAAAAAAAAAAA : " + game.getCrafts().get(0).getCraftedItemName());
 
+        ArrayList<Craft> craftsList = game.getCrafts();
 
+        int currentCraftIndex = game.getCurrentCraftIndex();
+        Craft currentCraft = craftsList.get(currentCraftIndex);
+
+        TextView itemCraftedTextView = findViewById(R.id.itemCraftedTextView);
+        itemCraftedTextView.setText(currentCraft.getCraftedItemName());
+
+        ImageView itemCraftedImageView = findViewById(R.id.itemCraftedImageView);
+        itemCraftedImageView.setImageResource(currentCraft.getCraftedItemImage());
+
+        TextView currentCraftTextView = findViewById(R.id.currentCraftTextView);
+        currentCraftTextView.setText("Craft : " + (currentCraftIndex+1));
+
+        TextView totalCraftTextView = findViewById(R.id.totalCraftTextView);
+        totalCraftTextView.setText(" / " + craftsList.size());
+
+        Button validateCraftButton = findViewById(R.id.validateCraftButton);
+
+        TextView timerTextView = findViewById(R.id.timerTextView);
+        CountDownTimer countDownTimer = new CountDownTimer(30000, 1000) { // 30 secondes avec des mises à jour toutes les 1 seconde
+            public void onTick(long millisUntilFinished) {
+                timerTextView.setText(millisUntilFinished / 1000 + "s");
+            }
+
+            public void onFinish() {
+                timerTextView.setText("Temps écoulé !");
+
+            }
+        };
+
+        // Démarrez le compte à rebours
+        countDownTimer.start();
+
+        validateCraftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countDownTimer.cancel();
+                checkCraft(currentCraft);
+            }
+        });
+
+    }
+
+    private void checkCraft(Craft goodCraft) {
+        for (int i = 0; i <= 8; i++) {
+            System.out.println("i : " + i);
+            ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName()));
+            System.out.println("BON : " + goodCraft.getItemFromIndex(i));
+            System.out.println("TAG Frame : " + craftingItem.getTag());
+            System.out.println("____________________________________________+");
+        }
 
     }
 
@@ -95,13 +154,9 @@ public class TimeAttackActivity extends AppCompatActivity {
         public boolean onDrag(View v, DragEvent event) {
             if (event.getAction() == DragEvent.ACTION_DROP) {
                 ImageView draggedView = (ImageView) event.getLocalState();
-
-                // Vérifier si la vue cible est une instance de ImageView et si la vue draggée est l'image d'exemple
                 if (v instanceof ImageView) {
-
-                    // Changez l'image de la vue cible pour qu'elle soit la même que celle de la vue draggée
                     ((ImageView) v).setImageDrawable(draggedView.getDrawable());
-
+                    ((ImageView) v).setTag(draggedView.getTag());
                 }
             }
             return true;

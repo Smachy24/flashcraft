@@ -3,13 +3,15 @@ package com.example.flashcard.models;
 public class Item {
     public int quantity;
     public int image;
+    public String name;
 
-    public Item(int image, int quantity) {
+    public Item(int image, String name, int quantity) {
         this.quantity = quantity;
         this.image = image;
+        this.name = name;
     }
 
-    public Item(int image) {
-        this(image, 1);
+    public Item(int image, String name) {
+        this(image, name, 1);
     }
 }

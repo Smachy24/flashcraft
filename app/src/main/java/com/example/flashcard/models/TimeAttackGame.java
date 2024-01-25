@@ -7,20 +7,20 @@ import java.util.ArrayList;
 
 public class TimeAttackGame implements Parcelable {
     private ArrayList<Craft> crafts;
-    private int currentQuestionIndex = 0;
+    private int currentCraftIndex = 0;
     public TimeAttackGame(ArrayList<Craft> crafts){
         this.crafts = crafts;
     }
 
     protected TimeAttackGame(Parcel in) {
         crafts = in.createTypedArrayList(Craft.CREATOR);
-        currentQuestionIndex = in.readInt();
+        currentCraftIndex = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeTypedList(crafts);
-        dest.writeInt(currentQuestionIndex);
+        dest.writeInt(currentCraftIndex);
     }
 
     @Override
@@ -48,11 +48,11 @@ public class TimeAttackGame implements Parcelable {
         this.crafts = crafts;
     }
 
-    public int getCurrentQuestionIndex() {
-        return currentQuestionIndex;
+    public int getCurrentCraftIndex() {
+        return currentCraftIndex;
     }
 
-    public void setCurrentQuestionIndex(int currentQuestionIndex) {
-        this.currentQuestionIndex = currentQuestionIndex;
+    public void setCurrentCraftIndex(int currentCraftIndex) {
+        this.currentCraftIndex = currentCraftIndex;
     }
 }

@@ -7,27 +7,28 @@ import java.util.ArrayList;
 
 public class Craft implements Parcelable {
 
-    private ArrayList<Integer> craft;
+    private ArrayList<String> craft;
     private int craftedItemImage;
-    private String  craftedItemName;
+    private String craftedItemName;
 
-
-    public Craft(ArrayList<Integer> craft, int craftedItem, String craftedItemName) {
+    public Craft(ArrayList<String> craft, int craftedItemImage, String craftedItemName) {
         this.craft = craft;
-        this.craftedItemImage = craftedItem;
+        this.craftedItemImage = craftedItemImage;
         this.craftedItemName = craftedItemName;
     }
-
 
     protected Craft(Parcel in) {
         craftedItemImage = in.readInt();
         craftedItemName = in.readString();
+        craft = new ArrayList<>();
+        in.readList(craft, Integer.class.getClassLoader());
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(craftedItemImage);
         dest.writeString(craftedItemName);
+        dest.writeList(craft);
     }
 
     @Override
@@ -47,15 +48,15 @@ public class Craft implements Parcelable {
         }
     };
 
-    public int getItemFromIndex(int i){
+    public String getItemFromIndex(int i){
         return craft.get(i);
     }
 
-    public ArrayList<Integer> getCraft() {
+    public ArrayList<String> getCraft() {
         return craft;
     }
 
-    public void setCraft(ArrayList<Integer> craft) {
+    public void setCraft(ArrayList<String> craft) {
         this.craft = craft;
     }
 
