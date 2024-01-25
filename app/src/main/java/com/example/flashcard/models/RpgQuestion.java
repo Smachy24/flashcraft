@@ -7,6 +7,12 @@ import java.util.ArrayList;
 
 public class RpgQuestion implements Parcelable {
 
+
+    private String title;
+    private String description;
+    private String moral;
+    private ArrayList<RpgAnswer> answers;
+
     public RpgQuestion(String title, String description, String moral, ArrayList<RpgAnswer> answers)
     {
         this.title = title;
@@ -14,16 +20,14 @@ public class RpgQuestion implements Parcelable {
         this.moral = moral;
         this.answers = answers;
     }
-    private String title;
-    private String description;
-    private String moral;
-    private ArrayList<RpgAnswer> answers = new ArrayList<>();
 
-    // parcelable implementation
+    // parcelable implementation end
+
     protected RpgQuestion(Parcel in) {
         title = in.readString();
         description = in.readString();
         moral = in.readString();
+        answers = in.createTypedArrayList(RpgAnswer.CREATOR);
     }
 
     @Override
@@ -31,6 +35,7 @@ public class RpgQuestion implements Parcelable {
         dest.writeString(title);
         dest.writeString(description);
         dest.writeString(moral);
+        dest.writeTypedList(answers);
     }
 
     @Override
@@ -49,7 +54,6 @@ public class RpgQuestion implements Parcelable {
             return new RpgQuestion[size];
         }
     };
-    // parcelable implementation end
 
     public String getTitle() {
         return title;

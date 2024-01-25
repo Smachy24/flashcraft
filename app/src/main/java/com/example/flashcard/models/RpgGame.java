@@ -12,6 +12,8 @@ public class RpgGame implements Parcelable {
     private ArrayList<RpgQuestion> questions;
     private int score;
     private RpgPlayer player = new RpgPlayer();
+    private int currentQuestionIndex;
+    private RpgQuestion currentQuestion;
 
     public RpgGame(String difficulty)
     {
@@ -20,18 +22,30 @@ public class RpgGame implements Parcelable {
         this.score = 0;
 
         this.difficulty = difficulty;
+
+        this.currentQuestionIndex = 0;
+        this.currentQuestion = questions.get(this.currentQuestionIndex);
     }
 
-   // parcelable implementation
+    // parcelable implementation end
+
     protected RpgGame(Parcel in) {
         difficulty = in.readString();
+        questions = in.createTypedArrayList(RpgQuestion.CREATOR);
         score = in.readInt();
+        player = in.readParcelable(RpgPlayer.class.getClassLoader());
+        currentQuestionIndex = in.readInt();
+        currentQuestion = in.readParcelable(RpgQuestion.class.getClassLoader());
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(difficulty);
+        dest.writeTypedList(questions);
         dest.writeInt(score);
+        dest.writeParcelable(player, flags);
+        dest.writeInt(currentQuestionIndex);
+        dest.writeParcelable(currentQuestion, flags);
     }
 
     @Override
@@ -50,7 +64,6 @@ public class RpgGame implements Parcelable {
             return new RpgGame[size];
         }
     };
-    // parcelable implementation end
 
     public String getDifficulty() {
         return difficulty;
@@ -78,5 +91,28 @@ public class RpgGame implements Parcelable {
 
     public void setPlayer(RpgPlayer player) {
         this.player = player;
+    }
+
+    public int getCurrentQuestionIndex() {
+        return currentQuestionIndex;
+    }
+
+    public void setCurrentQuestionIndex(int currentQuestionIndex) {
+        this.currentQuestionIndex = currentQuestionIndex;
+    }
+
+    public RpgQuestion getCurrentQuestion() {
+        return currentQuestion;
+    }
+
+    public void nextQuestion()
+    {
+        currentQuestionIndex ++;
+        currentQuestion = questions.get(currentQuestionIndex);
+    }
+
+    public void incrementScoreByOne()
+    {
+        score ++;
     }
 }

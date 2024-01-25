@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RpgUtils {
-    public static ArrayList<RpgQuestion> baseQuestions = new ArrayList<>();
+    //public static ArrayList<RpgQuestion> baseQuestions;
 
     //private static final ArrayList<RpgAnswer> answers1 = (ArrayList<RpgAnswer>) List.of(
     //        new RpgAnswer(
@@ -62,24 +62,47 @@ public class RpgUtils {
 
     public static ArrayList<RpgQuestion> getBaseQuestions()
     {
+        ArrayList<RpgQuestion> baseQuestions = new ArrayList<>();
+        ArrayList<RpgAnswer> a1 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu prends tout pour toi, après tout, c'est la survie",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu prends seulement ce dont tu as besoin",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu laisses tout tel quel, espérant que les propriétaires reviendront ",
+                    0, -5, 0, -5,
+                    0, 1, 0, 0
+            ));
+        }};
+
         baseQuestions.add(
             new RpgQuestion(
                     "Le village",
                     "Tu trouves un village abandonné avec des coffres remplis de provisions. Que fais-tu ?",
                     "La survie peut être difficile, mais l'empathie envers les autres est essentielle pour préserver notre humanité.",
-                    baseQuestion1Answers));
+                    a1));
+
+
         baseQuestions.add(
                 new RpgQuestion(
                         "Le pouvoir de la camaraderie",
                         "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
                         "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
-                        baseQuestion2Answers));
+                        a1));
+
         baseQuestions.add(
                 new RpgQuestion(
                         "C'est une mine !",
                         "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        baseQuestion1Answers));
+                        a1));
+
         return baseQuestions;
     }
 

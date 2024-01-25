@@ -30,7 +30,8 @@ public class RpgAnswer implements Parcelable {
     private int cobblestoneModification;
     private int wheatModification;
 
-    // parcelable implementation
+    // parcelable implementation end
+
     protected RpgAnswer(Parcel in) {
         prompt = in.readString();
         lifeModification = in.readInt();
@@ -72,7 +73,6 @@ public class RpgAnswer implements Parcelable {
             return new RpgAnswer[size];
         }
     };
-    // parcelable implementation end
 
     public String getPrompt() {
         return prompt;
