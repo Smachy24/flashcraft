@@ -181,6 +181,15 @@ public class TimeAttackActivity extends AppCompatActivity {
             if (child instanceof ImageView) {
                 ImageView craftingImageView = (ImageView) child;
                 craftingImageView.setOnDragListener(new DragListener());
+                craftingImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!"empty".equals(v.getTag())){
+                            v.setTag("empty");
+                            ((ImageView) v).setImageResource(R.drawable.crafting_table_slot);
+                        }
+                    }
+                });
             }
         }
     }
