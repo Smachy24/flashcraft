@@ -11,26 +11,35 @@ public class Game implements Parcelable {
 
     private int currentQuestionIndex = 0;
 
+    private String difficulty;
+
     //private Question currentQuestion;
 
-    public Game(ArrayList<Question> questions) {
+    public Game(ArrayList<Question> questions, String difficulty) {
         this.questions = questions;
         //this.currentQuestion = this.questions.get(0);
+
+        this.difficulty = difficulty;
+
     }
 
-    public Game(Question question) {
+    public Game(Question question, String difficulty) {
         ArrayList<Question> singleQuestion = new ArrayList<Question>();
         questions.add(question);
         this.questions = singleQuestion;
+
+        this.difficulty = difficulty;
     }
 
 
     // parcelable implementation start
+
+
     protected Game(Parcel in) {
         questions = in.createTypedArrayList(Question.CREATOR);
         score = in.readInt();
         currentQuestionIndex = in.readInt();
-        //currentQuestion = in.readParcelable(Question.class.getClassLoader());
+        difficulty = in.readString();
     }
 
     @Override
@@ -38,7 +47,7 @@ public class Game implements Parcelable {
         dest.writeTypedList(questions);
         dest.writeInt(score);
         dest.writeInt(currentQuestionIndex);
-        //dest.writeParcelable(currentQuestion, flags);
+        dest.writeString(difficulty);
     }
 
     @Override
@@ -57,7 +66,9 @@ public class Game implements Parcelable {
             return new Game[size];
         }
     };
+
     // parcelable implementation end
+
 
     public ArrayList<Question> getQuestions() {
         return questions;
@@ -99,5 +110,13 @@ public class Game implements Parcelable {
                 ", score='" + score + '\'' +
                 ", number of question='" + questions.size() + '\'' +
                 '}';
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 }

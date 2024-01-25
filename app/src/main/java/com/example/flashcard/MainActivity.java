@@ -63,36 +63,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
 
-                ArrayList<Question> placeHolderQuestions = new ArrayList<Question>();
-
-                ArrayList<String> answer1 = new ArrayList<String>();
-                answer1.add("question_craft_wooden_sword_0");
-                answer1.add("question_craft_wooden_sword_1");
-                answer1.add("question_craft_wooden_sword_2");
-                Question q1 = new Question(
-                        456,
-                        "qu'elle est le craft d'une enclume ?", "easy",
-                        "question_item_wooden_sword",
-                        "question_craft_wooden_sword_0",
-                        answer1);
-
-                ArrayList<String> answer2 = new ArrayList<String>();
-                answer2.add("question_craft_golden_helmet_0");
-                answer2.add("question_craft_golden_helmet_1");
-                answer2.add("question_craft_golden_helmet_2");
-                answer2.add("question_craft_golden_helmet_3");
-                Question q2 = new Question(
-                        454,
-                        "Comment fabriquer un casque en or ?", "easy",
-                        "question_item_golden_helmet",
-                        "question_craft_golden_helmet_0",
-                        answer2);
-
-
-                placeHolderQuestions.add(q1);
-                placeHolderQuestions.add(q2);
-
-                showDifficultyDialog(placeHolderQuestions);
+                showDifficultyDialog();
                 //startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
             }
         });
@@ -216,10 +187,9 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     }
 
 
-    private void showDifficultyDialog(ArrayList<Question> placeHolderQuestions) {
+    private void showDifficultyDialog() {
         final String[] difficultyLevels = {"Facile", "Moyen", "Difficile"};
 
-        System.out.println("All Questions: " + placeHolderQuestions);
         System.out.println("All Questions: " + this.allQuestions);
         System.out.println("Easy Questions: " + this.easyQuestions);
         System.out.println("Medium Questions: " + this.mediumQuestions);
@@ -231,45 +201,33 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 .setItems(difficultyLevels, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedDifficult) {
-                        //Log.i("selected", difficultyLevels[selectedDifficult]);
                         String difficulty = difficultyLevels[selectedDifficult];
 
                         Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
                         intent.putExtra("Difficulty", difficulty);
 
+                        Game game;
+
                         switch(difficulty) {
                             case "Facile":
                                 intent.putExtra("questions", easyQuestions);
-                                Game game = new Game(easyQuestions);
-                                //intent.putExtra("game", game);
+                                game = GameFactory.Create(easyQuestions, difficulty);
+                                intent.putExtra("game", game);
                                 break;
                             case "Moyen":
                                 intent.putExtra("questions", mediumQuestions);
-                                Game mediumGame = new Game(mediumQuestions);
-                                //intent.putExtra("game", mediumGame);
+                                game = GameFactory.Create(mediumQuestions, difficulty);
+                                intent.putExtra("game", game);
                                 break;
                             case "Difficile":
                                 intent.putExtra("questions", hardQuestions);
-                                Game hardGame = new Game(hardQuestions);
-                                //intent.putExtra("game", hardGame);
+                                game = GameFactory.Create(hardQuestions, difficulty);
+                                intent.putExtra("game", game);
                                 break;
                             default:
                                 Toast.makeText(MainActivity.this, "Veuillez choisir une difficulté", Toast.LENGTH_SHORT).show();
                         }
 
-                        Collections.shuffle(placeHolderQuestions);
-
-                        for (Question question : placeHolderQuestions)
-                        {
-                            Collections.shuffle(question.getAnswers());
-                        }
-
-                        // default
-                        intent.putExtra("questions", placeHolderQuestions);
-                        // randomize order of questions used for this game
-
-                        Game defaultGame = new Game(placeHolderQuestions);
-                        intent.putExtra("game", defaultGame);
                         startActivity(intent);
                     }
                 })
