@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -77,8 +78,8 @@ public class QuestionsActivity extends AppCompatActivity {
         Intent srcIntent = getIntent();
         String difficulty = srcIntent.getStringExtra("Difficulty");
 
-        Toast startToast = Toast.makeText(this, difficulty, Toast.LENGTH_LONG); // in Activity
-        startToast.show();
+        //Toast startToast = Toast.makeText(this, difficulty, Toast.LENGTH_LONG); // in Activity
+        //startToast.show();
 
         game = srcIntent.getParcelableExtra("game");
         Log.i(TAG, "onCreate: " + game.toString());
@@ -124,6 +125,11 @@ public class QuestionsActivity extends AppCompatActivity {
         totalQuestionNumber.setText(String.valueOf(game.getQuestions().size()));
         currentQuestionNumber.setText(String.valueOf(game.getCurrentQuestionIndex() + 1));
 
+        // validation button
+        if(game.getCurrentQuestionIndex() + 1 == game.getQuestions().size())
+        {
+            answerValidationButton.setText("Encore un dernier !");
+        }
 
 
 
@@ -142,7 +148,16 @@ public class QuestionsActivity extends AppCompatActivity {
 
                 if(finalAnswer.equals(currentQuestion.getGood_answer()))
                 {
+                    Toast.makeText(QuestionsActivity.this, "Bonne réponse !", Toast.LENGTH_SHORT).show();
                     game.setScore(game.getScore() + 1);
+                    checkedRadioButton.setTextColor(Color.rgb(11, 226, 11));
+                    checkedRadioButton.setBackgroundColor(Color.rgb(11, 226, 11));
+                }
+                else
+                {
+                    checkedRadioButton.setTextColor(Color.rgb(226, 11, 11));
+                    checkedRadioButton.setBackgroundColor(Color.rgb(226, 11, 11));
+                    Toast.makeText(QuestionsActivity.this, "mauvaise réponse --'", Toast.LENGTH_SHORT).show();
                 }
 
                 game.setCurrentQuestionIndex(game.getCurrentQuestionIndex() + 1);
@@ -150,21 +165,16 @@ public class QuestionsActivity extends AppCompatActivity {
 
 
 
+                // wait before generating next question page
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        nextQuestion();
+                    }
+                }, 1000);   //1 s
 
-                if (game.getCurrentQuestionIndex() < game.getQuestions().size())
-                {
-                    Intent intent = new Intent(QuestionsActivity.this, QuestionsActivity.class);
-                    intent.putExtra("Difficulty", difficulty);
-                    intent.putExtra("game", game);
-                    startActivity(intent);
-                }
-                else
-                {
-                    Intent intent = new Intent(QuestionsActivity.this, SummaryActivity.class);
-                    intent.putExtra("Difficulty", difficulty);
-                    intent.putExtra("game", game);
-                    startActivity(intent);
-                }
+
+
 
             }
         });
@@ -173,7 +183,15 @@ public class QuestionsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // Get the view of the checked radio button
-                answerValidationButton.setText("CRAFT !");
+                if(game.getCurrentQuestionIndex() + 1 == game.getQuestions().size())
+                {
+                    answerValidationButton.setText("TERMINER !");
+                }
+                else
+                {
+                    answerValidationButton.setText("CRAFT !");
+                }
+
                 answerValidationButton.setEnabled(true);
                 answerValidationButton.setBackgroundColor(Color.rgb(226, 11, 11));
                 checkedRadioButton = findViewById(checkedId);
@@ -219,5 +237,24 @@ public class QuestionsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void nextQuestion()
+    {
+        // Redirection on the same page with updated context.
+        if (game.getCurrentQuestionIndex() < game.getQuestions().size())
+        {
+            Intent intent = new Intent(QuestionsActivity.this, QuestionsActivity.class);
+            intent.putExtra("Difficulty", "hard");
+            intent.putExtra("game", game);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(QuestionsActivity.this, SummaryActivity.class);
+            intent.putExtra("Difficulty", "hard");
+            intent.putExtra("game", game);
+            startActivity(intent);
+        }
     }
 }

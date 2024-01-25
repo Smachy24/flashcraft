@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                                 //intent.putExtra("game", hardGame);
                                 break;
                             default:
-                                Toast.makeText(MainActivity.this, "Veuillez choisir une difficulté", Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, "Veuillez choisir une difficulté", Toast.LENGTH_SHORT).show();
                         }
 
                         Collections.shuffle(placeHolderQuestions);
