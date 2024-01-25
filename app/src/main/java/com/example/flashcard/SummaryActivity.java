@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,8 +11,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.flashcard.models.Game;
-
-import java.util.Map;
 
 public class SummaryActivity extends AppCompatActivity {
 
@@ -57,19 +54,6 @@ public class SummaryActivity extends AppCompatActivity {
         editor.putInt("TotalGoodAnswers_" + game.getDifficulty(), totalGoodAnswersForDifficulty + game.getScore());
 
         editor.apply();
-
-        Map<String, ?> allPreferences = sharedPreferences.getAll();
-
-// Parcourez la map et affichez chaque clé et sa valeur
-        for (Map.Entry<String, ?> entry : allPreferences.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-
-            Log.i("SharedPreferences", "Clé : " + key + ", Valeur : " + value.toString());
-        }
-
-
-
 
         //Retour au menu principal
         homeButton.setOnClickListener(new View.OnClickListener() {
