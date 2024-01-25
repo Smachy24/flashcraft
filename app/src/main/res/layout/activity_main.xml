@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/logo_minecraft" />
 
     <Button
-        android:id="@+id/questionButton"
+        android:id="@+id/homeSummaryButton"
         android:layout_width="342dp"
         android:layout_height="43dp"
         android:layout_marginTop="60dp"
@@ -51,8 +51,8 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/questionButton"
-        app:layout_constraintTop_toBottomOf="@+id/questionButton" />
+        app:layout_constraintStart_toStartOf="@+id/homeSummaryButton"
+        app:layout_constraintTop_toBottomOf="@+id/homeSummaryButton" />
 
     <Button
         android:id="@+id/statsButton"
