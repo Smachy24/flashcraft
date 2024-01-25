@@ -8,10 +8,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -29,7 +31,6 @@ import com.example.flashcard.models.Question;
 import com.example.flashcard.models.RpgGame;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements Utils.OnQuestionsListener {
 
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     ArrayList<Question> easyQuestions;
     ArrayList<Question> mediumQuestions;
     ArrayList<Question> hardQuestions;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,6 +172,15 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
             }
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+        boolean isGodBeaten = sharedPreferences.getBoolean("isGodBeaten", false);
+
+        Log.i("isGodBeaten", "Valeur actuelle : " + isGodBeaten);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        //editor.putBoolean("isGodBeaten", true);
+        editor.apply();
     }
 
     @Override
@@ -274,6 +286,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 .create()
                 .show();
     }
+
+
 
 }
 
