@@ -1,14 +1,17 @@
 package com.example.flashcard.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class RpgPlayer {
+public class RpgPlayer implements Parcelable {
 
     // statistics
-    private final int maxLifePoint = 100;
-    private final int maxHungerPoint = 100;
-    private final int maxPowerPoint = 100;
-    private final int maxStressPoint = 100;
+    private int maxLifePoint = 100;
+    private int maxHungerPoint = 100;
+    private int maxPowerPoint = 100;
+    private int maxStressPoint = 100;
 
     private int currentLifePoint;
     private int currentHungerPoint;
@@ -29,6 +32,55 @@ public class RpgPlayer {
         this.currentStressPoint = 50;
     }
 
+    // parcelable implementation
+    protected RpgPlayer(Parcel in) {
+        maxLifePoint = in.readInt();
+        maxHungerPoint = in.readInt();
+        maxPowerPoint = in.readInt();
+        maxStressPoint = in.readInt();
+        currentLifePoint = in.readInt();
+        currentHungerPoint = in.readInt();
+        currentPowerPoint = in.readInt();
+        currentStressPoint = in.readInt();
+        amountIronIngot = in.readInt();
+        amountStick = in.readInt();
+        amountCobblestone = in.readInt();
+        amountWheat = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(maxLifePoint);
+        dest.writeInt(maxHungerPoint);
+        dest.writeInt(maxPowerPoint);
+        dest.writeInt(maxStressPoint);
+        dest.writeInt(currentLifePoint);
+        dest.writeInt(currentHungerPoint);
+        dest.writeInt(currentPowerPoint);
+        dest.writeInt(currentStressPoint);
+        dest.writeInt(amountIronIngot);
+        dest.writeInt(amountStick);
+        dest.writeInt(amountCobblestone);
+        dest.writeInt(amountWheat);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<RpgPlayer> CREATOR = new Creator<RpgPlayer>() {
+        @Override
+        public RpgPlayer createFromParcel(Parcel in) {
+            return new RpgPlayer(in);
+        }
+
+        @Override
+        public RpgPlayer[] newArray(int size) {
+            return new RpgPlayer[size];
+        }
+    };
+    // parcelable implementation end
     public int getCurrentLifePoint() {
         return currentLifePoint;
     }

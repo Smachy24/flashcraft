@@ -1,6 +1,9 @@
 package com.example.flashcard.models;
 
-public class RpgAnswer {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class RpgAnswer implements Parcelable {
 
     public RpgAnswer(String prompt,
                      int lifeModification, int hungerModification, int powerModification, int stressModification,
@@ -26,6 +29,50 @@ public class RpgAnswer {
     private int stickModification;
     private int cobblestoneModification;
     private int wheatModification;
+
+    // parcelable implementation
+    protected RpgAnswer(Parcel in) {
+        prompt = in.readString();
+        lifeModification = in.readInt();
+        hungerModification = in.readInt();
+        powerModification = in.readInt();
+        stressModification = in.readInt();
+        ironIngotModification = in.readInt();
+        stickModification = in.readInt();
+        cobblestoneModification = in.readInt();
+        wheatModification = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(prompt);
+        dest.writeInt(lifeModification);
+        dest.writeInt(hungerModification);
+        dest.writeInt(powerModification);
+        dest.writeInt(stressModification);
+        dest.writeInt(ironIngotModification);
+        dest.writeInt(stickModification);
+        dest.writeInt(cobblestoneModification);
+        dest.writeInt(wheatModification);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<RpgAnswer> CREATOR = new Creator<RpgAnswer>() {
+        @Override
+        public RpgAnswer createFromParcel(Parcel in) {
+            return new RpgAnswer(in);
+        }
+
+        @Override
+        public RpgAnswer[] newArray(int size) {
+            return new RpgAnswer[size];
+        }
+    };
+    // parcelable implementation end
 
     public String getPrompt() {
         return prompt;
