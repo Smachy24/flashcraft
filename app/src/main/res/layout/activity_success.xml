@@ -7,7 +7,7 @@
     tools:context=".SuccessActivity">
 
     <ImageView
-        android:id="@+id/guardianImageView"
+        android:id="@+id/backgroundImageView"
         android:layout_width="495dp"
         android:layout_height="835dp"
         android:scaleType="centerCrop"
@@ -49,7 +49,7 @@
         app:srcCompat="@drawable/is_end_unlocked" />
 
     <ImageView
-        android:id="@+id/enderPortalImageView"
+        android:id="@+id/netherPortalImageView"
         android:layout_width="70dp"
         android:layout_height="86dp"
         app:layout_constraintBottom_toBottomOf="@+id/emptyAchiev1"
@@ -175,16 +175,16 @@
         app:srcCompat="@drawable/is_water_temple_unlocked" />
 
     <ImageView
-        android:id="@+id/imageView34"
+        android:id="@+id/guardianImageView"
         android:layout_width="83dp"
         android:layout_height="94dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView28"
         app:layout_constraintEnd_toEndOf="@+id/imageView28"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.324"
         app:layout_constraintStart_toStartOf="@+id/imageView28"
         app:layout_constraintTop_toBottomOf="@+id/imageView25"
-        app:layout_constraintVertical_bias="0.428"
+        app:layout_constraintVertical_bias="0.411"
         app:srcCompat="@drawable/is_guardian_beaten" />
 
     <ImageView
@@ -316,7 +316,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="115dp"
         android:fontFamily="@font/regular"
-        android:text="Decouvrir l'\nEather"
+        android:text="Decouvrir l'\nAether"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textStyle="bold"
