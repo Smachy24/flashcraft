@@ -69,10 +69,6 @@ public class TimeAttackActivity extends AppCompatActivity {
             TextView itemCraftedTextView = findViewById(R.id.itemCraftedTextView);
             itemCraftedTextView.setText(craft.getCraftedItemName());
 
-            System.out.println("----------------------");
-            System.out.println(craft.getCraftedItemName());
-            System.out.println("----------------------");
-
             ImageView itemCraftedImageView = findViewById(R.id.itemCraftedImageView);
             itemCraftedImageView.setImageResource(craft.getCraftedItemImage());
 
@@ -92,6 +88,7 @@ public class TimeAttackActivity extends AppCompatActivity {
 
                 public void onFinish() {
                     timerTextView.setText("Temps écoulé !");
+                    startActivity(new Intent(TimeAttackActivity.this, MainActivity.class));
 
                 }
             };

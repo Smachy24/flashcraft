@@ -103,7 +103,7 @@ public class Utils {
     }
 
     public static class CraftList{
-        public static ArrayList<Craft> craftList = new ArrayList<>();
+        public static ArrayList<Craft> craftList;
 
         private static void crateCraft(String name, int image, ArrayList<String> craft){
             Craft craftedItem = new Craft(craft, image, name);
@@ -111,6 +111,7 @@ public class Utils {
         }
 
         private static void initCrafts(){
+            craftList = new ArrayList<>();
             crateCraft("Epee en bois", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList("bucket", "diamond_shovel", "empty", "empty", "empty", "empty", "empty", "empty", "empty")));
             crateCraft("Gateau", R.drawable.question_item_cake, new ArrayList<>(Arrays.asList("diamond_shovel", "bucket", "empty", "empty", "empty", "empty", "empty", "empty", "empty")));
         }
