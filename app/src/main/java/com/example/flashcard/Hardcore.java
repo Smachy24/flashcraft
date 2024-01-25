@@ -143,6 +143,7 @@ public class Hardcore extends AppCompatActivity {
                         //Toast.makeText(Hardcore.this, "REPONSE" + i, Toast.LENGTH_SHORT).show();
                         RpgAnswer validatedAnswer = game.getCurrentQuestion().getAnswers().get(i);
                         game.getPlayer().UpdateStats(validatedAnswer);
+                        game.getQuestions().remove(game.getCurrentQuestion()); // TODO CHECK IFWORKING ACCORDINGLY
                     }
                 }
 

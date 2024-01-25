@@ -197,6 +197,7 @@ public class RpgUtils {
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersBaseQuestion1));
 
+        Collections.shuffle(baseQuestions);
         return baseQuestions;
     }
 
