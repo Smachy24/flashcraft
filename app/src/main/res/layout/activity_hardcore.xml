@@ -6,4 +6,246 @@
     android:layout_height="match_parent"
     tools:context=".Hardcore">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Hardcore">
+
+        <ImageView
+            android:id="@+id/resourceImageView1"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:srcCompat="?android:attr/textSelectHandleRight"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <ImageView
+            android:id="@+id/resourceImageView2"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:srcCompat="?android:attr/textSelectHandleRight"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <ImageView
+            android:id="@+id/resourceImageView3"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:srcCompat="?android:attr/textSelectHandleRight"
+            tools:layout_editor_absoluteX="172dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <ImageView
+            android:id="@+id/resourceImageView4"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:srcCompat="?android:attr/textSelectHandleRight"
+            tools:layout_editor_absoluteX="258dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <ImageView
+            android:id="@+id/resourceImageView5"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:srcCompat="?android:attr/textSelectHandleRight"
+            tools:layout_editor_absoluteX="344dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <TextView
+            android:id="@+id/resourceTextView1"
+            android:layout_width="34sp"
+            android:layout_height="42sp"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="406dp"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/resourceTextView2"
+            android:layout_width="34sp"
+            android:layout_height="42sp"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="406dp"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/resourceTextView3"
+            android:layout_width="34sp"
+            android:layout_height="42sp"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="224dp"
+            tools:layout_editor_absoluteY="406dp"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/resourceTextView4"
+            android:layout_width="34sp"
+            android:layout_height="42sp"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="310dp"
+            tools:layout_editor_absoluteY="406dp"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/resourceTextView5"
+            android:layout_width="34sp"
+            android:layout_height="42sp"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="394dp"
+            tools:layout_editor_absoluteY="406dp"
+            tools:text="9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/playerStatsBackgroundImageView"
+        android:layout_width="415dp"
+        android:layout_height="172dp"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bg_dirt" />
+
+    <ProgressBar
+        android:id="@+id/lifeProgressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="32dp"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progressTint="#DA2020"
+        app:layout_constraintBottom_toBottomOf="@+id/hungerProgressBar"
+        app:layout_constraintEnd_toStartOf="@+id/hungerProgressBar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hungerProgressBar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ProgressBar
+        android:id="@+id/stressProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:max="100"
+        android:progressTint="#673AB7"
+        app:layout_constraintEnd_toEndOf="@+id/lifeProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/lifeProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/lifeProgressBar" />
+
+    <ProgressBar
+        android:id="@+id/powerProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:max="100"
+        android:progressTint="#FF9800"
+        app:layout_constraintEnd_toEndOf="@+id/hungerProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/hungerProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/hungerProgressBar" />
+
+    <ProgressBar
+        android:id="@+id/hungerProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:max="100"
+        android:progressTint="#4CAF50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/playerStatsBackgroundImageView" />
+
+    <TextView
+        android:id="@+id/rpgQuestionTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="La péninsule de la mort" />
+
+    <TextView
+        android:id="@+id/rpgQuestionDescriptionTextView"
+        android:layout_width="376dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="32dp"
+        android:text="Ratione dolorem sed illum voluptatibus fugit dolor. Est tempore ratione qui iste saepe. Illum molestias cumque aut aut maxime aliquid rerum quibusdam. Rerum quis nisi ut esse excepturi ut molestiae id.  Deleniti corporis labore illo excepturi quia. In labore blanditiis eos et quae qui cum. Rerum impedit cumque totam officiis aut. Ratione dolorem accusantium voluptatum et et qui enim. Ab sed aliquam eum "
+        app:layout_constraintEnd_toEndOf="@+id/rpgQuestionTitleTextView"
+        app:layout_constraintStart_toStartOf="@+id/rpgQuestionTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/rpgQuestionTitleTextView" />
+
+    <RadioGroup
+        android:layout_width="269dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/rpgQuestionDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/rpgQuestionDescriptionTextView">
+
+        <RadioButton
+            android:id="@+id/rpgChoiceRadioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            tools:text="Tuez l'enfant" />
+
+        <RadioButton
+            android:id="@+id/rpgChoiceRadioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            tools:text="Volez l'épée" />
+
+        <RadioButton
+            android:id="@+id/rpgChoiceRadioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            tools:text="Danser le mambo" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="CRAFT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/choiceValidationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="CHOISIR C'EST RENONCER"
+        app:layout_constraintBottom_toTopOf="@+id/playerStatsBackgroundImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
