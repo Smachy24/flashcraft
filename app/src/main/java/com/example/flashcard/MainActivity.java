@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         videoView.setOnCompletionListener(mp -> videoView.start());
 
         // Launching a normal mode game.
-        Button questionButton = findViewById(R.id.homeSummaryButton);
+        Button questionButton = findViewById(R.id.questionButton);
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
