@@ -19,6 +19,7 @@ import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements Utils.OnQuestionsListener {
 
@@ -256,6 +257,12 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                                 Toast.makeText(MainActivity.this, "Veuillez choisir une difficulté", Toast.LENGTH_LONG).show();
                         }
 
+                        Collections.shuffle(placeHolderQuestions);
+
+                        for (Question question : placeHolderQuestions)
+                        {
+                            Collections.shuffle(question.getAnswers());
+                        }
 
                         // default
                         intent.putExtra("questions", placeHolderQuestions);
