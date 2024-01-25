@@ -44,7 +44,6 @@
             android:id="@+id/answersRadioButton1"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:checked="true"
             android:text="default"
             android:visibility="visible" />
 
@@ -66,18 +65,22 @@
             android:id="@+id/answersRadioButton4"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:text="default4" />
+            android:text="default4"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/answerValidationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CRAFT !" />
+            android:checkable="false"
+            android:clickable="false"
+            android:enabled="false"
+            android:text="Il FAUT CHOISIR  " />
 
     </RadioGroup>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/answersImageView1"
         android:layout_width="190dp"
         android:layout_height="90dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,27 +88,28 @@
         app:srcCompat="@drawable/answer_rectangular_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/answersImageView2"
         android:layout_width="190dp"
         android:layout_height="90dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/answersImageView1"
         app:srcCompat="@drawable/answer_rectangular_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/answersImageView3"
         android:layout_width="191dp"
         android:layout_height="90dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/answersImageView2"
         app:srcCompat="@drawable/answer_rectangular_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/answersImageView4"
         android:layout_width="190dp"
         android:layout_height="90dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/answersImageView3"
         app:srcCompat="@drawable/answer_rectangular_placeholder" />
 
     <TextView
@@ -124,8 +128,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="/"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="589dp" />
+        app:layout_constraintBottom_toTopOf="@+id/promptTextView"
+        app:layout_constraintEnd_toEndOf="@+id/promptTextView"
+        app:layout_constraintStart_toStartOf="@+id/promptTextView" />
 
     <TextView
         android:id="@+id/totalQuestionId"

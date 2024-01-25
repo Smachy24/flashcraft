@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
 
 import java.util.ArrayList;
@@ -51,13 +54,44 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
 
         videoView.setOnCompletionListener(mp -> videoView.start());
 
+        // Launching a normal mode game.
         Button questionButton = findViewById(R.id.questionButton);
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
-                showDifficultyDialog();
+
+                ArrayList<Question> placeHolderQuestions = new ArrayList<Question>();
+
+                ArrayList<String> answer1 = new ArrayList<String>();
+                answer1.add("question_craft_wooden_sword_0");
+                answer1.add("question_craft_wooden_sword_1");
+                answer1.add("question_craft_wooden_sword_2");
+                Question q1 = new Question(
+                        456,
+                        "qu'elle est le craft d'une enclume ?", "easy",
+                        "question_item_wooden_sword",
+                        "question_craft_wooden_sword_0",
+                        answer1);
+
+                ArrayList<String> answer2 = new ArrayList<String>();
+                answer2.add("question_craft_golden_helmet_0");
+                answer2.add("question_craft_golden_helmet_1");
+                answer2.add("question_craft_golden_helmet_2");
+                answer2.add("question_craft_golden_helmet_3");
+                Question q2 = new Question(
+                        454,
+                        "Comment fabriquer un casque en or ?", "easy",
+                        "question_item_golden_helmet",
+                        "question_craft_golden_helmet_0",
+                        answer2);
+
+
+                placeHolderQuestions.add(q1);
+                placeHolderQuestions.add(q2);
+
+                showDifficultyDialog(placeHolderQuestions);
                 //startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
             }
         });
@@ -181,8 +215,15 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     }
 
 
-    private void showDifficultyDialog() {
+    private void showDifficultyDialog(ArrayList<Question> placeHolderQuestions) {
         final String[] difficultyLevels = {"Facile", "Moyen", "Difficile"};
+
+        System.out.println("All Questions: " + placeHolderQuestions);
+        System.out.println("All Questions: " + this.allQuestions);
+        System.out.println("Easy Questions: " + this.easyQuestions);
+        System.out.println("Medium Questions: " + this.mediumQuestions);
+        System.out.println("Hard Questions: " + this.hardQuestions);
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choisissez la difficulté")
@@ -190,9 +231,39 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                     @Override
                     public void onClick(DialogInterface dialog, int selectedDifficult) {
                         //Log.i("selected", difficultyLevels[selectedDifficult]);
-                    Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
-                    intent.putExtra("Difficulty", difficultyLevels[selectedDifficult]);
-                    startActivity(intent);
+                        String difficulty = difficultyLevels[selectedDifficult];
+
+                        Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
+                        intent.putExtra("Difficulty", difficulty);
+
+                        switch(difficulty) {
+                            case "Facile":
+                                intent.putExtra("questions", easyQuestions);
+                                Game game = new Game(easyQuestions);
+                                //intent.putExtra("game", game);
+                                break;
+                            case "Moyen":
+                                intent.putExtra("questions", mediumQuestions);
+                                Game mediumGame = new Game(mediumQuestions);
+                                //intent.putExtra("game", mediumGame);
+                                break;
+                            case "Difficile":
+                                intent.putExtra("questions", hardQuestions);
+                                Game hardGame = new Game(hardQuestions);
+                                //intent.putExtra("game", hardGame);
+                                break;
+                            default:
+                                Toast.makeText(MainActivity.this, "Veuillez choisir une difficulté", Toast.LENGTH_LONG).show();
+                        }
+
+
+                        // default
+                        intent.putExtra("questions", placeHolderQuestions);
+                        // randomize order of questions used for this game
+
+                        Game defaultGame = new Game(placeHolderQuestions);
+                        intent.putExtra("game", defaultGame);
+                        startActivity(intent);
                     }
                 })
                 .create()
