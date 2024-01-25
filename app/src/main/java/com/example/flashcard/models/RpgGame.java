@@ -11,7 +11,7 @@ public class RpgGame implements Parcelable {
     private String difficulty;
     private ArrayList<RpgQuestion> questions;
     private int score;
-    private RpgPlayer player;
+    private RpgPlayer player = new RpgPlayer();
 
     public RpgGame(String difficulty)
     {
