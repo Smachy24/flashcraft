@@ -23,21 +23,21 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="top|left"
-            app:srcCompat="@drawable/question_item_blast_furnace" />
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage1"
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="top|center"
-            app:srcCompat="@drawable/question_item_block_of_copper" />
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage2"
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="top|right"
-            app:srcCompat="@drawable/question_item_wooden_sword" />
+            app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
             android:id="@+id/craftingSlotImage3"
@@ -81,22 +81,6 @@
             app:srcCompat="@drawable/crafting_table_slot"
             android:layout_gravity="bottom|right"/>
     </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="296dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/exempleImage"
-            android:layout_width="59dp"
-            android:layout_height="59dp"
-            app:srcCompat="@drawable/question_item_diamond_shovel" />
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemListRecyclerView"
