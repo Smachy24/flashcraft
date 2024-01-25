@@ -82,12 +82,28 @@
             android:layout_gravity="bottom|right"/>
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/exempleImage"
-        android:layout_width="59dp"
-        android:layout_height="59dp"
-        app:srcCompat="@drawable/question_item_diamond_shovel"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="361dp" />
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="296dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/exempleImage"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            app:srcCompat="@drawable/question_item_diamond_shovel" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

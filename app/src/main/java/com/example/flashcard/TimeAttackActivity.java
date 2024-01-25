@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.flashcard.models.Item;
+
+import java.util.ArrayList;
 
 public class TimeAttackActivity extends AppCompatActivity {
 
@@ -15,6 +21,23 @@ public class TimeAttackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_attack);
+
+        ArrayList<Item> items = new ArrayList<>();
+
+
+        for(int i = 0; i < 10; i++ ){
+            items.add(new Item(R.drawable.question_item_bucket));
+            items.add(new Item(R.drawable.question_item_cake));
+            items.add(new Item(R.drawable.question_item_stone_pickaxe));
+        }
+
+        System.out.println(items);
+
+        RecyclerView recyclerView = findViewById(R.id.itemListRecyclerView);
+        ItemAdapter adapter = new ItemAdapter(items);
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
 
         ImageView exempleImage = findViewById(R.id.exempleImage);
         exempleImage.setOnTouchListener(new DragItemTouchListener());
