@@ -111,8 +111,8 @@ public class Utils {
         }
 
         private static void initCrafts(){
-            crateCraft("Epee en bois", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList("bucket", "diamond_shovel", null, null, null, null, null, null, null)));
-            crateCraft("Gateau", R.drawable.question_item_cake, new ArrayList<>(Arrays.asList("diamond_shovel", "bucket", null, null, null, null, null, null, null)));
+            crateCraft("Epee en bois", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList("bucket", "diamond_shovel", "empty", "empty", "empty", "empty", "empty", "empty", "empty")));
+            crateCraft("Gateau", R.drawable.question_item_cake, new ArrayList<>(Arrays.asList("diamond_shovel", "bucket", "empty", "empty", "empty", "empty", "empty", "empty", "empty")));
         }
 
         public static ArrayList<Craft> getCraftList(){

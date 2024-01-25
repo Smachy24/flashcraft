@@ -64,6 +64,10 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     }
 
+    private void playRound(Craft craft, int round){
+
+    }
+
     private void initGame(){
         Intent srcIntent = getIntent();
         TimeAttackGame game = srcIntent.getParcelableExtra("game");
@@ -105,21 +109,33 @@ public class TimeAttackActivity extends AppCompatActivity {
         validateCraftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                countDownTimer.cancel();
-                checkCraft(currentCraft);
+                checkCraft(currentCraft, countDownTimer);
             }
         });
 
     }
 
-    private void checkCraft(Craft goodCraft) {
+    private void checkCraft(Craft goodCraft, CountDownTimer timer) {
+        boolean craftMatch = true;
+
         for (int i = 0; i <= 8; i++) {
-            System.out.println("i : " + i);
             ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName()));
-            System.out.println("BON : " + goodCraft.getItemFromIndex(i));
-            System.out.println("TAG Frame : " + craftingItem.getTag());
-            System.out.println("____________________________________________+");
+            String craftItemTag = craftingItem.getTag().toString();
+            String goodCraftItem = goodCraft.getItemFromIndex(i);
+
+            if (!craftItemTag.equals(goodCraftItem)) {
+                craftMatch = false;
+                break;
+            }
         }
+
+        if (craftMatch) {
+            System.out.println("Le craft est bon");
+            timer.cancel();
+        } else {
+            System.out.println("Le craft est erroné");
+        }
+
 
     }
 

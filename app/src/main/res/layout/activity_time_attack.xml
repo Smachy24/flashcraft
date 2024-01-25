@@ -23,6 +23,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="top|left"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -30,6 +31,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="top|center"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -37,6 +39,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="top|right"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -44,6 +47,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="center|left"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -51,6 +55,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="center"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -58,6 +63,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="center|right"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -65,6 +71,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="bottom|left"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -72,6 +79,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="bottom|center"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
 
         <ImageView
@@ -79,6 +87,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp"
             android:layout_gravity="bottom|right"
+            android:tag="empty"
             app:srcCompat="@drawable/crafting_table_slot" />
     </FrameLayout>
 
