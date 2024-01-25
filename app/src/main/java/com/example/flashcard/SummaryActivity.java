@@ -3,7 +3,6 @@ package com.example.flashcard;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,8 +21,6 @@ public class SummaryActivity extends AppCompatActivity {
 
         //Récupération de l'Intent
         Intent srcIntent = getIntent();
-        String difficulty = srcIntent.getStringExtra("Difficulty");
-        Log.i("difficulty", difficulty);
         Game game = srcIntent.getParcelableExtra("game");
 
         //Récupération des TextView
@@ -33,7 +30,7 @@ public class SummaryActivity extends AppCompatActivity {
         Button homeButton = findViewById(R.id.homeSummaryButton);
 
         //Mise en place des scores dans les TextView
-        difficultyLevel.setText("Niveau de difficulté : " + difficulty);
+        difficultyLevel.setText("Niveau de difficulté : " + game.getDifficulty());
         numberGoodAnswers.setText(game.getScore()+" / "+game.getQuestions().size()+" bonne(s) réponse(s)");
         int percentage = game.getScore() * 100 / game.getQuestions().size();
         percentageGoodAnswers.setText(percentage+" %");
