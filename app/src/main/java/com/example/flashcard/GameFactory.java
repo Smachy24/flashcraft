@@ -1,8 +1,10 @@
 package com.example.flashcard;
 
 
+import com.example.flashcard.models.Craft;
 import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
+import com.example.flashcard.models.TimeAttackGame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,5 +41,9 @@ public class GameFactory{
 
 
         return new Game(questions, difficulty);
+    }
+
+    public static TimeAttackGame CreateTimeAttackGame(ArrayList<Craft> crafts){
+        return new TimeAttackGame(crafts);
     }
 }

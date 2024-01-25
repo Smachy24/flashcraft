@@ -1,17 +1,22 @@
 package com.example.flashcard;
 
-import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.DragEvent;
-import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flashcard.models.Craft;
 import com.example.flashcard.models.Item;
+import com.example.flashcard.models.TimeAttackGame;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -35,10 +40,8 @@ public class TimeAttackActivity extends AppCompatActivity {
                 // Check if the resource name starts with "question_item"
                 if (resourceName.startsWith("question_item")) {
                     int resourceId = field.getInt(null);
-                    items.add(new Item(resourceId));
-//
-//                    ImageView imageView = findViewById(resourceId);
-//                    imageView.setOnTouchListener(new DragItemTouchListener());
+                    String itemName = resourceName.substring("question_item_".length());
+                    items.add(new Item(resourceId, itemName));
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -51,9 +54,115 @@ public class TimeAttackActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-//        ImageView exempleImage = findViewById(R.id.exempleImage);
-//        exempleImage.setOnTouchListener(new DragItemTouchListener());
         bind();
+        initGame();
+
+    }
+
+    private void playRound(TimeAttackGame game ){
+        ArrayList<Craft>craftList = game.getCrafts();
+        int totalCrafts = craftList.size();
+        int round = game.getCurrentCraftIndex();
+
+        if(round < totalCrafts){
+            Craft craft = craftList.get(round);
+            TextView itemCraftedTextView = findViewById(R.id.itemCraftedTextView);
+            itemCraftedTextView.setText(craft.getCraftedItemName());
+
+            ImageView itemCraftedImageView = findViewById(R.id.itemCraftedImageView);
+            itemCraftedImageView.setImageResource(craft.getCraftedItemImage());
+
+            TextView currentCraftTextView = findViewById(R.id.currentCraftTextView);
+            currentCraftTextView.setText("Craft : " + (round+1));
+
+            TextView totalCraftTextView = findViewById(R.id.totalCraftTextView);
+            totalCraftTextView.setText(" / " + totalCrafts);
+
+            Button validateCraftButton = findViewById(R.id.validateCraftButton);
+            TextView timerTextView = findViewById(R.id.timerTextView);
+
+            CountDownTimer countDownTimer = new CountDownTimer(45000, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    timerTextView.setText(millisUntilFinished / 1000 + "s");
+                }
+
+                public void onFinish() {
+                    timerTextView.setText("Temps écoulé !");
+                    startActivity(new Intent(TimeAttackActivity.this, MainActivity.class));
+
+                }
+            };
+
+            // Démarrez le compte à rebours
+            countDownTimer.start();
+
+            validateCraftButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean craftMatch = checkCraft(craft, countDownTimer);
+                    if(craftMatch){
+                        game.setCurrentCraftIndex(round+1);
+                        resetGrid();
+                        playRound(game);
+                    }
+                }
+            });
+        }
+
+        else {
+            startActivity(new Intent(TimeAttackActivity.this, MainActivity.class));
+        }
+
+    }
+
+    private void resetGrid() {
+        for (int i = 0; i < 9; i++) {
+            int resourceId = getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName());
+            ImageView slot = findViewById(resourceId);
+            slot.setImageResource(R.drawable.crafting_table_slot);
+            slot.setTag("empty");
+        }
+    }
+
+
+
+    private void initGame(){
+        Intent srcIntent = getIntent();
+        TimeAttackGame game = srcIntent.getParcelableExtra("game");
+
+        ArrayList<Craft> craftsList = game.getCrafts();
+
+
+        int currentCraftIndex = game.getCurrentCraftIndex();
+        Craft currentCraft = craftsList.get(currentCraftIndex);
+        playRound(game);
+
+
+
+    }
+
+    private boolean checkCraft(Craft goodCraft, CountDownTimer timer) {
+        boolean craftMatch = true;
+
+        for (int i = 0; i <= 8; i++) {
+            ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName()));
+            String craftItemTag = craftingItem.getTag().toString();
+            String goodCraftItem = goodCraft.getItemFromIndex(i);
+
+            if (!craftItemTag.equals(goodCraftItem)) {
+                craftMatch = false;
+                break;
+            }
+        }
+
+        if (craftMatch) {
+            System.out.println("Le craft est bon");
+            timer.cancel();
+            return true;
+        }
+        System.out.println("Le craft est erroné");
+        return false;
+
     }
 
 
@@ -69,6 +178,15 @@ public class TimeAttackActivity extends AppCompatActivity {
             if (child instanceof ImageView) {
                 ImageView craftingImageView = (ImageView) child;
                 craftingImageView.setOnDragListener(new DragListener());
+                craftingImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!"empty".equals(v.getTag())){
+                            v.setTag("empty");
+                            ((ImageView) v).setImageResource(R.drawable.crafting_table_slot);
+                        }
+                    }
+                });
             }
         }
     }
@@ -87,13 +205,9 @@ public class TimeAttackActivity extends AppCompatActivity {
         public boolean onDrag(View v, DragEvent event) {
             if (event.getAction() == DragEvent.ACTION_DROP) {
                 ImageView draggedView = (ImageView) event.getLocalState();
-
-                // Vérifier si la vue cible est une instance de ImageView et si la vue draggée est l'image d'exemple
                 if (v instanceof ImageView) {
-
-                    // Changez l'image de la vue cible pour qu'elle soit la même que celle de la vue draggée
                     ((ImageView) v).setImageDrawable(draggedView.getDrawable());
-
+                    ((ImageView) v).setTag(draggedView.getTag());
                 }
             }
             return true;
