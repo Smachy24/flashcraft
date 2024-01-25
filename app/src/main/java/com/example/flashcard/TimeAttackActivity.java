@@ -81,7 +81,7 @@ public class TimeAttackActivity extends AppCompatActivity {
             Button validateCraftButton = findViewById(R.id.validateCraftButton);
             TextView timerTextView = findViewById(R.id.timerTextView);
 
-            CountDownTimer countDownTimer = new CountDownTimer(30000, 1000) { // 30 secondes avec des mises à jour toutes les 1 seconde
+            CountDownTimer countDownTimer = new CountDownTimer(45000, 1000) {
                 public void onTick(long millisUntilFinished) {
                     timerTextView.setText(millisUntilFinished / 1000 + "s");
                 }
