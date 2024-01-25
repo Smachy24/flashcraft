@@ -6,15 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".TimeAttackActivity">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dirt_background_minecraft" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        android:scaleType="center"
+        app:srcCompat="@drawable/minecraft_dirt" />
+
     <FrameLayout
         android:id="@+id/craftingTableFrameLayout"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="136dp"
         android:background="@drawable/crafting_table_background"
         android:padding="4dp"
         android:paddingStart="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -101,30 +124,69 @@
 
     <TextView
         android:id="@+id/itemCraftedTextView"
-        android:layout_width="177dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="273dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/bold"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/craftingTableFrameLayout"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/craftingTableFrameLayout"
         app:layout_constraintTop_toBottomOf="@+id/craftingTableFrameLayout" />
+
+    <Button
+        android:id="@+id/validateCraftButton"
+        android:layout_width="220dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/button_minecraft"
+        android:fontFamily="@font/regular"
+        android:text="Valider"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentCraftTextView" />
 
     <ImageView
         android:id="@+id/itemCraftedImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="@+id/itemCraftedTextView"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="@+id/itemCraftedTextView"
         app:layout_constraintTop_toBottomOf="@+id/itemCraftedTextView"
         app:srcCompat="@drawable/crafting_table_slot" />
 
     <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/bold"
+        android:text="30"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/validateCraftButton"
+        app:layout_constraintEnd_toEndOf="@+id/validateCraftButton"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/validateCraftButton" />
+
+    <TextView
         android:id="@+id/currentCraftTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/bold"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/itemCraftedImageView"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemCraftedImageView" />
 
     <TextView
@@ -132,28 +194,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+
+        android:layout_marginEnd="132dp"
+        android:fontFamily="@font/bold"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/itemCraftedImageView"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemCraftedImageView" />
 
-    <Button
-        android:id="@+id/validateCraftButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Valider"
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="0dp"
+        android:layout_height="98dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentCraftTextView" />
-
-    <TextView
-        android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="30"
-        app:layout_constraintEnd_toEndOf="@+id/validateCraftButton"
-        app:layout_constraintStart_toStartOf="@+id/validateCraftButton"
-        app:layout_constraintTop_toBottomOf="@+id/validateCraftButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_craft" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
