@@ -7,109 +7,10 @@
     tools:context=".Hardcore">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Hardcore">
-
-        <ImageView
-            android:id="@+id/resourceImageView1"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            app:srcCompat="?android:attr/textSelectHandleRight"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="396dp" />
-
-        <ImageView
-            android:id="@+id/resourceImageView2"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            app:srcCompat="?android:attr/textSelectHandleRight"
-            tools:layout_editor_absoluteX="86dp"
-            tools:layout_editor_absoluteY="396dp" />
-
-        <ImageView
-            android:id="@+id/resourceImageView3"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            app:srcCompat="?android:attr/textSelectHandleRight"
-            tools:layout_editor_absoluteX="172dp"
-            tools:layout_editor_absoluteY="396dp" />
-
-        <ImageView
-            android:id="@+id/resourceImageView4"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            app:srcCompat="?android:attr/textSelectHandleRight"
-            tools:layout_editor_absoluteX="258dp"
-            tools:layout_editor_absoluteY="396dp" />
-
-        <ImageView
-            android:id="@+id/resourceImageView5"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            app:srcCompat="?android:attr/textSelectHandleRight"
-            tools:layout_editor_absoluteX="344dp"
-            tools:layout_editor_absoluteY="396dp" />
-
-        <TextView
-            android:id="@+id/resourceTextView1"
-            android:layout_width="34sp"
-            android:layout_height="42sp"
-            android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="52dp"
-            tools:layout_editor_absoluteY="406dp"
-            tools:text="9" />
-
-        <TextView
-            android:id="@+id/resourceTextView2"
-            android:layout_width="34sp"
-            android:layout_height="42sp"
-            android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="138dp"
-            tools:layout_editor_absoluteY="406dp"
-            tools:text="9" />
-
-        <TextView
-            android:id="@+id/resourceTextView3"
-            android:layout_width="34sp"
-            android:layout_height="42sp"
-            android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="224dp"
-            tools:layout_editor_absoluteY="406dp"
-            tools:text="9" />
-
-        <TextView
-            android:id="@+id/resourceTextView4"
-            android:layout_width="34sp"
-            android:layout_height="42sp"
-            android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="310dp"
-            tools:layout_editor_absoluteY="406dp"
-            tools:text="9" />
-
-        <TextView
-            android:id="@+id/resourceTextView5"
-            android:layout_width="34sp"
-            android:layout_height="42sp"
-            android:text="0"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="394dp"
-            tools:layout_editor_absoluteY="406dp"
-            tools:text="9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -123,6 +24,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/bg_dirt" />
+
+    <TextView
+        android:id="@+id/moralTextView"
+        android:layout_width="325dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:text="Robin le goat"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:text='"Parfois, la bravoure signifie protéger les autres, même au prix de ta propre sécurité."'
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="CRAFT"
+        app:layout_constraintBottom_toBottomOf="@+id/choiceValidationButton"
+        app:layout_constraintStart_toEndOf="@+id/choiceValidationButton"
+        app:layout_constraintTop_toTopOf="@+id/choiceValidationButton" />
 
     <ProgressBar
         android:id="@+id/lifeProgressBar"
@@ -191,17 +115,21 @@
 
     <TextView
         android:id="@+id/rpgQuestionDescriptionTextView"
-        android:layout_width="376dp"
-        android:layout_height="118dp"
+        android:layout_width="348dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:text="Ratione dolorem sed illum voluptatibus fugit dolor. Est tempore ratione qui iste saepe. Illum molestias cumque aut aut maxime aliquid rerum quibusdam. Rerum quis nisi ut esse excepturi ut molestiae id.  Deleniti corporis labore illo excepturi quia. In labore blanditiis eos et quae qui cum. Rerum impedit cumque totam officiis aut. Ratione dolorem accusantium voluptatum et et qui enim. Ab sed aliquam eum "
         app:layout_constraintEnd_toEndOf="@+id/rpgQuestionTitleTextView"
         app:layout_constraintStart_toStartOf="@+id/rpgQuestionTitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/rpgQuestionTitleTextView" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="269dp"
         android:layout_height="94dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="@+id/rpgQuestionDescriptionTextView"
         app:layout_constraintTop_toBottomOf="@+id/rpgQuestionDescriptionTextView">
@@ -229,16 +157,6 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="CRAFT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
         android:id="@+id/choiceValidationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -247,5 +165,135 @@
         app:layout_constraintBottom_toTopOf="@+id/playerStatsBackgroundImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/resourceImageView1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resourceTextView1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="?android:attr/textSelectHandleRight" />
+
+    <ImageView
+        android:id="@+id/resourceImageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resourceTextView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceTextView1"
+        app:layout_constraintTop_toTopOf="@+id/resourceTextView1"
+        app:srcCompat="?android:attr/textSelectHandleRight" />
+
+    <ImageView
+        android:id="@+id/resourceImageView3"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/resourceTextView2"
+        app:layout_constraintEnd_toStartOf="@+id/resourceTextView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceTextView2"
+        app:layout_constraintTop_toTopOf="@+id/resourceTextView2"
+        app:srcCompat="?android:attr/textSelectHandleRight" />
+
+    <ImageView
+        android:id="@+id/resourceImageView4"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/resourceTextView3"
+        app:layout_constraintEnd_toStartOf="@+id/resourceTextView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceTextView3"
+        app:layout_constraintTop_toTopOf="@+id/resourceTextView3"
+        app:srcCompat="?android:attr/textSelectHandleRight" />
+
+    <ImageView
+        android:id="@+id/resourceImageView5"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/resourceTextView4"
+        app:layout_constraintEnd_toStartOf="@+id/resourceTextView5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceTextView4"
+        app:layout_constraintTop_toTopOf="@+id/resourceTextView4"
+        app:srcCompat="?android:attr/textSelectHandleRight" />
+
+    <TextView
+        android:id="@+id/resourceTextView1"
+        android:layout_width="34sp"
+        android:layout_height="42sp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resourceImageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceImageView1"
+        app:layout_constraintTop_toTopOf="@+id/resourceImageView1"
+        tools:text="9" />
+
+    <TextView
+        android:id="@+id/resourceTextView2"
+        android:layout_width="34sp"
+        android:layout_height="42sp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resourceImageView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceImageView2"
+        app:layout_constraintTop_toTopOf="@+id/resourceImageView2"
+        tools:text="9" />
+
+    <TextView
+        android:id="@+id/resourceTextView3"
+        android:layout_width="34sp"
+        android:layout_height="42sp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resourceImageView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceImageView3"
+        app:layout_constraintTop_toTopOf="@+id/resourceImageView3"
+        tools:text="9" />
+
+    <TextView
+        android:id="@+id/resourceTextView4"
+        android:layout_width="34sp"
+        android:layout_height="42sp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resourceImageView5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceImageView4"
+        app:layout_constraintTop_toTopOf="@+id/resourceImageView4"
+        tools:text="9" />
+
+    <TextView
+        android:id="@+id/resourceTextView5"
+        android:layout_width="34sp"
+        android:layout_height="42sp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resourceImageView5"
+        app:layout_constraintTop_toTopOf="@+id/resourceImageView5"
+        tools:text="9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
