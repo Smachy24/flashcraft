@@ -32,8 +32,11 @@ public class GameFactory{
      */
     public static Game Create(Question question, String difficulty)
     {
+        Collections.shuffle(question.getAnswers());
+
         ArrayList<Question> questions = new ArrayList<Question>();
         questions.add(question);
+
 
         return new Game(questions, difficulty);
     }
