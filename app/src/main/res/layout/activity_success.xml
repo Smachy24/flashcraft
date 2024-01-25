@@ -219,6 +219,7 @@
         android:fontFamily="@font/regular"
         android:text="Decouvrir\nle Nether"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/emptyAchiev1"
@@ -233,6 +234,7 @@
         android:fontFamily="@font/regular"
         android:text="Decouvrir\nl'end"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/emptyAchiev2"
         app:layout_constraintStart_toEndOf="@+id/emptyAchiev1"
@@ -246,6 +248,7 @@
         android:fontFamily="@font/regular"
         android:text="Battre l'\nEnderDragon"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView23"
         app:layout_constraintStart_toEndOf="@+id/emptyAchiev2"
@@ -259,6 +262,7 @@
         android:fontFamily="@font/regular"
         android:text="Battre le\nWither Boss"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView25"
         app:layout_constraintStart_toStartOf="@+id/imageView25"
@@ -272,6 +276,7 @@
         android:fontFamily="@font/regular"
         android:text="Battre le\nWarden"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView26"
         app:layout_constraintStart_toEndOf="@+id/imageView25"
@@ -285,6 +290,7 @@
         android:fontFamily="@font/regular"
         android:text="Decouvrir le\nTemple de la Mer"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView27"
         app:layout_constraintStart_toEndOf="@+id/imageView26"
@@ -298,6 +304,7 @@
         android:fontFamily="@font/regular"
         android:text="Battre le\nGuardian"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView28"
         app:layout_constraintStart_toStartOf="@+id/imageView28"
@@ -311,6 +318,7 @@
         android:fontFamily="@font/regular"
         android:text="Decouvrir l'\nEather"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView29"
         app:layout_constraintStart_toEndOf="@+id/imageView28"
@@ -324,9 +332,100 @@
         android:fontFamily="@font/regular"
         android:text="Battre\nDieu"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView30"
         app:layout_constraintStart_toEndOf="@+id/imageView29"
         app:layout_constraintTop_toTopOf="@+id/imageView30" />
+
+    <ImageView
+        android:id="@+id/greenMarkNetherImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/emptyAchiev1"
+        app:layout_constraintStart_toStartOf="@+id/emptyAchiev1"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkEndImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/emptyAchiev2"
+        app:layout_constraintStart_toEndOf="@+id/emptyAchiev1"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkEnderDragonImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView23"
+        app:layout_constraintStart_toEndOf="@+id/emptyAchiev2"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkWitherImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+        app:layout_constraintStart_toStartOf="@+id/imageView25"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkWardenImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView26"
+        app:layout_constraintStart_toEndOf="@+id/imageView25"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkWaterTempleImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView27"
+        app:layout_constraintStart_toEndOf="@+id/imageView26"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkGuardianImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView28"
+        app:layout_constraintStart_toStartOf="@+id/imageView28"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkEatherImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView29"
+        app:layout_constraintStart_toEndOf="@+id/imageView28"
+        app:srcCompat="@drawable/green_mark" />
+
+    <ImageView
+        android:id="@+id/greenMarkGodImageView"
+        android:layout_width="41dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView30"
+        app:layout_constraintStart_toEndOf="@+id/imageView29"
+        app:srcCompat="@drawable/green_mark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
