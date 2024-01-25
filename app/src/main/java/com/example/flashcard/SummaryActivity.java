@@ -1,6 +1,7 @@
 package com.example.flashcard;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,25 @@ public class SummaryActivity extends AppCompatActivity {
         numberGoodAnswers.setText(game.getScore()+" / "+game.getQuestions().size()+" bonne(s) réponse(s)");
         int percentage = game.getScore() * 100 / game.getQuestions().size();
         percentageGoodAnswers.setText(percentage+" %");
+
+
+        //Mise à jour des stats globales
+        SharedPreferences sharedPreferences = getSharedPreferences("GlobalStatistics", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        int totalQuestions = sharedPreferences.getInt("TotalQuestions", 0);
+        int totalGoodAnswers = sharedPreferences.getInt("TotalGoodAnswers", 0);
+
+        editor.putInt("TotalQuestions", totalQuestions + game.getQuestions().size());
+        editor.putInt("TotalGoodAnswers", totalGoodAnswers + game.getScore());
+
+        int totalQuestionsForDifficulty = sharedPreferences.getInt("TotalQuestions_" + game.getDifficulty(), 0);
+        int totalGoodAnswersForDifficulty = sharedPreferences.getInt("TotalGoodAnswers_" + game.getDifficulty(), 0);
+
+        editor.putInt("TotalQuestions_" + game.getDifficulty(), totalQuestionsForDifficulty + game.getQuestions().size());
+        editor.putInt("TotalGoodAnswers_" + game.getDifficulty(), totalGoodAnswersForDifficulty + game.getScore());
+
+        editor.apply();
 
         //Retour au menu principal
         homeButton.setOnClickListener(new View.OnClickListener() {
