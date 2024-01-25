@@ -14,8 +14,10 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flashcard.models.Craft;
 import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
+import com.example.flashcard.models.TimeAttackGame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,9 +115,15 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
+
+                ArrayList<Craft> craftList = Utils.CraftList.getCraftList();
+                TimeAttackGame game = GameFactory.CreateTimeAttackGame(craftList);
+
                 Intent intent = new Intent(MainActivity.this, TimeAttackActivity.class);
-                intent.putExtra("questions", allQuestions);
+                intent.putExtra("game", game);
                 startActivity(intent);
+
+
             }
         });
 

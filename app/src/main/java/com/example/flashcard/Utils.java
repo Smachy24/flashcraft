@@ -2,6 +2,7 @@ package com.example.flashcard;
 
 import androidx.annotation.NonNull;
 
+import com.example.flashcard.models.Craft;
 import com.example.flashcard.models.Question;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -11,6 +12,7 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -98,6 +100,24 @@ public class Utils {
             requestGet(listener, BASE_URL+ id);
         }
 
+    }
+
+    public static class CraftList{
+        public static ArrayList<Craft> craftList = new ArrayList<>();
+
+        private static void crateCraft(String name, int image, ArrayList<Integer> craft){
+            Craft craftedItem = new Craft(craft, image, name);
+            craftList.add(craftedItem);
+        }
+
+        private static void initCrafts(){
+            crateCraft("Epee en bois", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList(R.drawable.question_item_bucket, R.drawable.question_item_diamond_shovel, 0, 0, 0, 0, 0, 0, 0)));
+        }
+
+        public static ArrayList<Craft> getCraftList(){
+            initCrafts();
+            return craftList;
+        }
     }
 
 }

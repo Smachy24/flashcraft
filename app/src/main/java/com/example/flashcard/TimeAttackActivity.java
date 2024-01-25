@@ -1,6 +1,7 @@
 package com.example.flashcard;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -11,7 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flashcard.models.Craft;
+import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Item;
+import com.example.flashcard.models.TimeAttackGame;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -36,14 +40,12 @@ public class TimeAttackActivity extends AppCompatActivity {
                 if (resourceName.startsWith("question_item")) {
                     int resourceId = field.getInt(null);
                     items.add(new Item(resourceId));
-//
-//                    ImageView imageView = findViewById(resourceId);
-//                    imageView.setOnTouchListener(new DragItemTouchListener());
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
+
 
         RecyclerView recyclerView = findViewById(R.id.itemListRecyclerView);
         ItemAdapter adapter = new ItemAdapter(items);
@@ -51,9 +53,15 @@ public class TimeAttackActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-//        ImageView exempleImage = findViewById(R.id.exempleImage);
-//        exempleImage.setOnTouchListener(new DragItemTouchListener());
         bind();
+
+        Intent srcIntent = getIntent();
+        TimeAttackGame game = srcIntent.getParcelableExtra("game");
+        System.out.println(game);
+        System.out.println("AAAAAAAAAAAAAAAAA : " + game.getCrafts().get(0).getCraftedItemName());
+
+
+
     }
 
 
