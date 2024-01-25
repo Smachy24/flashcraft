@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
+import com.example.flashcard.models.RpgGame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -93,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
-                startActivity(new Intent(MainActivity.this, Hardcore.class));
+                Intent hardcordeIntent = new Intent(MainActivity.this, Hardcore.class);
+                hardcordeIntent.putExtra("game", new RpgGame("hardcore"));
+                startActivity(hardcordeIntent);
             }
         });
 
