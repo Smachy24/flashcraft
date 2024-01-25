@@ -13,6 +13,7 @@ public class Game implements Parcelable {
 
     private String difficulty;
 
+
     //private Question currentQuestion;
 
     public Game(ArrayList<Question> questions, String difficulty) {
@@ -30,6 +31,8 @@ public class Game implements Parcelable {
 
         this.difficulty = difficulty;
     }
+
+
 
 
     // parcelable implementation start
@@ -93,6 +96,7 @@ public class Game implements Parcelable {
     public void setCurrentQuestionIndex(int currentQuestionIndex) {
         this.currentQuestionIndex = currentQuestionIndex;
     }
+
 
     //public Question getCurrentQuestion() {
     //    return currentQuestion;

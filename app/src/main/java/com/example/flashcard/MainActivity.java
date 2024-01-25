@@ -1,25 +1,38 @@
 package com.example.flashcard;
 
+import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flashcard.models.Craft;
 import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
+import com.example.flashcard.models.TimeAttackGame;
 import com.example.flashcard.models.RpgGame;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements Utils.OnQuestionsListener {
 
@@ -28,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
     ArrayList<Question> easyQuestions;
     ArrayList<Question> mediumQuestions;
     ArrayList<Question> hardQuestions;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +69,34 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         });
 
         videoView.setOnCompletionListener(mp -> videoView.start());
+
+        // Animation text robin
+
+        TextView textView4 = findViewById(R.id.textView4);
+        Animation bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce_animation);
+
+
+        textView4.startAnimation(bounceAnimation);
+
+        ObjectAnimator colorAnimation = ObjectAnimator.ofObject(
+                textView4, "textColor", new ArgbEvaluator(),
+                Color.parseColor("#B222CA"),
+                Color.parseColor("#FF0000"),
+                Color.parseColor("#00FF00"),
+                Color.parseColor("#0000FF"),
+                Color.parseColor("#FFFF00"),
+                Color.parseColor("#FF00FF"),
+                Color.parseColor("#00FFFF"),
+                Color.parseColor("#FFA500"),
+                Color.parseColor("#008000"),
+                Color.parseColor("#800080")
+        );
+        colorAnimation.setDuration(10000);
+        colorAnimation.setRepeatCount(ObjectAnimator.INFINITE);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(colorAnimation);
+        animatorSet.start();
 
         // Launching a normal mode game.
         Button questionButton = findViewById(R.id.questionButton);
@@ -116,9 +159,15 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
+
+                ArrayList<Craft> craftList = Utils.CraftList.getCraftList();
+                TimeAttackGame game = GameFactory.CreateTimeAttackGame(craftList);
+
                 Intent intent = new Intent(MainActivity.this, TimeAttackActivity.class);
-                intent.putExtra("questions", allQuestions);
+                intent.putExtra("game", game);
                 startActivity(intent);
+
+
             }
         });
 
@@ -131,6 +180,15 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
             }
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+        boolean isGodBeaten = sharedPreferences.getBoolean("isGodBeaten", false);
+
+        Log.i("isGodBeaten", "Valeur actuelle : " + isGodBeaten);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        //editor.putBoolean("isGodBeaten", true);
+        editor.apply();
     }
 
     @Override
@@ -236,6 +294,8 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 .create()
                 .show();
     }
+
+
 
 }
 

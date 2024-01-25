@@ -32,6 +32,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         Item item = items.get(position);
+        holder.image.setTag(item.name);
         holder.image.setImageResource(item.image);
         holder.image.setOnTouchListener(new DragItemTouchListener());
 
