@@ -1,6 +1,7 @@
 package com.example.flashcard;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -17,6 +19,9 @@ import android.widget.Toast;
 
 import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class QuestionsActivity extends AppCompatActivity {
     public static final String TAG = "QuestionActivity";
@@ -44,6 +49,11 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private TextView totalQuestionNumber;
     private TextView currentQuestionNumber;
+
+    // Expande Image var
+
+    private ImageView closeButton;
+    private Map<Integer, ViewGroup.LayoutParams> originalParamsMap;
 
 
     // data
@@ -73,6 +83,18 @@ public class QuestionsActivity extends AppCompatActivity {
 
         prompt = findViewById(R.id.promptTextView);
         promptIcon = findViewById(R.id.promptLogoImageView);
+
+        // expanded Image ID
+
+        closeButton = findViewById(R.id.closeButton);
+
+        originalParamsMap = new HashMap<>();
+
+
+        attachClickHandler(R.id.answersImageView1);
+        attachClickHandler(R.id.answersImageView2);
+        attachClickHandler(R.id.answersImageView3);
+        attachClickHandler(R.id.answersImageView4);
 
         // recover intent data
         Intent srcIntent = getIntent();
@@ -256,5 +278,70 @@ public class QuestionsActivity extends AppCompatActivity {
             intent.putExtra("game", game);
             startActivity(intent);
         }
+    }
+
+    private void attachClickHandler(int imageViewId) {
+        ImageView imageView = findViewById(imageViewId);
+        originalParamsMap.put(imageViewId, imageView.getLayoutParams());
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onImageClick(view);
+            }
+        });
+    }
+
+
+    public void onImageClick(View view) {
+        ImageView clickedImageView = (ImageView) view;
+
+        // SET IMAGE TO MATCH PAREN PARAMS
+        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT);
+        clickedImageView.setLayoutParams(params);
+
+        if (clickedImageView.getId() == R.id.answersImageView4) {
+            ImageView answersImageView3 = findViewById(R.id.answersImageView3);
+            if (answersImageView3 != null) {
+                answersImageView3.setVisibility(View.GONE);
+            }
+        }
+
+        // SET CLOSE BUTTON VISIBLE
+        closeButton.setVisibility(View.VISIBLE);
+
+        // SET CLICKABLE FALSE
+        clickedImageView.setClickable(false);
+
+
+        // SET WHITE BACKGROUND
+        findViewById(R.id.whiteBackgroundView).setVisibility(View.VISIBLE);
+
+    }
+
+    public void onCloseButtonClick(View view) {
+        for (int imageViewId : originalParamsMap.keySet()) {
+            ImageView imageView = findViewById(imageViewId);
+            ViewGroup.LayoutParams originalParams = originalParamsMap.get(imageViewId);
+
+            // SET IMAGE TO ORIGINAL PARAMS
+            imageView.setLayoutParams(originalParams);
+
+            // SET CLICKABLE TRUE
+            imageView.setClickable(true);
+        }
+
+        ImageView answersImageView3 = findViewById(R.id.answersImageView3);
+        if (answersImageView3 != null) {
+            answersImageView3.setVisibility(View.VISIBLE);
+        }
+
+        // SET CLOSE BUTTON GONE
+        closeButton.setVisibility(View.GONE);
+        // SET WXHITE BACKGROUND GONE
+        findViewById(R.id.whiteBackgroundView).setVisibility(View.GONE);
+
     }
 }
