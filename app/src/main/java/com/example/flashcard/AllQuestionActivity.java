@@ -2,47 +2,56 @@ package com.example.flashcard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.flashcard.models.Question;
+
+import java.util.ArrayList;
+import java.util.Currency;
+import java.util.List;
+
 public class AllQuestionActivity extends AppCompatActivity {
 
-    private ImageView expandedImage;
-    private ImageView closeButton;
-    public ViewGroup.LayoutParams originalParams;
+    private List<Question> questions;
+    private QuestionsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_question);
 
-        expandedImage = findViewById(R.id.expanded_image);
-        closeButton = findViewById(R.id.closeButton);
+        questions = new ArrayList<>();
+        adapter = new QuestionsAdapter(questions);
 
-        originalParams = expandedImage.getLayoutParams();
-    }
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    public void onImageClick(View view) {
-        // SET IMAGE TO MATCH PARENT PARAMS
-        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.MATCH_PARENT);
-        expandedImage.setLayoutParams(params);
-        //SET CLOSE BUTTON VISIBLE
-        closeButton.setVisibility(View.VISIBLE);
-        //SET 1 ST IMAGE GONE
-        expandedImage.setClickable(false);
-    }
-
-    public void onCloseButtonClick(View view) {
-        expandedImage.setLayoutParams(originalParams);
-
-        closeButton.setVisibility(View.GONE);
-
-        expandedImage.setClickable(true);
+        // fetch all data GetQuestion from API ( from utils.java )
+        Utils.Api.getQuestions(new Utils.OnQuestionsListener() {
+            @Override
+            // success load
+            public void onQuestionsLoaded(final ArrayList<Question> loadedQuestions) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // clear all existing question
+                        questions.clear();
+                        // add question
+                        questions.addAll(loadedQuestions);
+                        // notify adapter from data charged + refresh layout
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
 }
+
 
