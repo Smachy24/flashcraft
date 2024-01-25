@@ -3,9 +3,7 @@ package com.example.flashcard;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,22 +13,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.TranslateAnimation;
-import android.widget.Button;
-import android.widget.MediaController;
-import android.widget.Toast;
-import android.widget.VideoView;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.flashcard.models.Craft;
 import com.example.flashcard.models.Game;
 import com.example.flashcard.models.Question;
-import com.example.flashcard.models.TimeAttackGame;
 import com.example.flashcard.models.RpgGame;
+import com.example.flashcard.models.TimeAttackGame;
 
 import java.util.ArrayList;
 
