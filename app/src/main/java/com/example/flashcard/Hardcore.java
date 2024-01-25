@@ -156,6 +156,13 @@ public class Hardcore extends AppCompatActivity {
                 //Toast.makeText(Hardcore.this, "Vous etes sur ? douter !", Toast.LENGTH_SHORT).show();
 
 
+                if(game.getScore() > 5 && !game.isNetherUnlocked())
+                {
+                    game.setNetherUnlocked(true);
+                    Toast.makeText(Hardcore.this, "VOS AMIS DU NETHER ARRIVENT", Toast.LENGTH_SHORT).show();
+                    RpgUtils.loadNetherQuestionsInGameQuestionPool(game.getQuestions());
+                }
+
                 game.nextQuestion();
 
 
