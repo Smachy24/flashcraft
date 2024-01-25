@@ -3,14 +3,19 @@ package com.example.flashcard;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.flashcard.models.RpgAnswer;
 import com.example.flashcard.models.RpgGame;
 import com.example.flashcard.models.RpgPlayer;
 import com.example.flashcard.models.RpgQuestion;
@@ -31,6 +36,7 @@ public class Hardcore extends AppCompatActivity {
     private TextView questionTitle;
     private TextView questionDescription;
     private TextView questionMoral;
+    private TextView rpgScore;
 
     // radio
     private RadioGroup radioGroup;
@@ -68,6 +74,8 @@ public class Hardcore extends AppCompatActivity {
         questionDescription = findViewById(R.id.rpgQuestionDescriptionTextView);
         questionMoral = findViewById(R.id.rpgMoralTextView);
 
+        rpgScore = findViewById(R.id.rpgScoreTextView);
+
         // radio
         radioGroup = findViewById(R.id.rpgRadioGroup);
         radioButton1 = findViewById(R.id.rpgChoiceRadioButton1);
@@ -103,6 +111,8 @@ public class Hardcore extends AppCompatActivity {
         questionDescription.setText(game.getCurrentQuestion().getDescription());
         questionMoral.setText(game.getCurrentQuestion().getMoral());
 
+        rpgScore.setText(String.valueOf(game.getScore()));
+
         // radio
         Log.i(TAG, "onCreate:ANSSSSSSSSSSSSSSSSSSSSSSSSSSSSS " + game.getCurrentQuestion());
         radioButton1.setText(game.getCurrentQuestion().getAnswers().get(0).getPrompt());
@@ -113,5 +123,91 @@ public class Hardcore extends AppCompatActivity {
 
 
 
+        // click of the validation button to confirm choice
+        radioValidationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String finalAnswer = checkedRadioButton.getText().toString();
+                Log.i("ANSWER", "DEFINITIVE CHOISE IS : " + finalAnswer);
+
+                //if(finalAnswer.equals(game.getCurrentQuestion().getAnswers().get(0).getPrompt()))
+                //{
+                //    Toast.makeText(Hardcore.this, "REPONSE 1 !", Toast.LENGTH_SHORT).show();
+                //}
+
+                for (int i = 0; i < game.getCurrentQuestion().getAnswers().size(); i++) {
+                    //Log.i(TAG, "FOOOOOOOOOOOOOOOOOOOOR: " + i);
+                    if(finalAnswer.equals(game.getCurrentQuestion().getAnswers().get(i).getPrompt()))
+                    {
+                        //Toast.makeText(Hardcore.this, "REPONSE" + i, Toast.LENGTH_SHORT).show();
+                        RpgAnswer validatedAnswer = game.getCurrentQuestion().getAnswers().get(i);
+                        game.getPlayer().UpdateStats(validatedAnswer);
+                    }
+                }
+
+                Toast.makeText(Hardcore.this, game.getCurrentQuestion().getMoral(), Toast.LENGTH_SHORT).show();
+                game.incrementScoreByOne();
+
+
+
+
+                questionMoral.setVisibility(View.VISIBLE);
+                //Toast.makeText(Hardcore.this, "Vous etes sur ? douter !", Toast.LENGTH_SHORT).show();
+
+
+                game.nextQuestion();
+
+
+
+                // wait before generating next question page
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        nextQuestion();
+                    }
+                }, 500);   //1 s
+            }
+        });
+
+        // one radio button have been selected
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // Get the view of the checked radio button
+                if(game.getCurrentQuestionIndex() + 1 == game.getQuestions().size())
+                {
+                    radioValidationButton.setText("TERMINER !");
+                }
+                else
+                {
+                    radioValidationButton.setText("VALIDER !");
+                }
+
+                radioValidationButton.setEnabled(true);
+                radioValidationButton.setBackgroundColor(Color.rgb(226, 11, 11));
+                checkedRadioButton = findViewById(checkedId);
+                // Apply change to the visual of the button
+                Log.d("question", "answer" + checkedId + "selected" );
+            }
+        });
+
+
+    }
+
+    private void nextQuestion()
+    {
+        // Redirection on the same page with updated context.
+        if (game.getCurrentQuestionIndex() < game.getQuestions().size())
+        {
+            Intent intent = new Intent(Hardcore.this, Hardcore.class);
+            intent.putExtra("Difficulty", "hard");
+            intent.putExtra("game", game);
+            startActivity(intent);
+        }
+        else
+        {
+
+        }
     }
 }

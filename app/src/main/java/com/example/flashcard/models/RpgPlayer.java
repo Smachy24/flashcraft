@@ -144,4 +144,28 @@ public class RpgPlayer implements Parcelable {
     public void setAmountWheat(int amountWheat) {
         this.amountWheat = amountWheat;
     }
+
+    // stat methods
+    public void UpdateStats(RpgAnswer answer)
+    {
+        this.currentLifePoint += answer.getLifeModification();
+        this.currentHungerPoint += answer.getHungerModification();
+        this.currentPowerPoint += answer.getPowerModification();
+        this.currentStressPoint += answer.getStressModification();
+
+        // resources
+        this.amountIronIngot += answer.getIronIngotModification();
+        this.amountStick += answer.getStickModification();
+        this.amountCobblestone += answer.getCobblestoneModification();
+        this.amountWheat += answer.getWheatModification();
+    }
+
+    public boolean checkIfDead()
+    {
+        return this.currentLifePoint == 0
+                || this.currentHungerPoint == 0
+                || this.currentPowerPoint == 0
+                || this.currentStressPoint == 0;
+    }
+
 }
