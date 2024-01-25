@@ -12,16 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:scaleType="centerCrop" />
+        android:scaleType="fitXY" />
 
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="407dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_minecraft" />
@@ -30,13 +30,13 @@
         android:id="@+id/questionButton"
         android:layout_width="342dp"
         android:layout_height="43dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="76dp"
         android:background="@drawable/button_minecraft"
         android:fontFamily="@font/regular"
         android:text="QUESTION"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -119,10 +119,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/bold"
-        android:textColor="#FFFFFF"
         android:text="CREATED BY GROUP 3"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -131,10 +131,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/regular"
-        android:rotation="-15"
+        android:rotation="-8"
         android:text="ROBIN ON T'AIME :3"
         android:textColor="#B222CA"
         android:textSize="18sp"
