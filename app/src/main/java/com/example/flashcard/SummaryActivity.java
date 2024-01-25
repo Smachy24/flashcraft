@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.flashcard.models.Game;
 
+import java.util.Map;
+
 public class SummaryActivity extends AppCompatActivity {
 
     @Override
@@ -55,6 +57,17 @@ public class SummaryActivity extends AppCompatActivity {
         editor.putInt("TotalGoodAnswers_" + game.getDifficulty(), totalGoodAnswersForDifficulty + game.getScore());
 
         editor.apply();
+
+        Map<String, ?> allPreferences = sharedPreferences.getAll();
+
+// Parcourez la map et affichez chaque clé et sa valeur
+        for (Map.Entry<String, ?> entry : allPreferences.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
+            Log.i("SharedPreferences", "Clé : " + key + ", Valeur : " + value.toString());
+        }
+
 
 
 
