@@ -8,6 +8,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.flashcard.models.Item;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 public class TimeAttackActivity extends AppCompatActivity {
 
@@ -16,10 +23,39 @@ public class TimeAttackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_attack);
 
-        ImageView exempleImage = findViewById(R.id.exempleImage);
-        exempleImage.setOnTouchListener(new DragItemTouchListener());
+        ArrayList<Item> items = new ArrayList<>();
+
+
+        Field[] drawables = R.drawable.class.getFields();
+
+        for (Field field : drawables) {
+            try {
+                String resourceName = field.getName();
+
+                // Check if the resource name starts with "question_item"
+                if (resourceName.startsWith("question_item")) {
+                    int resourceId = field.getInt(null);
+                    items.add(new Item(resourceId));
+//
+//                    ImageView imageView = findViewById(resourceId);
+//                    imageView.setOnTouchListener(new DragItemTouchListener());
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+        RecyclerView recyclerView = findViewById(R.id.itemListRecyclerView);
+        ItemAdapter adapter = new ItemAdapter(items);
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+//        ImageView exempleImage = findViewById(R.id.exempleImage);
+//        exempleImage.setOnTouchListener(new DragItemTouchListener());
         bind();
     }
+
 
     /**
      * Set children of crafting table dropable elements
@@ -37,35 +73,7 @@ public class TimeAttackActivity extends AppCompatActivity {
         }
     }
 
-    private static class DragItemTouchListener implements View.OnTouchListener {
 
-        /**
-         * Return if image is pressed
-         * @param view        The view the touch event has been dispatched to.
-         * @param motionEvent The MotionEvent object containing full information about
-         *                    the event.
-         * @return
-         */
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                dragMultiple(view);
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        /**
-         * Drag and move the image
-         * @param view  The view the touch event has been dispatched to.
-         */
-        private void dragMultiple(View view) {
-            ClipData data = ClipData.newPlainText("", "");
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-            view.startDragAndDrop(data, shadowBuilder, view, 0);
-        }
-    }
 
     private class DragListener implements View.OnDragListener {
 
@@ -81,7 +89,7 @@ public class TimeAttackActivity extends AppCompatActivity {
                 ImageView draggedView = (ImageView) event.getLocalState();
 
                 // Vérifier si la vue cible est une instance de ImageView et si la vue draggée est l'image d'exemple
-                if (v instanceof ImageView && draggedView.getId() == R.id.exempleImage) {
+                if (v instanceof ImageView) {
 
                     // Changez l'image de la vue cible pour qu'elle soit la même que celle de la vue draggée
                     ((ImageView) v).setImageDrawable(draggedView.getDrawable());
