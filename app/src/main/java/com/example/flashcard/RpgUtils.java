@@ -1148,17 +1148,17 @@ public class RpgUtils {
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    "Tu décide de faire un triple saut perilleux et glisse.",
                     -bigAmount, 0, +bigAmount, +mediumAmount,
                     0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    "Prit de vertige tu reste bloqué sur un nuage pour le reste d'une courte ethernité",
                     0, -bigAmount, -mediumAmount, -bigAmount,
                     0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    "Face a l'immensité du vide en dessous de toi, une peur panique te prend, la nourriture est ta seul source de reconfort",
                     +mediumAmount, -mediumAmount, 0, +bigAmount,
                     0, 0, 0, 0
             ));
@@ -1167,24 +1167,24 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'EATHER - Balade parmis les nuages",
-                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
-                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
+                        "De nuage en nuage l'aventure continue, qu'est ce qui pourrait mal se passer ?",
+                        "Qui fait le malin tombe dans le ravin... et meurt... fort !",
                         answersQuestion2));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    "Ton esprit s'appaise et tu décide alors de te laisser a une vie faite de plaisirs et de repos dans ce paradis",
                     -mediumAmount, 0, -bigAmount, -bigAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    "Cela te redonne du baum au coeur mais te fait perdre toute envie de faire de la tecktonik",
                     +bigAmount, -bigAmount, -mediumAmount, 0,
                     0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    "Tu fracasse la statue a main nue, accomplissant ainsi ta mission secrete de tuer ton passée",
                     -bigAmount, +bigAmount, 0, +mediumAmount,
                     0, 0, 0, 0
             ));
@@ -1193,24 +1193,24 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "lors de ton périple au paradis tu te retrouve face a une statue te rappelant etrangement ton paternelle, un sentiment etrange te parcours alors le coeur ?",
+                        "En vrai le plus grave dans le complex d'oedipe c'est d'avoir tuer son pere... le reste en vrai ça passe...",
                         answersQuestion3));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    "Je vais leur montrer que le tardigrade est le plus puissant des insectes !",
                     -mediumAmount, 0, +bigAmount, +bigAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    "Tu te précipite vers la plus vielle d'entre elle pour lui voler son arme",
                     0, -bigAmount, +bigAmount, +mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    "Habile astucieux et patient, afin de sauver ta peau, tu décides de rester immobile... leur vue est basé sur le mouvement",
                     bigAmount, -mediumAmount, -bigAmount, -1,
                     2, 0, 0, 0
             ));
@@ -1219,24 +1219,24 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "Vous decidez de vous aventurer dans un temple volant de l'aether. Ce dernier est peuplé par des valkyries pour qui percoive comme un vulgaire insecte méprisable ?",
+                        "C'est pas bien de juger plus petit de soit, CHEH !",
                         answersQuestion4));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    "Tu prend le temps de t'assoir avec lui pour le laisser te raconter sa longue vie",
                     +mediumAmount, -bigAmount, -mediumAmount, -mediumAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    "Tu décide de l'aider a dresser les nouveau membre du troupeau donnant lieu a un rodéo celeste",
                     -mediumAmount, 0, +mediumAmount, +bigAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    "Tu t'approche d'une de ces merveilleuse créature... ET MORT A PLEINE DENT",
                     -bigAmount, bigAmount, 0, -mediumAmount,
                     0, 0, 0, 0
             ));
@@ -1245,24 +1245,24 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "A force de balade champètre au paradis tu as fais la connaissance d'un fermier angélique s'occupant d'un troupeau de vache volante",
+                        "Aider les personnes agés vont objectivement de vous quelqu'un de bien.",
                         answersQuestion5));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +bigAmount, -bigAmount, -5, +mediumAmount,
+                    "Se secret remplit ton coeur mais te laisse stupefait plusieurs heure durant.",
+                    +bigAmount, -bigAmount, 0, +mediumAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    "Tu refuse cette réalité et décide de tous les massacrer pour preserver ta vision du monde",
                     -bigAmount, 0, +bigAmount, -mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    "Tu te laisse embarqué dans un long banquet ou l'on parle philosophie et fin du monde",
                     0, +bigAmount, -bigAmount, +mediumAmount,
                     2, 0, 0, 0
             ));
@@ -1271,8 +1271,8 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "Un peuple de cochon sans visage t'encercle soudainement, il te font alors part des secret du lieu sacré dans lequel tu te trouve...",
+                        "HAKUNA MATATA",
                         answersQuestion6));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
@@ -1616,17 +1616,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> godTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "ET JE CROQUE LA POMME",
-                    maxAmount, maxAmount, maxAmount, maxAmount,
+                    maxAmount, maxAmount, maxAmount, -maxAmount,
                     0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "ET JE CROQUE LA POMME",
-                    maxAmount, maxAmount, maxAmount, maxAmount,
+                    maxAmount, maxAmount, maxAmount, -maxAmount,
                     0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "ET JE CROQUE LA POMME",
-                    maxAmount, maxAmount, maxAmount, maxAmount,
+                    maxAmount, maxAmount, maxAmount, -maxAmount,
                     0, 0, 0, 0
             ));
         }};
