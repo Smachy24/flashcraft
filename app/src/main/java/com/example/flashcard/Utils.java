@@ -23,9 +23,11 @@ import okhttp3.Response;
 
 public class Utils {
     public static class Drawables {
+        /**
+         * Get all image name and image ids from drawable files
+         */
         public static void listDrawables() {
             Field[] drawablesFields = R.drawable.class.getFields();
-
             for (Field field : drawablesFields) {
                 try {
                     String name = field.getName();
@@ -45,13 +47,21 @@ public class Utils {
     public static class Api {
         public static String BASE_URL = "https://students.gryt.tech/api/L2/flashcraft/questions/";
 
+        /**
+         * Global http method get
+         * @param listener : async fetch questions
+         * @param url : request url
+         */
         private static void requestGet(OnQuestionsListener listener, String url){
+            // Make call API
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
                     .url(url)
                     .build();
 
             Call call = client.newCall(request);
+
+            //Get response
             call.enqueue(new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -66,6 +76,13 @@ public class Utils {
                 }
             });
         }
+
+        /**
+         * Get list of questions
+         * @param response : response of the call API
+         * @return ArrayList<Question> : all questions from the API
+         * @throws IOException
+         */
         private static ArrayList<Question> getArrayListQuestions(Response response) throws IOException{
             // Get response
             assert response.body() != null;
@@ -87,16 +104,30 @@ public class Utils {
             return questions;
         }
 
+        /**
+         * Get all questions
+         * @param listener : async fetch questions
+         */
         public static void getQuestions(OnQuestionsListener listener){
             requestGet(listener, BASE_URL);
         }
 
+        /**
+         * Get all questions of one level
+         * @param listener : async fetch questions
+         * @param level : wanted level
+         */
         public static void getQuestionsByLevel(OnQuestionsListener listener, String level){
             assert level != null;
             assert level != "easy" || level != "medium" || level !="hard";
             requestGet(listener, BASE_URL+"?level="+level);
         }
 
+        /**
+         * Retrieve a question by its id
+         * @param listener : async fetch questions
+         * @param id : wanted question's id
+         */
         public static void getQuestionById(OnQuestionsListener listener, int id){
             requestGet(listener, BASE_URL+ id);
         }
@@ -106,11 +137,20 @@ public class Utils {
     public static class CraftList{
         public static ArrayList<Craft> craftList;
 
+        /**
+         * Create a craft
+         * @param name : name of the crafted item
+         * @param image : image of the crafted item
+         * @param craft : Variants of the craft
+         */
         private static void crateCraft(String name, int image, ArrayList<ArrayList<String>> craft){
             Craft craftedItem = new Craft(craft, image, name);
             craftList.add(craftedItem);
         }
 
+        /**
+         * Create all crafts
+         */
         private static void initCrafts(){
             craftList = new ArrayList<>();
             crateCraft("Pain", R.drawable.question_item_bread, new ArrayList<ArrayList<String>>(Arrays.asList(
@@ -250,6 +290,10 @@ public class Utils {
             )));
         }
 
+        /**
+         * Shuffle list of craft and retrieve 5 crafts
+         * @return : list of 5 crafts
+         */
         public static ArrayList<Craft> getCraftList(){
             initCrafts();
             Collections.shuffle(craftList);
@@ -258,7 +302,6 @@ public class Utils {
             for (int i = 0; i < 5; i++) {
                 randomCraft.add(craftList.get(i));
             }
-
             return randomCraft;
         }
     }
