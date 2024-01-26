@@ -94,10 +94,10 @@
 
     <ImageView
         android:id="@+id/promptLogoImageView"
-        android:layout_width="116dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="122dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="40dp"
         android:background="#00FFFFFF"
         android:visibility="visible"
