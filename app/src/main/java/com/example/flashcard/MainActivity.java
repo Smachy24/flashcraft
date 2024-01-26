@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
                 Intent hardcordeIntent = new Intent(MainActivity.this, Hardcore.class);
-                hardcordeIntent.putExtra("game", new RpgGame("hardcore"));
+                hardcordeIntent.putExtra("game", new RpgGame("hardcore", MainActivity.this));
                 startActivity(hardcordeIntent);
             }
         });
