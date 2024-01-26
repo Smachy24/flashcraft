@@ -108,13 +108,13 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
             }
         });
 
-        Button summaryButton = findViewById(R.id.summaryButton);
-        summaryButton.setOnClickListener(new View.OnClickListener() {
+        Button successButton = findViewById(R.id.successButton);
+        successButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
-                startActivity(new Intent(MainActivity.this, SummaryActivity.class));
+                startActivity(new Intent(MainActivity.this, SuccessActivity.class));
             }
         });
 

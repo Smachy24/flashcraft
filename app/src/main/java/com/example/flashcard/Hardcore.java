@@ -209,7 +209,7 @@ public class Hardcore extends AppCompatActivity {
                     public void run() {
                         nextQuestion();
                     }
-                }, 500);   //1 s
+                }, 1250);   //1.25 s
             }
         });
 

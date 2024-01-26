@@ -57,7 +57,7 @@ public class SuccessActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
 
-        achievements.add(sharedPreferences.getBoolean("isNetherUnlocked", true));
+        achievements.add(sharedPreferences.getBoolean("isNetherUnlocked", false));
         achievements.add(sharedPreferences.getBoolean("isEndUnlocked", false));
         achievements.add(sharedPreferences.getBoolean("isEnderDragonBeaten", false));
         achievements.add(sharedPreferences.getBoolean("isWitherBeaten", false));
