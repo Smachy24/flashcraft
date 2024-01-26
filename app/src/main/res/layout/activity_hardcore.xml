@@ -13,6 +13,14 @@
         android:layout_height="match_parent"
         tools:context=".Hardcore">
 
+        <FrameLayout
+            android:id="@+id/evenementLayoutFrameLayout"
+            android:layout_width="220dp"
+            android:layout_height="319dp"
+            tools:layout_editor_absoluteX="83dp"
+            tools:layout_editor_absoluteY="78dp">
+
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
