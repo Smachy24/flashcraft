@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activité représentant l'écran des succes.
+ */
 public class SuccessActivity extends AppCompatActivity {
 
     @Override
@@ -73,6 +76,7 @@ public class SuccessActivity extends AppCompatActivity {
         achievements.add(sharedPreferences.getBoolean("isGodBeaten", false));
         achievements.add(sharedPreferences.getBoolean("isFirstGame", false));
 
+        //On boucle tous les achievements et en fonction du booléan, l'affiche change
         for (int i = 0; i < greenMarks.size(); i++) {
             if (achievements.get(i) == false) {
                 greenMarks.get(i).setVisibility(View.INVISIBLE);
@@ -89,6 +93,7 @@ public class SuccessActivity extends AppCompatActivity {
             }
         }
 
+        //Boutton reinitialisation
         clearSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
