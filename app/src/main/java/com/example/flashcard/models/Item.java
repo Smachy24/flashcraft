@@ -1,5 +1,8 @@
 package com.example.flashcard.models;
 
+/**
+ *  Contains info of one item
+ */
 public class Item {
     public int quantity;
     public int image;
