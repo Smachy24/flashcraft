@@ -292,6 +292,9 @@ public class Hardcore extends AppCompatActivity {
                     // change current game settings
                     game.setWaterTempleUnlocked(true);
                     RpgUtils.loadWaterTempleQuestionsInGameQuestionPool(game.getQuestions());
+                    achievementImage.setImageResource(R.drawable.water_temple_achiev);
+                    achievementImage.setVisibility(View.VISIBLE);
+                    achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
                 }
 
                 // AETHER
@@ -315,6 +318,9 @@ public class Hardcore extends AppCompatActivity {
                     // change current game settings
                     game.setEatherUnlocked(true);
                     RpgUtils.loadEatherQuestionsInGameQuestionPool(game.getQuestions());
+                    achievementImage.setImageResource(R.drawable.aether_achiev);
+                    achievementImage.setVisibility(View.VISIBLE);
+                    achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
                 }
 
                 // check for boss success
@@ -327,6 +333,10 @@ public class Hardcore extends AppCompatActivity {
                             final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
                             mediaPlayer.start();
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE WITHER!", Snackbar.LENGTH_LONG).show();
+
+                            achievementImage.setImageResource(R.drawable.wither_achiev);
+                            achievementImage.setVisibility(View.VISIBLE);
+                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
                         }
                         else
                         {
@@ -345,7 +355,7 @@ public class Hardcore extends AppCompatActivity {
 
                             achievementImage.setImageResource(R.drawable.ender_dragon_achiev);
                             achievementImage.setVisibility(View.VISIBLE);
-                            achievementText.setText("L'Ender Dragon est tombe \nla victoire est tienne !");
+                            achievementText.setText("L'Ender Dragon est tombe\nla victoire est tienne !");
                         }
                         else
                         {
@@ -361,6 +371,9 @@ public class Hardcore extends AppCompatActivity {
                             final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
                             mediaPlayer.start();
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE GUARDIAN!", Snackbar.LENGTH_LONG).show();
+                            achievementImage.setImageResource(R.drawable.guardian_achiev);
+                            achievementImage.setVisibility(View.VISIBLE);
+                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
                         }
                         else
                         {
@@ -376,6 +389,9 @@ public class Hardcore extends AppCompatActivity {
                             final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
                             mediaPlayer.start();
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE WARDEN!", Snackbar.LENGTH_LONG).show();
+                            achievementImage.setImageResource(R.drawable.warden_achiev);
+                            achievementImage.setVisibility(View.VISIBLE);
+                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
                         }
                         else
                         {
@@ -391,6 +407,9 @@ public class Hardcore extends AppCompatActivity {
                             final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
                             mediaPlayer.start();
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "FELICITATION VOUS AVEZ VAINCU NOTRE JEU!", Snackbar.LENGTH_LONG).show();
+                            achievementImage.setImageResource(R.drawable.god_achiev);
+                            achievementImage.setVisibility(View.VISIBLE);
+                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
                         }
                         else
                         {
