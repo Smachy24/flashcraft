@@ -186,7 +186,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?android:attr/textSelectHandleRight" />
+        app:srcCompat="@drawable/resource_icon_iron_ingot" />
 
     <ImageView
         android:id="@+id/resourceImageView2"
@@ -197,7 +197,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/resourceTextView1"
         app:layout_constraintTop_toTopOf="@+id/resourceTextView1"
-        app:srcCompat="?android:attr/textSelectHandleRight" />
+        app:srcCompat="@drawable/resource_icon_stick" />
 
     <ImageView
         android:id="@+id/resourceImageView3"
@@ -208,7 +208,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/resourceTextView2"
         app:layout_constraintTop_toTopOf="@+id/resourceTextView2"
-        app:srcCompat="?android:attr/textSelectHandleRight" />
+        app:srcCompat="@drawable/resource_icon_cobblestone" />
 
     <ImageView
         android:id="@+id/resourceImageView4"
@@ -219,7 +219,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/resourceTextView3"
         app:layout_constraintTop_toTopOf="@+id/resourceTextView3"
-        app:srcCompat="?android:attr/textSelectHandleRight" />
+        app:srcCompat="@drawable/resource_icon_wheat" />
 
     <ImageView
         android:id="@+id/resourceImageView5"
@@ -230,7 +230,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/resourceTextView4"
         app:layout_constraintTop_toTopOf="@+id/resourceTextView4"
-        app:srcCompat="?android:attr/textSelectHandleRight" />
+        app:srcCompat="@drawable/resource_icon_wither_star" />
 
     <TextView
         android:id="@+id/resourceTextView1"
