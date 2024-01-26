@@ -18,6 +18,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
 
     final ArrayList<Item> items;
 
+    // Start recycler view implementation
     public ItemAdapter(ArrayList<Item> items) { this.items = items; }
 
     @NonNull
@@ -34,14 +35,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         Item item = items.get(position);
         holder.image.setTag(item.name);
         holder.image.setImageResource(item.image);
+        // Add draggable to viewed images
         holder.image.setOnTouchListener(new DragItemTouchListener());
-
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
+
+    // End recycler view implementation
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
@@ -66,18 +69,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                // Récupérer le temps actuel
                 long clickTime = System.currentTimeMillis();
-
-                // Vérifier si le temps écoulé depuis le dernier clic est inférieur à un seuil pour considérer cela comme un double-clic
+                // Double click
                 if (clickTime - lastClickTime < 300) {
-                    // C'est un double clic, démarrez le glisser
                     dragMultiple(view);
                 }
-
-                // Mettre à jour le dernier temps du clic
                 lastClickTime = clickTime;
-
                 return true;
             } else {
                 return false;

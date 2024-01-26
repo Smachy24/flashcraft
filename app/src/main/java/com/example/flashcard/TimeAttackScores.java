@@ -26,9 +26,7 @@ public class TimeAttackScores extends AppCompatActivity {
         TextView averageTimePerCraftView = findViewById(R.id.averageTimePerCraft);
         averageTimePerCraftView.append(" "+ averageTimeCraft +"s");
 
-
-
-
+        // Go to main menu
         Button home = findViewById(R.id.homeScoreSummaryButton);
         home.setOnClickListener(new View.OnClickListener() {
             @Override

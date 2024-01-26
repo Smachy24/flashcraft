@@ -31,6 +31,7 @@ public class TimeAttackLoseActivity extends AppCompatActivity {
         Button Restart = findViewById(R.id.RestartLosingButton);
         Button mainMenu = findViewById(R.id.MainMenuLosingButton);
 
+        // Restart one game
         Restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,11 +44,9 @@ public class TimeAttackLoseActivity extends AppCompatActivity {
                 Intent intent = new Intent(TimeAttackLoseActivity.this, TimeAttackActivity.class);
                 intent.putExtra("game", game);
                 startActivity(intent);
-
-
             }
         });
-
+        // Go to menu
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,8 +55,5 @@ public class TimeAttackLoseActivity extends AppCompatActivity {
                 startActivity(new Intent(TimeAttackLoseActivity.this, MainActivity.class));
             }
         });
-
-
-
     }
 }

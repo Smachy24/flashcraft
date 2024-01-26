@@ -33,9 +33,8 @@ public class TimeAttackActivity extends AppCompatActivity {
 
         ArrayList<Item> items = new ArrayList<>();
 
-
+        // Get list of all items
         Field[] drawables = R.drawable.class.getFields();
-
         for (Field field : drawables) {
             try {
                 String resourceName = field.getName();
@@ -51,6 +50,7 @@ public class TimeAttackActivity extends AppCompatActivity {
             }
         }
 
+        // Add items to recycler view
         RecyclerView recyclerView = findViewById(R.id.itemListRecyclerView);
         ItemAdapter adapter = new ItemAdapter(items);
         recyclerView.setAdapter(adapter);
@@ -68,6 +68,7 @@ public class TimeAttackActivity extends AppCompatActivity {
         int totalCrafts = craftList.size();
         int round = game.getCurrentCraftIndex();
 
+        // To not surpass total crafts number
         if(round < totalCrafts){
             Craft craft = craftList.get(round);
             TextView itemCraftedTextView = findViewById(R.id.itemCraftedTextView);
@@ -86,26 +87,27 @@ public class TimeAttackActivity extends AppCompatActivity {
             TextView timerTextView = findViewById(R.id.timerTextView);
 
             CountDownTimer countDownTimer = new CountDownTimer(timerLimit*1000, 1000) {
+               // Add one second to timer info
                 public void onTick(long millisUntilFinished) {
                     timerTextView.setText(millisUntilFinished /1000 + "s");
                     roundTime ++;
                 }
 
+                // When timer is 0s
                 public void onFinish() {
                     timerTextView.setText("Temps écoulé !");
                     Intent intent = new Intent(TimeAttackActivity.this, TimeAttackLoseActivity.class);
                     startActivity(intent);
-
                 }
             };
 
-            // Démarrez le compte à rebours
             countDownTimer.start();
 
             validateCraftButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     boolean craftMatch = checkCraft(craft, countDownTimer);
+                    // If it's the good craft play next craft
                     if(craftMatch){
                         totalSeconds += roundTime;
                         game.setCurrentCraftIndex(round+1);
@@ -115,7 +117,7 @@ public class TimeAttackActivity extends AppCompatActivity {
                 }
             });
         }
-
+        // When all crafts are correct : game win
         else {
             Intent intent = new Intent(TimeAttackActivity.this, TimeAttackScores.class);
             intent.putExtra("totalTimeCraft", totalSeconds);
@@ -125,6 +127,9 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Reset grid : set empty image and empty tag on each slot
+     */
     private void resetGrid() {
         for (int i = 0; i < 9; i++) {
             int resourceId = getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName());
@@ -135,67 +140,71 @@ public class TimeAttackActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Start the game
+     */
     private void initGame(){
         Intent srcIntent = getIntent();
         TimeAttackGame game = srcIntent.getParcelableExtra("game");
-
         ArrayList<Craft> craftsList = game.getCrafts();
 
-
-        int currentCraftIndex = game.getCurrentCraftIndex();
-        Craft currentCraft = craftsList.get(currentCraftIndex);
+//        int currentCraftIndex = game.getCurrentCraftIndex();
+//        Craft currentCraft = craftsList.get(currentCraftIndex);
         playRound(game);
-
-
-
     }
 
+    /**
+     * Check if the craft in the crafting table is the craft of the wanted item
+     * @param listGoodCrafts : List of all good variants of a craft
+     * @param timer : timer of the game
+     * @return Boolean : If the craft is good
+     */
     private boolean checkCraft(Craft listGoodCrafts, CountDownTimer timer) {
 
         boolean craftIsGood = false;
+        //Check for each variant
         for(int indexCraft=0; indexCraft < listGoodCrafts.getCraft().size(); indexCraft++){
             boolean craftMatch = true;
+            // Check for each item
             for (int indexItem = 0; indexItem <= 8; indexItem++) {
                 ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + indexItem, "id", getPackageName()));
                 String craftItemTag = craftingItem.getTag().toString();
                 String goodCraftItem = listGoodCrafts.getItemFromIndex(indexCraft, indexItem);
 
+                // If item not correspond to craft
                 if (!craftItemTag.equals(goodCraftItem)) {
                     craftMatch = false;
                     break;
                 }
             }
+            // If craft to be checked correspond to current variant
             if(craftMatch){
                 craftIsGood=true;
             }
         }
-
-
-
         if (craftIsGood) {
-            System.out.println("Le craft est bon");
             timer.cancel();
             return true;
         }
-        System.out.println("Le craft est erroné");
         return false;
 
     }
 
 
     /**
-     * Set children of crafting table dropable elements
+     * Set children of crafting table dropable elements + remove element from crafting table
      */
     private void bind() {
         FrameLayout craftingTableFrameLayout = findViewById(R.id.craftingTableFrameLayout);
         for (int i = 0; i < craftingTableFrameLayout.getChildCount(); i++) {
             View child = craftingTableFrameLayout.getChildAt(i);
 
-            // Vérifie si l'enfant est une instance de ViewGroup
             if (child instanceof ImageView) {
                 ImageView craftingImageView = (ImageView) child;
+                // Set slot can receive a image
                 craftingImageView.setOnDragListener(new DragListener());
+
+                // Remove item from crafting table
                 craftingImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -208,7 +217,6 @@ public class TimeAttackActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
     private class DragListener implements View.OnDragListener {
@@ -224,12 +232,12 @@ public class TimeAttackActivity extends AppCompatActivity {
             if (event.getAction() == DragEvent.ACTION_DROP) {
                 ImageView draggedView = (ImageView) event.getLocalState();
                 if (v instanceof ImageView) {
+                    // Change image and tag of the current slot to item's infos
                     ((ImageView) v).setImageDrawable(draggedView.getDrawable());
                     ((ImageView) v).setTag(draggedView.getTag());
                 }
             }
             return true;
         }
-
     }
 }

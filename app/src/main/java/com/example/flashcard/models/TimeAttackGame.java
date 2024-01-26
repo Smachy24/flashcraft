@@ -12,6 +12,7 @@ public class TimeAttackGame implements Parcelable {
         this.crafts = crafts;
     }
 
+    // Start parcelable implementation
     protected TimeAttackGame(Parcel in) {
         crafts = in.createTypedArrayList(Craft.CREATOR);
         currentCraftIndex = in.readInt();
@@ -40,18 +41,40 @@ public class TimeAttackGame implements Parcelable {
         }
     };
 
+    // End parcelable implementation
+
+
+    /**
+     * Get time attack game crafts
+     * @return ArrayList<Craft> : Crafts of the game
+     */
     public ArrayList<Craft> getCrafts() {
         return crafts;
     }
 
+
+    /**
+     * Set list of game's crafts
+     * @param crafts : New list of craft
+     */
     public void setCrafts(ArrayList<Craft> crafts) {
         this.crafts = crafts;
     }
 
+
+    /**
+     * Return current craft index
+     * @return int : current craft index
+     */
     public int getCurrentCraftIndex() {
         return currentCraftIndex;
     }
 
+
+    /**
+     * Set current craft index
+     * @param currentCraftIndex : Current craft index
+     */
     public void setCurrentCraftIndex(int currentCraftIndex) {
         this.currentCraftIndex = currentCraftIndex;
     }
