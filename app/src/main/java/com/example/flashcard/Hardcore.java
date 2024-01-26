@@ -381,7 +381,7 @@ public class Hardcore extends AppCompatActivity {
                             mediaPlayer.start();
                         }
                         break;
-                    case "BOSS : LE WARDEN":
+                    case "BOSS FINAL : LE WARDEN":
                         if (!sharedPreferences.getBoolean("isWardenBeaten", false))
                         {
                             editor.putBoolean("isWardenBeaten", true);
@@ -468,10 +468,11 @@ public class Hardcore extends AppCompatActivity {
             intent.putExtra("Difficulty", "hard");
             intent.putExtra("game", game);
             startActivity(intent);
+            finish();
         }
         else
         {
-
+            finish();
         }
     }
 }

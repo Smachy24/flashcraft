@@ -34,12 +34,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/regular"
+        android:text="Temps Total :"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        tools:text="Temps Total" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
 
     <TextView
@@ -48,12 +48,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/regular"
+        android:text="Temps moyen par craft :"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/totalTimeCraft"
         app:layout_constraintStart_toStartOf="@+id/totalTimeCraft"
-        app:layout_constraintTop_toBottomOf="@+id/totalTimeCraft"
-        tools:text="Temps moyen par craft" />
+        app:layout_constraintTop_toBottomOf="@+id/totalTimeCraft" />
 
     <ImageView
         android:id="@+id/titleTextView"

@@ -11,43 +11,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class RpgUtils {
+    public static final int minimalAmount = 1;
+    public static final int mediumAmount = 5;
+    public static final int bigAmount = 10;
+    public static final int giganticAmount = 25;
+    public static final int godAmount = 50;
+    public static final int maxAmount = 100;
+
+
     public static ArrayList<RpgQuestion> baseQuestions = new ArrayList<>();
-
-    private static final ArrayList<RpgAnswer> baseQuestion1Answers = new ArrayList<RpgAnswer>() {{
-        add(new RpgAnswer(
-                "Tu prends tout pour toi, après tout, c'est la survie",
-                -5, 0, 1, 0,
-                1, 0, 0, 0
-        ));
-        add(new RpgAnswer(
-                "Tu prends seulement ce dont tu as besoin",
-                5, 0, 0, 5,
-                0, 1, 0, 0
-        ));
-        add(new RpgAnswer(
-                "Tu laisses tout tel quel, espérant que les propriétaires reviendront ",
-                0, -5, 0, -5,
-                0, 1, 0, 0
-        ));
-    }};
-
-    private static final ArrayList<RpgAnswer> baseQuestion2Answers = new ArrayList<RpgAnswer>() {{
-        add(new RpgAnswer(
-                "Tu respectes les villageois et cherches des diamants ailleurs",
-                +5, 0, -5, 0,
-                0, 0, 0, 2
-        ));
-        add(new RpgAnswer(
-                "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                -5, 0, +5, +10,
-                5, 0, 0, 0
-        ));
-        add(new RpgAnswer(
-                "Tu essaies de négocier avec eux pour partager les ressources",
-                +1, 0, 0, -1,
-                2, 0, 0, 0
-        ));
-    }};
 
 
     public static ArrayList<RpgQuestion> getBaseQuestions()
@@ -1489,268 +1461,263 @@ public class RpgUtils {
     public static void loadSuccessQuestionsInGameQuestionPool(ArrayList<RpgQuestion> gameQuestionsPool, Context context)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("Achievements", Context.MODE_PRIVATE);
+        boolean isWitherBeaten = sharedPreferences.getBoolean("isWitherBeaten", false);
+        boolean isGuardianBeaten = sharedPreferences.getBoolean("isGuardianBeaten", false);
+        boolean isEnderDragonBeaten = sharedPreferences.getBoolean("isEnderDragonBeaten", false);
         boolean isGodBeaten = sharedPreferences.getBoolean("isGodBeaten", false);
+        boolean isWardenBeaten = sharedPreferences.getBoolean("isWardenBeaten", false);
+
+        boolean isNetherDiscovered = sharedPreferences.getBoolean("isNetherUnlocked", false);
+        boolean isEndUnlocked = sharedPreferences.getBoolean("isEndUnlocked", false);
+        boolean isWaterTempleUnlocked = sharedPreferences.getBoolean("isWaterTempleUnlocked", false);
+        boolean isEatherUnlocked = sharedPreferences.getBoolean("isEatherUnlocked", false);
+
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
+        ArrayList<RpgAnswer> godCurse1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Affronter la créature",
+                    "J'INVOQUE EXODIA LE MAUDIT",
                     -5, 0, 1, 0,
                     1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tenter de le faire exploser avec de la tnt",
+                    "TECHNIQUE SECRETE DE LA FAMILLE JOESTAR",
                     5, 0, 0, 5,
                     0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "glouglou potion de force dans sa bouche",
+                    "NO U",
                     0, -20, +2, -10,
                     0, 1, 0, 0
             ));
         }};
 
+        if(isGodBeaten)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "BOSS FINAL : LE WARDEN",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            godCurse1));
+        }
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "BOSS : NOTCH",
-                        "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                        "Envie de fuir le wither envie d'être with her AHAH.",
-                        answersQuestion1));
 
-
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> netherTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
-                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
-                        answersQuestion2));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isNetherDiscovered)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Cadeau du nether",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            netherTreasure1));
+        }
 
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> endTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion3));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isEndUnlocked)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Cadeau de l'end",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            endTreasure1));
+        }
 
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> waterTempleTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion4));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isWaterTempleUnlocked)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Cadeau du water temple",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            waterTempleTreasure1));
+        }
 
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> witherTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion5));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isWitherBeaten)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Wither star",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            witherTreasure1));
+        }
 
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> enderDragonTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion6));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isEnderDragonBeaten)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Oeuf d'ender dragon",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            enderDragonTreasure1));
+        }
 
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> guardianTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion7));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isGuardianBeaten)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Triden",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            guardianTreasure1));
+        }
 
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion8 = new ArrayList<RpgAnswer>() {{
+        // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> godTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Je recupere truc 1",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "je recupere truc 2",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "je recupere truc 3",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
             ));
         }};
 
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion8));
-
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
-            add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
-            ));
-            add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
-            ));
-            add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
-            ));
-        }};
-
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion9));
-
-        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
-        ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
-            add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
-            ));
-            add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
-            ));
-            add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
-            ));
-        }};
-
-        gameQuestionsPool.add(
-                new RpgQuestion(
-                        "L'EATHER",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
-                        answersQuestion10));
+        // This bonus question is added only if the success is unlocked.
+        // those question are gift to help the player progress further in the game.
+        if(isGodBeaten)
+        {
+            gameQuestionsPool.add(
+                    new RpgQuestion(
+                            "TRESOR : Pomme de Notch",
+                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            godTreasure1));
+        }
 
         Collections.shuffle(gameQuestionsPool);
     }

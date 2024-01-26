@@ -70,6 +70,15 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         // Animation text robin
 
         TextView textView4 = findViewById(R.id.textView4);
+
+        textView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.villager);
+                mediaPlayer.start();
+            }
+        });
+
         Animation bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce_animation);
 
 
@@ -135,10 +144,12 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
                 final MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.click_sound);
                 mediaPlayer.start();
                 Intent hardcordeIntent = new Intent(MainActivity.this, Hardcore.class);
-                hardcordeIntent.putExtra("game", new RpgGame("hardcore"));
+                hardcordeIntent.putExtra("game", new RpgGame("hardcore", MainActivity.this));
                 startActivity(hardcordeIntent);
             }
         });
+
+
 
         Button allQuestionsButton = findViewById(R.id.allQuestionsButton);
         allQuestionsButton.setOnClickListener(new View.OnClickListener() {

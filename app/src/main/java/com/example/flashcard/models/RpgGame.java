@@ -1,5 +1,6 @@
 package com.example.flashcard.models;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -26,7 +27,7 @@ public class RpgGame implements Parcelable {
     private boolean isEatherUnlocked = false;
     private boolean isGodBeaten = false;
 
-    public RpgGame(String difficulty)
+    public RpgGame(String difficulty, Context context)
     {
         this.player = new RpgPlayer();
         this.questions = RpgUtils.getBaseQuestions();
@@ -36,6 +37,8 @@ public class RpgGame implements Parcelable {
 
         this.currentQuestionIndex = 0;
         this.currentQuestion = questions.get(this.currentQuestionIndex);
+
+        RpgUtils.loadSuccessQuestionsInGameQuestionPool(this.questions, context);
     }
 
     // parcelable implementation start

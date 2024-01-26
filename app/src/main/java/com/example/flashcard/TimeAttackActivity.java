@@ -23,6 +23,9 @@ import java.util.ArrayList;
 
 public class TimeAttackActivity extends AppCompatActivity {
 
+    public final int timerLimit = 45;
+    public int roundTime = 0;
+    public int totalSeconds = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +62,8 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     }
 
-    private void playRound(TimeAttackGame game ){
+    private void playRound(TimeAttackGame game){
+        roundTime = 0;
         ArrayList<Craft>craftList = game.getCrafts();
         int totalCrafts = craftList.size();
         int round = game.getCurrentCraftIndex();
@@ -81,9 +85,10 @@ public class TimeAttackActivity extends AppCompatActivity {
             Button validateCraftButton = findViewById(R.id.validateCraftButton);
             TextView timerTextView = findViewById(R.id.timerTextView);
 
-            CountDownTimer countDownTimer = new CountDownTimer(45000, 1000) {
+            CountDownTimer countDownTimer = new CountDownTimer(timerLimit*1000, 1000) {
                 public void onTick(long millisUntilFinished) {
-                    timerTextView.setText(millisUntilFinished / 1000 + "s");
+                    timerTextView.setText(millisUntilFinished /1000 + "s");
+                    roundTime ++;
                 }
 
                 public void onFinish() {
@@ -102,6 +107,7 @@ public class TimeAttackActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     boolean craftMatch = checkCraft(craft, countDownTimer);
                     if(craftMatch){
+                        totalSeconds += roundTime;
                         game.setCurrentCraftIndex(round+1);
                         resetGrid();
                         playRound(game);
@@ -112,6 +118,8 @@ public class TimeAttackActivity extends AppCompatActivity {
 
         else {
             Intent intent = new Intent(TimeAttackActivity.this, TimeAttackScores.class);
+            intent.putExtra("totalTimeCraft", totalSeconds);
+            intent.putExtra("averageTimeCraft", totalSeconds / 5);
             startActivity(intent);
         }
 
@@ -143,21 +151,29 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     }
 
-    private boolean checkCraft(Craft goodCraft, CountDownTimer timer) {
-        boolean craftMatch = true;
+    private boolean checkCraft(Craft listGoodCrafts, CountDownTimer timer) {
 
-        for (int i = 0; i <= 8; i++) {
-            ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName()));
-            String craftItemTag = craftingItem.getTag().toString();
-            String goodCraftItem = goodCraft.getItemFromIndex(i);
+        boolean craftIsGood = false;
+        for(int indexCraft=0; indexCraft < listGoodCrafts.getCraft().size(); indexCraft++){
+            boolean craftMatch = true;
+            for (int indexItem = 0; indexItem <= 8; indexItem++) {
+                ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + indexItem, "id", getPackageName()));
+                String craftItemTag = craftingItem.getTag().toString();
+                String goodCraftItem = listGoodCrafts.getItemFromIndex(indexCraft, indexItem);
 
-            if (!craftItemTag.equals(goodCraftItem)) {
-                craftMatch = false;
-                break;
+                if (!craftItemTag.equals(goodCraftItem)) {
+                    craftMatch = false;
+                    break;
+                }
+            }
+            if(craftMatch){
+                craftIsGood=true;
             }
         }
 
-        if (craftMatch) {
+
+
+        if (craftIsGood) {
             System.out.println("Le craft est bon");
             timer.cancel();
             return true;
