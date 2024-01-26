@@ -1122,27 +1122,27 @@ public class RpgUtils {
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Affronter la créature",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    "Implorer son pardon et vous faire martyr",
+                    0, 0, -godAmount, +godAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tenter de le faire exploser avec de la tnt",
-                    5, 0, 0, 5,
+                    "Vous voyez god of war... bah la même (imaginez la cinematique dans votre tête avec du RTX)",
+                    -godAmount, -godAmount, 0, 5,
                     0, 1, 0, 0
             ));
             add(new RpgAnswer(
-                    "glouglou potion de force dans sa bouche",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    "Vous vous recouvrer du sang de l'ender dragon en esperant qu'il vous protège de son courou.",
+                    0, -godAmount, 0, -godAmount,
+                    0, 0, 0, 0
             ));
         }};
 
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "BOSS : NOTCH",
-                        "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                        "Envie de fuir le wither envie d'être with her AHAH.",
+                        "Alors que vous rentrer dans le plus grand des templs volant de cette dimension, un homme vétue de lambaux vous attend une pomme à la main... votre fin est proche.",
+                        "Lorsque tout homme deviens de la dynamite, dieu se meurt.",
                         answersQuestion1));
 
 
@@ -1150,24 +1150,24 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    -bigAmount, 0, +bigAmount, +mediumAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    0, -bigAmount, -mediumAmount, -bigAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    +mediumAmount, -mediumAmount, 0, +bigAmount,
+                    0, 0, 0, 0
             ));
         }};
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "L'EATHER",
+                        "L'EATHER - Balade parmis les nuages",
                         "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
                         "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
                         answersQuestion2));
@@ -1176,18 +1176,18 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    -mediumAmount, 0, -bigAmount, -bigAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    +bigAmount, -bigAmount, -mediumAmount, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    -bigAmount, +bigAmount, 0, +mediumAmount,
+                    0, 0, 0, 0
             ));
         }};
 
@@ -1202,17 +1202,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    -mediumAmount, 0, +bigAmount, +bigAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    0, -bigAmount, +bigAmount, +mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    bigAmount, -mediumAmount, -bigAmount, -1,
                     2, 0, 0, 0
             ));
         }};
@@ -1228,18 +1228,18 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    +mediumAmount, -bigAmount, -mediumAmount, -mediumAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    -mediumAmount, 0, +mediumAmount, +bigAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    -bigAmount, bigAmount, 0, -mediumAmount,
+                    0, 0, 0, 0
             ));
         }};
 
@@ -1254,17 +1254,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    +bigAmount, -bigAmount, -5, +mediumAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    -bigAmount, 0, +bigAmount, -mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    0, +bigAmount, -bigAmount, +mediumAmount,
                     2, 0, 0, 0
             ));
         }};
@@ -1280,17 +1280,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    -mediumAmount, -bigAmount, +bigAmount, 0,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    mediumAmount, mediumAmount, -mediumAmount, -mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    mediumAmount, mediumAmount, mediumAmount, mediumAmount,
                     2, 0, 0, 0
             ));
         }};
@@ -1332,17 +1332,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    -mediumAmount, +bigAmount, -5, 0,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    -5, -mediumAmount, +5, +mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    +bigAmount, -mediumAmount, -mediumAmount, -1,
                     2, 0, 0, 0
             ));
         }};
@@ -1358,18 +1358,18 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    0, 0, 0, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    0, 0, 0, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    0, 0, 0, 0,
+                    0, 0, 0, 0
             ));
         }};
 
