@@ -151,21 +151,29 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     }
 
-    private boolean checkCraft(Craft goodCraft, CountDownTimer timer) {
-        boolean craftMatch = true;
+    private boolean checkCraft(Craft listGoodCrafts, CountDownTimer timer) {
 
-        for (int i = 0; i <= 8; i++) {
-            ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + i, "id", getPackageName()));
-            String craftItemTag = craftingItem.getTag().toString();
-            String goodCraftItem = goodCraft.getItemFromIndex(i);
+        boolean craftIsGood = false;
+        for(int indexCraft=0; indexCraft < listGoodCrafts.getCraft().size(); indexCraft++){
+            boolean craftMatch = true;
+            for (int indexItem = 0; indexItem <= 8; indexItem++) {
+                ImageView craftingItem = findViewById(getResources().getIdentifier("craftingSlotImage" + indexItem, "id", getPackageName()));
+                String craftItemTag = craftingItem.getTag().toString();
+                String goodCraftItem = listGoodCrafts.getItemFromIndex(indexCraft, indexItem);
 
-            if (!craftItemTag.equals(goodCraftItem)) {
-                craftMatch = false;
-                break;
+                if (!craftItemTag.equals(goodCraftItem)) {
+                    craftMatch = false;
+                    break;
+                }
+            }
+            if(craftMatch){
+                craftIsGood=true;
             }
         }
 
-        if (craftMatch) {
+
+
+        if (craftIsGood) {
             System.out.println("Le craft est bon");
             timer.cancel();
             return true;
