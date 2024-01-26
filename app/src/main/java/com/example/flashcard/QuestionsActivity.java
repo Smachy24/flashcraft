@@ -181,7 +181,7 @@ public class QuestionsActivity extends AppCompatActivity {
                     checkedRadioButton.setBackgroundColor(Color.rgb(226, 11, 11));
                     Toast.makeText(QuestionsActivity.this, "mauvaise réponse --'", Toast.LENGTH_SHORT).show();
                 }
-
+                answerValidationButton.setEnabled(false);
                 game.setCurrentQuestionIndex(game.getCurrentQuestionIndex() + 1);
                 Log.i(TAG, "onCreate: " + game.toString());
 
@@ -191,6 +191,8 @@ public class QuestionsActivity extends AppCompatActivity {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
+
+                        answerValidationButton.setEnabled(true);
                         nextQuestion();
                     }
                 }, 1000);   //1 s
