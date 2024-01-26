@@ -3,15 +3,13 @@ package com.example.flashcard.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-
 public class RpgPlayer implements Parcelable {
 
     // statistics
     private int maxLifePoint = 100;
     private int maxHungerPoint = 100;
     private int maxPowerPoint = 100;
-    private int maxStressPoint = 100;
+    private int minStressPoint = 0;
 
     private int currentLifePoint;
     private int currentHungerPoint;
@@ -37,7 +35,7 @@ public class RpgPlayer implements Parcelable {
         maxLifePoint = in.readInt();
         maxHungerPoint = in.readInt();
         maxPowerPoint = in.readInt();
-        maxStressPoint = in.readInt();
+        minStressPoint = in.readInt();
         currentLifePoint = in.readInt();
         currentHungerPoint = in.readInt();
         currentPowerPoint = in.readInt();
@@ -53,7 +51,7 @@ public class RpgPlayer implements Parcelable {
         dest.writeInt(maxLifePoint);
         dest.writeInt(maxHungerPoint);
         dest.writeInt(maxPowerPoint);
-        dest.writeInt(maxStressPoint);
+        dest.writeInt(minStressPoint);
         dest.writeInt(currentLifePoint);
         dest.writeInt(currentHungerPoint);
         dest.writeInt(currentPowerPoint);
@@ -148,10 +146,11 @@ public class RpgPlayer implements Parcelable {
     // stat methods
     public void UpdateStats(RpgAnswer answer)
     {
-        this.currentLifePoint += answer.getLifeModification();
-        this.currentHungerPoint += answer.getHungerModification();
-        this.currentPowerPoint += answer.getPowerModification();
-        this.currentStressPoint += answer.getStressModification();
+
+        this.currentLifePoint = Math.min(this.currentLifePoint + answer.getLifeModification(), this.maxLifePoint);
+        this.currentHungerPoint = Math.min(this.currentHungerPoint + answer.getLifeModification(), this.maxHungerPoint);
+        this.currentPowerPoint = Math.min(this.currentPowerPoint + answer.getLifeModification(), this.maxPowerPoint);
+        this.currentStressPoint = Math.max(this.currentStressPoint + answer.getLifeModification(), this.minStressPoint);
 
         // resources
         this.amountIronIngot += answer.getIronIngotModification();
@@ -162,10 +161,10 @@ public class RpgPlayer implements Parcelable {
 
     public boolean checkIfDead()
     {
-        return this.currentLifePoint == 0
-                || this.currentHungerPoint == 0
-                || this.currentPowerPoint == 0
-                || this.currentStressPoint == 0;
+        return this.currentLifePoint <= 0
+                || this.currentHungerPoint <= 0
+                || this.currentPowerPoint <= 0
+                || this.currentStressPoint >= 100;
     }
 
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HardcoreEndActivity">
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Avez vous apris de la vie ?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rpgEndFinalScoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/textView23"
+        app:layout_constraintStart_toStartOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        tools:text="42" />
+
+    <Button
+        android:id="@+id/rpgEndHomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="HOME"
+        app:layout_constraintEnd_toEndOf="@+id/rpgEndFinalScoreTextView"
+        app:layout_constraintStart_toStartOf="@+id/rpgEndFinalScoreTextView"
+        app:layout_constraintTop_toBottomOf="@+id/rpgEndFinalScoreTextView" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre score"
+        app:layout_constraintBottom_toTopOf="@+id/rpgEndFinalScoreTextView"
+        app:layout_constraintEnd_toEndOf="@+id/rpgEndFinalScoreTextView"
+        app:layout_constraintStart_toStartOf="@+id/rpgEndFinalScoreTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
