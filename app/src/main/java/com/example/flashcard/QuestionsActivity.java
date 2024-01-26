@@ -270,6 +270,7 @@ public class QuestionsActivity extends AppCompatActivity {
             intent.putExtra("Difficulty", "hard");
             intent.putExtra("game", game);
             startActivity(intent);
+            finish();
         }
         else
         {
@@ -277,6 +278,7 @@ public class QuestionsActivity extends AppCompatActivity {
             intent.putExtra("Difficulty", "hard");
             intent.putExtra("game", game);
             startActivity(intent);
+            finish();
         }
     }
 
