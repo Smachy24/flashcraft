@@ -94,10 +94,11 @@
 
     <ImageView
         android:id="@+id/promptLogoImageView"
-        android:layout_width="116dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="122dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
         android:background="#00FFFFFF"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/answersRadioGroup"
