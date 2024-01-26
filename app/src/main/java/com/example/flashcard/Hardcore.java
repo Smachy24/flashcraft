@@ -3,7 +3,9 @@ package com.example.flashcard;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -19,6 +21,7 @@ import com.example.flashcard.models.RpgAnswer;
 import com.example.flashcard.models.RpgGame;
 import com.example.flashcard.models.RpgPlayer;
 import com.example.flashcard.models.RpgQuestion;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -27,10 +30,18 @@ public class Hardcore extends AppCompatActivity {
     public static final String TAG = "HardcoreActivity";
 
     // View related class field declaration.
+    // player stats
     private ProgressBar lifeBar;
     private ProgressBar hungerBar;
     private ProgressBar powerBar;
     private ProgressBar stressBar;
+
+    // player resources
+    private TextView ironIngotAmount;
+    private TextView stickAmount;
+    private TextView cobblestoneAmount;
+    private TextView wheatAmount;
+    private TextView netherStarAmount;
 
     // textViews
     private TextView questionTitle;
@@ -57,6 +68,11 @@ public class Hardcore extends AppCompatActivity {
     private RpgPlayer player;
     private ArrayList<RpgQuestion> questions = new ArrayList<>();
 
+    // shared preferences Success
+    //SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+    //SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +80,18 @@ public class Hardcore extends AppCompatActivity {
         setContentView(R.layout.activity_hardcore);
 
         // View recovery
+        // player stats
         lifeBar = findViewById(R.id.lifeProgressBar);
         hungerBar = findViewById(R.id.hungerProgressBar);
         powerBar = findViewById(R.id.powerProgressBar);
         stressBar = findViewById(R.id.stressProgressBar);
+
+        // player resources
+        ironIngotAmount = findViewById(R.id.resourceTextView1);
+        stickAmount = findViewById(R.id.resourceTextView2);
+        cobblestoneAmount = findViewById(R.id.resourceTextView3);
+        wheatAmount = findViewById(R.id.resourceTextView4);
+        netherStarAmount = findViewById(R.id.resourceTextView5);
 
         // text views
         questionTitle = findViewById(R.id.rpgQuestionTitleTextView);
@@ -104,6 +128,12 @@ public class Hardcore extends AppCompatActivity {
         powerBar.setProgress(player.getCurrentPowerPoint());
         stressBar.setProgress(player.getCurrentStressPoint());
 
+        ironIngotAmount.setText(String.valueOf(player.getAmountIronIngot()));
+        stickAmount.setText(String.valueOf(player.getAmountStick()));
+        cobblestoneAmount.setText(String.valueOf(player.getAmountCobblestone()));
+        wheatAmount.setText(String.valueOf(player.getAmountWheat()));
+        netherStarAmount.setText(String.valueOf(0));
+
         // Generation of page
 
         // text views
@@ -128,6 +158,9 @@ public class Hardcore extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 String finalAnswer = checkedRadioButton.getText().toString();
                 Log.i("ANSWER", "DEFINITIVE CHOISE IS : " + finalAnswer);
 
@@ -142,30 +175,223 @@ public class Hardcore extends AppCompatActivity {
                     {
                         //Toast.makeText(Hardcore.this, "REPONSE" + i, Toast.LENGTH_SHORT).show();
                         RpgAnswer validatedAnswer = game.getCurrentQuestion().getAnswers().get(i);
+                        //game.getQuestions().remove(game.getCurrentQuestion()); // TODO CHECK IFWORKING ACCORDINGLY
+                        game.getQuestions().remove(game.getCurrentQuestionIndex()); // TODO CHECK IFWORKING ACCORDINGLY
+
+
+                        //UPDATE PLAYER STATS
                         game.getPlayer().UpdateStats(validatedAnswer);
+                        // new value assignation
+                        lifeBar.setProgress(player.getCurrentLifePoint());
+                        hungerBar.setProgress(player.getCurrentHungerPoint());
+                        powerBar.setProgress(player.getCurrentPowerPoint());
+                        stressBar.setProgress(player.getCurrentStressPoint());
+                        ironIngotAmount.setText(String.valueOf(player.getAmountIronIngot()));
+                        stickAmount.setText(String.valueOf(player.getAmountStick()));
+                        cobblestoneAmount.setText(String.valueOf(player.getAmountCobblestone()));
+                        wheatAmount.setText(String.valueOf(player.getAmountWheat()));
                     }
                 }
 
-                Toast.makeText(Hardcore.this, game.getCurrentQuestion().getMoral(), Toast.LENGTH_SHORT).show();
+                // TOAST OF THE MORAL
+                //Toast.makeText(Hardcore.this, game.getCurrentQuestion().getMoral(), Toast.LENGTH_SHORT).show();
                 game.incrementScoreByOne();
 
-
-
-
                 questionMoral.setVisibility(View.VISIBLE);
-                //Toast.makeText(Hardcore.this, "Vous etes sur ? douter !", Toast.LENGTH_SHORT).show();
 
 
+                // check for progression
+                // NETHER
                 if(game.getScore() > 5 && !game.isNetherUnlocked())
                 {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isNetherUnlocked", false))
+                    {
+                        // change global game settings
+                        editor.putBoolean("isNetherUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER LE NETHER!", Snackbar.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this,R.raw.sound_effect_nether_portal).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOS AMIS DU NETHER ARRIVENT !", Snackbar.LENGTH_LONG).show();
+
+                        // Change duration before nextQuestion
+                    }
+
+                    // change current game settings
                     game.setNetherUnlocked(true);
-                    Toast.makeText(Hardcore.this, "VOS AMIS DU NETHER ARRIVENT", Toast.LENGTH_SHORT).show();
                     RpgUtils.loadNetherQuestionsInGameQuestionPool(game.getQuestions());
                 }
+                else // play regular sound effect and don't add more question to the pool
+                {
+                    final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_xp1);
+                    mediaPlayer.start();
+                }
 
+                // END
+                if(game.getScore() > 15 && !game.isEndUnlocked())
+                {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isEndUnlocked", false))
+                    {
+                        // change global game settings
+                        editor.putBoolean("isEndUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER L'END!", Snackbar.LENGTH_LONG).show();
+                    }
+                    else // area already discovered
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this,R.raw.sound_effect_end_portal).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOS AMIS DE L'END ARRIVENT !", Snackbar.LENGTH_LONG).show();
+                    }
+
+                    // change current game settings
+                    game.setEndUnlocked(true);
+                    RpgUtils.loadEndQuestionsInGameQuestionPool(game.getQuestions());
+                }
+
+                // WATER TEMPLE
+                if(game.getScore() > 25 && !game.isWaterTempleUnlocked())
+                {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isWaterTempleUnlocked", false))
+                    {
+                        // change global game settings
+                        editor.putBoolean("isWaterTempleUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER LE TEMPLE DE L'EAU!", Snackbar.LENGTH_LONG).show();
+                    }
+                    else // area already discovered
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this,R.raw.sound_effect_sous_locean).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "LE TEMPLE DE L'EAU OUVRE SES PORTES !", Snackbar.LENGTH_LONG).show();
+                    }
+
+                    // change current game settings
+                    game.setWaterTempleUnlocked(true);
+                    RpgUtils.loadWaterTempleQuestionsInGameQuestionPool(game.getQuestions());
+                }
+
+                // AETHER
+                if(game.getScore() > 40 && !game.isEatherUnlocked()) {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isEatherUnlocked", false)) {
+                        // change global game settings
+                        editor.putBoolean("isEatherUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this, R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER L'EATHER!", Snackbar.LENGTH_LONG).show();
+                    } else // area already discovered
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this, R.raw.sound_effect_devil_deal).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ REUSSIS A INSTALLER UN MOD !", Snackbar.LENGTH_LONG).show();
+                    }
+
+                    // change current game settings
+                    game.setEatherUnlocked(true);
+                    RpgUtils.loadEatherQuestionsInGameQuestionPool(game.getQuestions());
+                }
+
+                // check for boss success
+                switch(game.getCurrentQuestion().getTitle()) {
+                    case "BOSS : LE WITHER":
+                        if (!sharedPreferences.getBoolean("isWitherBeaten", false))
+                        {
+                            editor.putBoolean("isWitherBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE WITHER!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_wither_spawn);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    case "BOSS : L'ENDER DRAGON":
+                        if (!sharedPreferences.getBoolean("isEnderDragonBeaten", false))
+                        {
+                            editor.putBoolean("isEnderDragonBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE L'ENDER DRAGON!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_dragon_death);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    case "BOSS : LE GUARDIAN":
+                        if (!sharedPreferences.getBoolean("isGuardianBeaten", false))
+                        {
+                            editor.putBoolean("isGuardianBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE GUARDIAN!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_elder_guardian);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    case "BOSS : LE WARDEN":
+                        if (!sharedPreferences.getBoolean("isWardenBeaten", false))
+                        {
+                            editor.putBoolean("isWardenBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE WARDEN!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_holy_mantle_break);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    case "BOSS : NOTCH":
+                        if (!sharedPreferences.getBoolean("isGodBeaten", false))
+                        {
+                            editor.putBoolean("isGodBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "FELICITATION VOUS AVEZ VAINCU NOTRE JEU!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_ameno);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    default:
+                }
+
+
+                // next question
                 game.nextQuestion();
-
-
 
                 // wait before generating next question page
                 Handler handler = new Handler();
@@ -173,7 +399,7 @@ public class Hardcore extends AppCompatActivity {
                     public void run() {
                         nextQuestion();
                     }
-                }, 500);   //1 s
+                }, 1250);   //1.25 s
             }
         });
 
