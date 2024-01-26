@@ -190,6 +190,7 @@ public class Hardcore extends AppCompatActivity {
         radioValidationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                radioValidationButton.setEnabled(false);
 
                 SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
