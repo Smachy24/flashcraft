@@ -362,6 +362,7 @@
         app:layout_constraintStart_toStartOf="@+id/achievementImageView"
         tools:text="TextAchiev" />
 
+
     <ImageView
         android:id="@+id/imageIntroImageView"
         android:layout_width="416dp"
@@ -386,5 +387,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

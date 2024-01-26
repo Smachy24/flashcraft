@@ -8,7 +8,6 @@ import com.example.flashcard.models.RpgQuestion;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class RpgUtils {
     public static final int minimalAmount = 1;
@@ -721,17 +720,17 @@ public class RpgUtils {
         // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    "Cueillir un fruit et tenter de comprendre son pouvoir magique",
+                    0, +5, 0, +5,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    "Observer les fruits de loin sans les toucher, méfiant des répercussions",
+                    -3, 0, +3, 0,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    "Demander aux Shulkers environnants des informations sur les fruits.",
                     +1, 0, 0, -1,
                     2, 0, 0, 0
             ));
@@ -740,51 +739,51 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'END",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "vous découvrez des arbres étranges portant des fruits ressemblant à des coquilles. Quelle action choisissez-vous ?",
+                        "Dans l'univers des Shulkers, la curiosité peut dévoiler des opportunités magiques,",
                         answersQuestion6));
 
         // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    "Inspecter les symboles de plus près pour essayer de comprendre leur signification.",
+                    0, +4, -5, -4,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "Tenter d'activer l'autel en utilisant des ressources que vous avez collectée.",
+                    0, -2, +2, 0,
+                    -1, -1, -1, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "Ignorer l'autel et explorer davantage la dimension.",
+                    +5, -5, 0, -1,
+                    0, 0, 0, 0
             ));
         }};
 
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'END",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Vous arrivez dans l'End et découvrez un mystérieux autel recouvert d'anciens symboles. Que faites-vous ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersQuestion7));
 
         // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion8 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    "S'approcher de la source des murmures pour essayer de comprendre le message",
+                    0, 0, +5, +5,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    "Ignorer les murmures et continuer à explorer la dimension avec prudence.",
+                    +5, 0, +2, -7,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    "Fuir rapidement, évitant toute interaction avec la source des murmures.",
+                    +5, 0, 0, +5,
                     2, 0, 0, 0
             ));
         }};
@@ -792,25 +791,25 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'END",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "Alors que vous explorez l'End, vous entendez des murmures mystérieux provenant d'une obscurité profonde. Que décidez-vous de faire ?",
+                        "Chaque décision a ses conséquences, et parfois, la curiosité peut révéler des vérités inattendues",
                         answersQuestion8));
 
         // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    "Utiliser les crânes pour invoquer le redoutable Wither, en quête de puissance ultime.",
+                    -5, 0, +5, 0,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    "Étudier les crânes avec prudence, cherchant à comprendre leur origine et leur potentiel.",
+                    0, +5, +5, -5,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    "Tu essaies de manger un crane",
+                    -10, +10, 0, -1,
                     2, 0, 0, 0
             ));
         }};
@@ -818,25 +817,25 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'END",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "Au fin fond du Nether, vous découvrez un ancien autel magique. Trois crânes de Wither reposent devant vous, émettant une énergie sombre. Que choisissez-vous de faire ?",
+                        "Votre décision révèle votre attitude envers la magie ancienne et les pouvoirs inexplorés",
                         answersQuestion9));
 
         // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    "Engager le combat avec les gardiens éthérés pour forcer l'ouverture du portail.",
+                    -7, 0, +7, 0,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    "Prendre le temps de décrypter l'énigme et chercher une solution pacifique",
+                    +4, -4, 0, 0,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    "Observer attentivement les environs pour trouver une alternative non évidente.",
+                    0, 0, 0, 0,
                     2, 0, 0, 0
             ));
         }};
@@ -844,8 +843,8 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "L'END",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "Un portail mystérieux se dessine devant vous, mais il est gardé par des gardiens éthérés. Pour ouvrir le portail, vous devez résoudre l'énigme ou les combattre. Quelle voie choisissez-vous ?",
+                        "Chaque choix dans ce royaume éthéré peut déterminer votre progression",
                         answersQuestion10));
 
         Collections.shuffle(gameQuestionsPool);
@@ -853,7 +852,7 @@ public class RpgUtils {
 
     public static void loadWaterTempleQuestionsInGameQuestionPool(ArrayList<RpgQuestion> gameQuestionsPool)
     {
-        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        // NEW Water temple question -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Affronter la créature",
@@ -883,96 +882,96 @@ public class RpgUtils {
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Tu sauves le villageois en lui pretant un casque ayant respiration aquatique",
+                    +bigAmount, 0, -bigAmount, -bigAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    "Tu lui donne une potion de respiration aquatique pour qu'il remonte à la surface",
+                    +mediumAmount, -bigAmount, -mediumAmount, -mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    "Tu ignores le villageois et tu le laisse mourir de soif (bouh !)",
+                    0, +mediumAmount, +mediumAmount, +bigAmount,
                     2, 0, 0, 0
             ));
         }};
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "LE TEMPLE DE L'EAU",
-                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
-                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
+                        "LE TEMPLE DE L'EAU - Le naufragé",
+                        "Tu rencontrer un villageois nauffragé qui demande ton aide. Que fais-tu ?",
+                        "La compassion envers les autres peut apporter des bénéfices personnels, mais négliger les besoins des autres peut aussi mener à une vie plus stressante.",
                         answersQuestion2));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Tu t'enfuis et te cache dans les labyrinthes du temple",
+                    +giganticAmount, -mediumAmount, -mediumAmount, +mediumAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "Tu fonces tête baissée pour tous les tuer ?",
+                    -mediumAmount, -mediumAmount, +mediumAmount, +mediumAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "Tu analyses la situation et tu fais attention à la manière dont tu diriges tes attaques",
+                    -mediumAmount, -mediumAmount, +giganticAmount, -mediumAmount,
+                    0, 0, 0, 0
             ));
         }};
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "LE TEMPLE DE L'EAU",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "LE TEMPLE DE L'EAU - Attention aux ennemis",
+                        "Une horde de guardians apparaît et te vise avec leur laser. Que fais tu ?",
+                        "Face à une situation périlleuse, il faut savoir réfléchir pour ne pas tomber dans les pièges.",
                         answersQuestion3));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
-                    0, 0, 0, 2
+                    "Tu récupère tout l'or sans faire gaffe si le boss est là",
+                    -mediumAmount, +mediumAmount, 0, +mediumAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
-                    5, 0, 0, 0
+                    "Tu explores la salle pour voir s'il n'y a pas de pièges, quitte à récupérer moins d'or.",
+                    +mediumAmount, -bigAmount, +bigAmount, -mediumAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
-                    2, 0, 0, 0
+                    "Tu te depêches de remonter à la surface car il te reste peu de temps pour respirer sous l'eau.",
+                    +mediumAmount, +giganticAmount, -mediumAmount, -giganticAmount,
+                    0, 0, 0, 0
             ));
         }};
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "LE TEMPLE DE L'EAU",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "LE TEMPLE DE L'EAU - Salle du trésor",
+                        "Tu trouves enfin la salle du trésor contenant les blocs d'or. Que fais-tu ?",
+                        "Parfois il faut prendre des risques, mais toujours en faisant attention aux potentiels pièges, même si la récompense obtenue est plus faible.",
                         answersQuestion4));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Tu respectes les villageois et cherches des diamants ailleurs",
-                    +5, 0, -5, 0,
+                    "Vous décidez d'explorer à deux le temple et de partager les trésors.",
+                    +mediumAmount, -mediumAmount, +mediumAmount, -mediumAmount,
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
-                    -5, 0, +5, +10,
+                    "Tu engages le combat car c'est toi qui doit récupérer tous les trésors",
+                    -giganticAmount, -mediumAmount, +giganticAmount, -mediumAmount,
                     5, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "Tu essaies de négocier avec eux pour partager les ressources",
-                    +1, 0, 0, -1,
+                    "Tu engages le dialogue tout en restant méfiant",
+                    +mediumAmount, -mediumAmount, +mediumAmount, +bigAmount,
                     2, 0, 0, 0
             ));
         }};
@@ -980,8 +979,8 @@ public class RpgUtils {
         gameQuestionsPool.add(
                 new RpgQuestion(
                         "LE TEMPLE DE L'EAU",
-                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
-                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        "Un autre joueur veut observer le temple. Que fais-tu ?",
+                        "Il faut savoir compter sur les gens.",
                         answersQuestion5));
 
         // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------

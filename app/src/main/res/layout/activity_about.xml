@@ -66,21 +66,20 @@
         android:id="@+id/homeButton"
         android:layout_width="342dp"
         android:layout_height="43dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button_minecraft"
         android:fontFamily="@font/regular"
         android:text="HOME"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/aboutVersion"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/aboutVersion"
-        app:layout_constraintTop_toBottomOf="@+id/aboutVersion" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="@+id/imageView10" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="190dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/skin_diego" />
