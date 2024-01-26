@@ -663,7 +663,7 @@ public class RpgUtils {
                     0, 0, 0, 2
             ));
             add(new RpgAnswer(
-                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",d
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
                     -5, 0, +5, +10,
                     5, 0, 0, 0
             ));
