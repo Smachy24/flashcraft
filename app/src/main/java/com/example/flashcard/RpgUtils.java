@@ -349,17 +349,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersNetherQuestion1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Affronter la créature",
-                    -5, 0, 1, 0,
+                    -0, 0, 1, -godAmount,
                     1, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tenter de le faire exploser avec de la tnt",
-                    5, 0, 0, 5,
+                    5, -giganticAmount, 0, -giganticAmount,
                     0, 1, 0, 0
             ));
             add(new RpgAnswer(
                     "glouglou potion de force dans sa bouche",
-                    0, -20, +2, -10,
+                    0, -godAmount, +2, 0,
                     0, 1, 0, 0
             ));
         }};
@@ -590,17 +590,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Affronter la créature",
-                    -5, 0, 1, 0,
+                    0, 0, -godAmount, 0,
                     1, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tenter de le faire exploser avec de la tnt",
-                    5, 0, 0, 5,
+                    -godAmount, 0, 0, 0,
                     0, 1, 0, 0
             ));
             add(new RpgAnswer(
                     "glouglou potion de force dans sa bouche",
-                    0, -20, +2, -10,
+                    -giganticAmount, -20, -giganticAmount, 0,
                     0, 1, 0, 0
             ));
         }};
@@ -856,17 +856,17 @@ public class RpgUtils {
         ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Affronter la créature",
-                    -5, 0, 1, 0,
+                    0, -giganticAmount, -giganticAmount, 0,
                     1, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "Tenter de le faire exploser avec de la tnt",
-                    5, 0, 0, 5,
+                    5, -godAmount, 0, 0,
                     0, 1, 0, 0
             ));
             add(new RpgAnswer(
                     "glouglou potion de force dans sa bouche",
-                    0, -20, +2, -10,
+                    0, 0, -godAmount, 0,
                     0, 1, 0, 0
             ));
         }};
