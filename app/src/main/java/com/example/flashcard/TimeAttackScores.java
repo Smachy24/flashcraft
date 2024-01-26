@@ -19,7 +19,7 @@ public class TimeAttackScores extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final MediaPlayer mediaPlayer = MediaPlayer.create(SummaryActivity.this,R.raw.click_sound);
+                final MediaPlayer mediaPlayer = MediaPlayer.create(TimeAttackScores.this,R.raw.click_sound);
                 mediaPlayer.start();
                 startActivity(new Intent(TimeAttackScores.this, MainActivity .class));
             }
