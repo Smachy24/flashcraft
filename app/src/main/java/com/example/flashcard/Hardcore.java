@@ -437,10 +437,11 @@ public class Hardcore extends AppCompatActivity {
             intent.putExtra("Difficulty", "hard");
             intent.putExtra("game", game);
             startActivity(intent);
+            finish();
         }
         else
         {
-
+            finish();
         }
     }
 }
