@@ -175,7 +175,9 @@ public class Hardcore extends AppCompatActivity {
                     {
                         //Toast.makeText(Hardcore.this, "REPONSE" + i, Toast.LENGTH_SHORT).show();
                         RpgAnswer validatedAnswer = game.getCurrentQuestion().getAnswers().get(i);
-                        game.getQuestions().remove(game.getCurrentQuestion()); // TODO CHECK IFWORKING ACCORDINGLY
+                        //game.getQuestions().remove(game.getCurrentQuestion()); // TODO CHECK IFWORKING ACCORDINGLY
+                        game.getQuestions().remove(game.getCurrentQuestionIndex()); // TODO CHECK IFWORKING ACCORDINGLY
+
 
                         //UPDATE PLAYER STATS
                         game.getPlayer().UpdateStats(validatedAnswer);
@@ -233,10 +235,79 @@ public class Hardcore extends AppCompatActivity {
                 }
 
                 // END
+                if(game.getScore() > 15 && !game.isEndUnlocked())
+                {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isEndUnlocked", false))
+                    {
+                        // change global game settings
+                        editor.putBoolean("isEndUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER L'END!", Snackbar.LENGTH_LONG).show();
+                    }
+                    else // area already discovered
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this,R.raw.sound_effect_end_portal).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOS AMIS DE L'END ARRIVENT !", Snackbar.LENGTH_LONG).show();
+                    }
+
+                    // change current game settings
+                    game.setEndUnlocked(true);
+                    RpgUtils.loadEndQuestionsInGameQuestionPool(game.getQuestions());
+                }
 
                 // WATER TEMPLE
+                if(game.getScore() > 25 && !game.isWaterTempleUnlocked())
+                {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isWaterTempleUnlocked", false))
+                    {
+                        // change global game settings
+                        editor.putBoolean("isWaterTempleUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER LE TEMPLE DE L'EAU!", Snackbar.LENGTH_LONG).show();
+                    }
+                    else // area already discovered
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this,R.raw.sound_effect_sous_locean).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "LE TEMPLE DE L'EAU OUVRE SES PORTES !", Snackbar.LENGTH_LONG).show();
+                    }
+
+                    // change current game settings
+                    game.setWaterTempleUnlocked(true);
+                    RpgUtils.loadWaterTempleQuestionsInGameQuestionPool(game.getQuestions());
+                }
 
                 // AETHER
+                if(game.getScore() > 40 && !game.isEatherUnlocked()) {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isEatherUnlocked", false)) {
+                        // change global game settings
+                        editor.putBoolean("isEatherUnlocked", true);
+                        editor.apply();
+                        // feedback
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this, R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ DECOUVER L'EATHER!", Snackbar.LENGTH_LONG).show();
+                    } else // area already discovered
+                    {
+                        // feedback
+                        MediaPlayer.create(Hardcore.this, R.raw.sound_effect_devil_deal).start();
+                        Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ REUSSIS A INSTALLER UN MOD !", Snackbar.LENGTH_LONG).show();
+                    }
+
+                    // change current game settings
+                    game.setEatherUnlocked(true);
+                    RpgUtils.loadEatherQuestionsInGameQuestionPool(game.getQuestions());
+                }
 
                 // check for boss success
                 switch(game.getCurrentQuestion().getTitle()) {
@@ -255,19 +326,72 @@ public class Hardcore extends AppCompatActivity {
                             mediaPlayer.start();
                         }
                         break;
-                    case "Moyen":
+                    case "BOSS : L'ENDER DRAGON":
+                        if (!sharedPreferences.getBoolean("isEnderDragonBeaten", false))
+                        {
+                            editor.putBoolean("isEnderDragonBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE L'ENDER DRAGON!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_dragon_death);
+                            mediaPlayer.start();
+                        }
                         break;
-                    case "Difficile":
+                    case "BOSS : LE GUARDIAN":
+                        if (!sharedPreferences.getBoolean("isGuardianBeaten", false))
+                        {
+                            editor.putBoolean("isGuardianBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE GUARDIAN!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_elder_guardian);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    case "BOSS : LE WARDEN":
+                        if (!sharedPreferences.getBoolean("isWardenBeaten", false))
+                        {
+                            editor.putBoolean("isWardenBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE WARDEN!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_holy_mantle_break);
+                            mediaPlayer.start();
+                        }
+                        break;
+                    case "BOSS : NOTCH":
+                        if (!sharedPreferences.getBoolean("isGodBeaten", false))
+                        {
+                            editor.putBoolean("isGodBeaten", true);
+                            editor.apply();
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                            mediaPlayer.start();
+                            Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "FELICITATION VOUS AVEZ VAINCU NOTRE JEU!", Snackbar.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_ameno);
+                            mediaPlayer.start();
+                        }
                         break;
                     default:
                 }
 
 
-
-
+                // next question
                 game.nextQuestion();
-
-
 
                 // wait before generating next question page
                 Handler handler = new Handler();

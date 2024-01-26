@@ -1,5 +1,8 @@
 package com.example.flashcard;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.flashcard.models.RpgAnswer;
 import com.example.flashcard.models.RpgQuestion;
 
@@ -416,7 +419,7 @@ public class RpgUtils {
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "BOSS : LE WITHER",
+                        "Le nether",
                         "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
                         "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
                         answersNetherQuestion2));
@@ -442,7 +445,7 @@ public class RpgUtils {
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "BOSS : LE WITHER",
+                        "Le nether",
                         "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersNetherQuestion3));
@@ -468,7 +471,7 @@ public class RpgUtils {
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "BOSS : LE WITHER",
+                        "Le nether",
                         "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersNetherQuestion4));
@@ -494,7 +497,7 @@ public class RpgUtils {
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "BOSS : LE WITHER",
+                        "Le nether",
                         "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersNetherQuestion5));
@@ -520,7 +523,7 @@ public class RpgUtils {
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "BOSS : LE WITHER",
+                        "Le nether",
                         "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersNetherQuestion6));
@@ -546,7 +549,7 @@ public class RpgUtils {
 
         gameQuestionsPool.add(
                 new RpgQuestion(
-                        "BOSS : LE WITHER",
+                        "Le nether",
                         "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
                         "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
                         answersNetherQuestion7));
@@ -685,4 +688,1070 @@ public class RpgUtils {
     }
 
 
+    public static void loadEndQuestionsInGameQuestionPool(ArrayList<RpgQuestion> gameQuestionsPool)
+    {
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Affronter la créature",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tenter de le faire exploser avec de la tnt",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "glouglou potion de force dans sa bouche",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "BOSS : L'ENDER DRAGON",
+                        "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                        "Envie de fuir le wither envie d'être with her AHAH.",
+                        answersQuestion1));
+
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
+                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
+                        answersQuestion2));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion3));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion4));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion5));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion6));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion7));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion8 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion8));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion9));
+
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'END",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion10));
+
+        Collections.shuffle(gameQuestionsPool);
+    }
+
+    public static void loadWaterTempleQuestionsInGameQuestionPool(ArrayList<RpgQuestion> gameQuestionsPool)
+    {
+        // NEW NETHER QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Affronter la créature",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tenter de le faire exploser avec de la tnt",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "glouglou potion de force dans sa bouche",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "BOSS : LE GUARDIAN",
+                        "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                        "Envie de fuir le wither envie d'être with her AHAH.",
+                        answersQuestion1));
+
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
+                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
+                        answersQuestion2));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion3));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion4));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion5));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion6));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion7));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion8 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion8));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion9));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "LE TEMPLE DE L'EAU",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion10));
+
+        Collections.shuffle(gameQuestionsPool);
+    }
+
+    public static void loadEatherQuestionsInGameQuestionPool(ArrayList<RpgQuestion> gameQuestionsPool)
+    {
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Affronter la créature",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tenter de le faire exploser avec de la tnt",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "glouglou potion de force dans sa bouche",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "BOSS : NOTCH",
+                        "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                        "Envie de fuir le wither envie d'être with her AHAH.",
+                        answersQuestion1));
+
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
+                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
+                        answersQuestion2));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion3));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion4));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion5));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion6));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion7));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion8 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion8));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion9));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion10));
+
+        Collections.shuffle(gameQuestionsPool);
+    }
+
+    public static void loadSuccessQuestionsInGameQuestionPool(ArrayList<RpgQuestion> gameQuestionsPool, Context context)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Achievements", Context.MODE_PRIVATE);
+        boolean isGodBeaten = sharedPreferences.getBoolean("isGodBeaten", false);
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion1 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Affronter la créature",
+                    -5, 0, 1, 0,
+                    1, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tenter de le faire exploser avec de la tnt",
+                    5, 0, 0, 5,
+                    0, 1, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "glouglou potion de force dans sa bouche",
+                    0, -20, +2, -10,
+                    0, 1, 0, 0
+            ));
+        }};
+
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "BOSS : NOTCH",
+                        "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
+                        "Envie de fuir le wither envie d'être with her AHAH.",
+                        answersQuestion1));
+
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion2 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Un compagnon joueur est en difficulté et demande ton aide. Comment réagis-tu ?",
+                        "L'amitié et l'altruisme sont des éléments clés dans la construction d'une communauté forte.",
+                        answersQuestion2));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion3 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion3));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion4 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion4));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion5 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion5));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion6 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion6));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion7 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion7));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion8 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion8));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion9 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion9));
+
+        // NEW QUESTION -------------------------------------------------------------------------------------------------------------------------
+        ArrayList<RpgAnswer> answersQuestion10 = new ArrayList<RpgAnswer>() {{
+            add(new RpgAnswer(
+                    "Tu respectes les villageois et cherches des diamants ailleurs",
+                    +5, 0, -5, 0,
+                    0, 0, 0, 2
+            ));
+            add(new RpgAnswer(
+                    "Tu les attaques pour obtenir les diamants, justifiant cela par la nécessité",
+                    -5, 0, +5, +10,
+                    5, 0, 0, 0
+            ));
+            add(new RpgAnswer(
+                    "Tu essaies de négocier avec eux pour partager les ressources",
+                    +1, 0, 0, -1,
+                    2, 0, 0, 0
+            ));
+        }};
+
+        gameQuestionsPool.add(
+                new RpgQuestion(
+                        "L'EATHER",
+                        "Tu découvres une mine de diamants, mais elle est protégée par des villageois pacifiques. Que fais-tu ?",
+                        "Les richesses obtenues par l'injustice ne mènent qu'à une fausse prospérité",
+                        answersQuestion10));
+
+        Collections.shuffle(gameQuestionsPool);
+    }
 }
