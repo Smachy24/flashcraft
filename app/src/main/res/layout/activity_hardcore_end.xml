@@ -7,34 +7,72 @@
     android:layout_height="match_parent"
     tools:context=".HardcoreEndActivity">
 
+    <ImageView
+        android:id="@+id/backgroundLightDirtImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/minecraft_dirt" />
+
+    <ImageView
+        android:id="@+id/backgroundDarkDirtImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="520dp"
+        android:layout_marginBottom="100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundLightDirtImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dirt_background_minecraft" />
+
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Avez vous apris de la vie ?"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/regular"
+        android:text="Avez-vous apris de la vie ?"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/statistiques__minecraft" />
 
     <TextView
         android:id="@+id/rpgEndFinalScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:fontFamily="@font/regular"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/textView23"
-        app:layout_constraintStart_toStartOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView25"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/textView25"
         tools:text="42" />
 
     <Button
         android:id="@+id/rpgEndHomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="248dp"
         android:text="HOME"
         app:layout_constraintEnd_toEndOf="@+id/rpgEndFinalScoreTextView"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="@+id/rpgEndFinalScoreTextView"
         app:layout_constraintTop_toBottomOf="@+id/rpgEndFinalScoreTextView" />
 
@@ -42,8 +80,12 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Votre score"
-        app:layout_constraintBottom_toTopOf="@+id/rpgEndFinalScoreTextView"
-        app:layout_constraintEnd_toEndOf="@+id/rpgEndFinalScoreTextView"
-        app:layout_constraintStart_toStartOf="@+id/rpgEndFinalScoreTextView" />
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/regular"
+        android:text="Votre score :"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView23"
+        app:layout_constraintStart_toStartOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 </androidx.constraintlayout.widget.ConstraintLayout>
