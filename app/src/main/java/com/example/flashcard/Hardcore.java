@@ -373,7 +373,7 @@ public class Hardcore extends AppCompatActivity {
                             mediaPlayer.start();
                         }
                         break;
-                    case "BOSS : LE WARDEN":
+                    case "BOSS FINAL : LE WARDEN":
                         if (!sharedPreferences.getBoolean("isWardenBeaten", false))
                         {
                             editor.putBoolean("isWardenBeaten", true);
