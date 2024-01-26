@@ -148,9 +148,9 @@ public class RpgPlayer implements Parcelable {
     {
 
         this.currentLifePoint = Math.min(this.currentLifePoint + answer.getLifeModification(), this.maxLifePoint);
-        this.currentHungerPoint = Math.min(this.currentHungerPoint + answer.getLifeModification(), this.maxHungerPoint);
-        this.currentPowerPoint = Math.min(this.currentPowerPoint + answer.getLifeModification(), this.maxPowerPoint);
-        this.currentStressPoint = Math.max(this.currentStressPoint + answer.getLifeModification(), this.minStressPoint);
+        this.currentHungerPoint = Math.min(this.currentHungerPoint + answer.getHungerModification(), this.maxHungerPoint);
+        this.currentPowerPoint = Math.min(this.currentPowerPoint + answer.getPowerModification(), this.maxPowerPoint);
+        this.currentStressPoint = Math.max(this.currentStressPoint + answer.getStressModification(), this.minStressPoint);
 
         // resources
         this.amountIronIngot += answer.getIronIngotModification();

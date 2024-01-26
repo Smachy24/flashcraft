@@ -424,13 +424,24 @@ public class Hardcore extends AppCompatActivity {
                 // next question
                 game.nextQuestion();
 
-                // wait before generating next question page
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        nextQuestion();
-                    }
-                }, 1250);   //1.25 s
+                if(game.getCurrentQuestion() == null || game.getPlayer().checkIfDead())
+                {
+                    finish();
+                    Intent intent = new Intent(Hardcore.this, HardcoreEndActivity.class);
+                    intent.putExtra("game", game);
+                    startActivity(intent);
+                }
+                else // regenerate the page
+                {
+                    // wait before generating next question page
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            nextQuestion();
+                        }
+                    }, 1250);   //1.25 s
+                }
+
             }
         });
 

@@ -27,7 +27,7 @@ public class HardcoreEndActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hardcore_end);
 
         homeButton = findViewById(R.id.rpgEndHomeButton);
-        score = findViewById(R.id.rpgEndHomeButton);
+        score = findViewById(R.id.rpgEndFinalScoreTextView);
 
         Intent srcIntent = getIntent();
         game = srcIntent.getParcelableExtra("game");

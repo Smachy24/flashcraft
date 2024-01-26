@@ -1476,18 +1476,18 @@ public class RpgUtils {
         ArrayList<RpgAnswer> godCurse1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "J'INVOQUE EXODIA LE MAUDIT",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    -godAmount, -bigAmount, -bigAmount, -bigAmount,
+                    bigAmount, bigAmount, bigAmount, bigAmount
             ));
             add(new RpgAnswer(
                     "TECHNIQUE SECRETE DE LA FAMILLE JOESTAR",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    -bigAmount, -bigAmount, -godAmount, -bigAmount,
+                    bigAmount, bigAmount, bigAmount, bigAmount
             ));
             add(new RpgAnswer(
                     "NO U",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    -bigAmount, -bigAmount, -bigAmount, -godAmount,
+                    bigAmount, bigAmount, bigAmount, bigAmount
             ));
         }};
 
@@ -1496,8 +1496,8 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "BOSS FINAL : LE WARDEN",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "Une creature sans pareil se dresse devant vous. Sans crier garde, sans prevenir et surtout sans un mot elle se dirige lentement vers vous...",
+                            "Toujours prendre le temps de relechir avant de provoquer un dieu.",
                             godCurse1));
         }
 
@@ -1505,18 +1505,18 @@ public class RpgUtils {
         // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> netherTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Je recupere truc 1",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    "Je recupere le premier",
+                    0, 0, 0, -bigAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 2",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    "je recupere le second",
+                    0, 0, bigAmount, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 3",
-                    0, -20, +2, -10,
+                    "je recupere le 3",
+                    0, bigAmount, 0, 0,
                     0, 1, 0, 0
             ));
         }};
@@ -1528,8 +1528,8 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Cadeau du nether",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "En plorant une forteresse du nether vous tomber sur un coffre fait de netherite.",
+                            "Quand la vie Ralas, il faut savoir l'acceptaiment gaïement.",
                             netherTreasure1));
         }
 
@@ -1537,18 +1537,18 @@ public class RpgUtils {
         ArrayList<RpgAnswer> endTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Je recupere truc 1",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    bigAmount, 0, 0, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "je recupere truc 2",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    0, bigAmount, 0, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "je recupere truc 3",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    0, 0, bigAmount, 0,
+                    0, 0, 0, 0
             ));
         }};
 
@@ -1559,8 +1559,8 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Cadeau de l'end",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "Alors que vous explorer l'ender city, vous mettez la main sur un coffre fait d'obsidienne",
+                            "Quand la vie Ralas, il faut savoir l'acceptaiment gaïement.",
                             endTreasure1));
         }
 
@@ -1568,18 +1568,18 @@ public class RpgUtils {
         ArrayList<RpgAnswer> waterTempleTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
                     "Je recupere truc 1",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    godAmount, 0, 0, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
                     "je recupere truc 2",
-                    5, 0, 0, 5,
+                    0, 0, godAmount, 0,
                     0, 1, 0, 0
             ));
             add(new RpgAnswer(
                     "je recupere truc 3",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    0, 0, 0, godAmount,
+                    0, 0, 0, 0
             ));
         }};
 
@@ -1590,27 +1590,27 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Cadeau du water temple",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "Alors que le niveau le niveau de l'eau s'abaisse vos yeux se pose sur ce qui ressemble a un coffre recouvert d'algues",
+                            "Quand la vie Ralas, il faut savoir l'acceptaiment gaïement.",
                             waterTempleTreasure1));
         }
 
         // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> witherTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Je recupere truc 1",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    "Je la laisse embraser mon coeur et mon corps",
+                    giganticAmount, giganticAmount, giganticAmount, giganticAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 2",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    "je la brise avec mon épée",
+                    0, 0, godAmount, minimalAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 3",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    "je la prend pour la vendre dans un village voisin",
+                    0, 0, 0, 0,
+                    bigAmount, bigAmount, bigAmount, bigAmount
             ));
         }};
 
@@ -1621,27 +1621,27 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Wither star",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "Un amalgame d'os noir et dessécher se trouve devant vous. Parmis ces horreur ce trouve un fragment d'étoile scintillant",
+                            "Etre un voleur peut etre respectable si votre but est de décrocher la lune",
                             witherTreasure1));
         }
 
         // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> enderDragonTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Je recupere truc 1",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    "je m'assoie a ces coté",
+                    0, 0, 0, -maxAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 2",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    "Je l'avale goulument... il sera toujours a l'abris EN MOI !",
+                    0, +maxAmount, 0, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 3",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    "Je monte la garde jusqu'a qu'il éclose pour avoir un dragon de compagnie",
+                    0, 0, +maxAmount, 0,
+                    0, 0, 0, 0
             ));
         }};
 
@@ -1652,26 +1652,26 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Oeuf d'ender dragon",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "Immense, ecailleux, froid et pourtant si fragile... Tel est l'oeuf de dragon que vous trouvez. Un besoin irrépressible de le protéger vous submerge",
+                            "Qui protege un oeuf protège un boeuf céleste",
                             enderDragonTreasure1));
         }
 
         // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> guardianTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Je recupere truc 1",
-                    -5, 0, 1, 0,
+                    "Je décide de partager sa garde avec mon meilleur ami Rodriguo, parce qu'il est quand meme super sympa Rodriguo",
+                    -5, 0, +giganticAmount, -giganticAmount,
                     1, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 2",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    "Je le sors de la terre avec mes deux mains.",
+                    0, 0, +maxAmount, 0,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 3",
-                    0, -20, +2, -10,
+                    "Je le prend et le jete sur la premiere vache que je trouve",
+                    0, +maxAmount, 0, 0,
                     0, 1, 0, 0
             ));
         }};
@@ -1683,27 +1683,27 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Triden",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "Alors qu'il pleut vous entender le vent siffler pret de vous, Un triden en argent bleuté se plante a vos pieds",
+                            "Qui marche contre le vent se prend un trident.",
                             guardianTreasure1));
         }
 
         // NEW TREASURE QUESTION -------------------------------------------------------------------------------------------------------------------------
         ArrayList<RpgAnswer> godTreasure1 = new ArrayList<RpgAnswer>() {{
             add(new RpgAnswer(
-                    "Je recupere truc 1",
-                    -5, 0, 1, 0,
-                    1, 0, 0, 0
+                    "ET JE CROQUE LA POMME",
+                    maxAmount, maxAmount, maxAmount, maxAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 2",
-                    5, 0, 0, 5,
-                    0, 1, 0, 0
+                    "ET JE CROQUE LA POMME",
+                    maxAmount, maxAmount, maxAmount, maxAmount,
+                    0, 0, 0, 0
             ));
             add(new RpgAnswer(
-                    "je recupere truc 3",
-                    0, -20, +2, -10,
-                    0, 1, 0, 0
+                    "ET JE CROQUE LA POMME",
+                    maxAmount, maxAmount, maxAmount, maxAmount,
+                    0, 0, 0, 0
             ));
         }};
 
@@ -1714,8 +1714,8 @@ public class RpgUtils {
             gameQuestionsPool.add(
                     new RpgQuestion(
                             "TRESOR : Pomme de Notch",
-                            "Un amalgame d'os et de haine se tient devant vous, c'est le Wither ! Préparer vous a mourrir !",
-                            "Envie de fuir le wither envie d'être with her AHAH.",
+                            "IMPOSSIBLE, impossible... impossible, elle est devant vous... impossible !",
+                            "Il faut croquer la vie a pleine dent, mais faite attention a vos gencive si elles sont sensibles.",
                             godTreasure1));
         }
 
