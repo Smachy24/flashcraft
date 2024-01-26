@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class Craft implements Parcelable {
 
-    private ArrayList<String> craft;
+    private ArrayList<ArrayList<String>>  craft;
     private int craftedItemImage;
     private String craftedItemName;
 
-    public Craft(ArrayList<String> craft, int craftedItemImage, String craftedItemName) {
+    public Craft(ArrayList<ArrayList<String>> craft, int craftedItemImage, String craftedItemName) {
         this.craft = craft;
         this.craftedItemImage = craftedItemImage;
         this.craftedItemName = craftedItemName;
@@ -48,15 +48,15 @@ public class Craft implements Parcelable {
         }
     };
 
-    public String getItemFromIndex(int i){
-        return craft.get(i);
+    public String getItemFromIndex(int craftIndex, int itemIndex){
+        return craft.get(craftIndex).get(itemIndex);
     }
 
-    public ArrayList<String> getCraft() {
+    public ArrayList<ArrayList<String>> getCraft() {
         return craft;
     }
 
-    public void setCraft(ArrayList<String> craft) {
+    public void setCraft(ArrayList<ArrayList<String>> craft) {
         this.craft = craft;
     }
 

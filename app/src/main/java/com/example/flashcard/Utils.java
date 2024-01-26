@@ -106,62 +106,148 @@ public class Utils {
     public static class CraftList{
         public static ArrayList<Craft> craftList;
 
-        private static void crateCraft(String name, int image, ArrayList<String> craft){
+        private static void crateCraft(String name, int image, ArrayList<ArrayList<String>> craft){
             Craft craftedItem = new Craft(craft, image, name);
             craftList.add(craftedItem);
         }
 
         private static void initCrafts(){
             craftList = new ArrayList<>();
-            crateCraft("Pain", R.drawable.question_item_bread, new ArrayList<>(Arrays.asList(
-                    "empty", "empty", "empty",
-                    "wheat", "wheat", "wheat",
-                    "empty", "empty", "empty")));
-            crateCraft("Epee en fer", R.drawable.question_item_iron_sword, new ArrayList<>(Arrays.asList(
-                    "empty", "iron_ingot", "empty",
-                    "empty", "iron_ingot", "empty",
-                    "empty", "stick", "empty")));
-            crateCraft("Casque en fer", R.drawable.question_item_iron_helmet, new ArrayList<>(Arrays.asList(
-                    "iron_ingot", "iron_ingot", "iron_ingot",
-                    "iron_ingot", "empty", "iron_ingot",
-                    "empty", "empty", "empty")));
-            crateCraft("Plastron en fer", R.drawable.question_item_iron_chestplate, new ArrayList<>(Arrays.asList(
-                    "iron_ingot", "empty", "iron_ingot",
-                    "iron_ingot", "iron_ingot", "iron_ingot",
-                    "iron_ingot", "iron_ingot", "iron_ingot")));
-            crateCraft("Pantalon en fer", R.drawable.question_item_iron_leggings, new ArrayList<>(Arrays.asList(
-                    "iron_ingot", "iron_ingot", "iron_ingot",
-                    "iron_ingot", "empty", "iron_ingot",
-                    "iron_ingot", "empty", "iron_ingot")));
-            crateCraft("Bottes en fer", R.drawable.question_item_iron_boots, new ArrayList<>(Arrays.asList(
-                    "empty", "empty", "empty",
-                    "iron_ingot", "empty", "iron_ingot",
-                    "iron_ingot", "empty", "iron_ingot")));
-            crateCraft("Four", R.drawable.question_item_furnace, new ArrayList<>(Arrays.asList(
-                    "cobblestone", "cobblestone", "cobblestone",
-                    "cobblestone", "empty", "cobblestone",
-                    "cobblestone", "cobblestone", "cobblestone")));
-            crateCraft("Hache en fer", R.drawable.question_item_iron_axe, new ArrayList<>(Arrays.asList(
-                    "iron_ingot", "iron_ingot", "empty",
-                    "iron_ingot", "stick", "empty",
-                    "empty", "stick", "empty")));
-            crateCraft("Pioche en fer", R.drawable.question_item_iron_pickaxe, new ArrayList<>(Arrays.asList(
-                    "iron_ingot", "iron_ingot", "iron_ingot",
-                    "empty", "stick", "empty",
-                    "empty", "stick", "empty")));
-            crateCraft("Pelle en fer", R.drawable.question_item_iron_shovel, new ArrayList<>(Arrays.asList(
-                    "empty", "iron_ingot", "empty",
-                    "empty", "stick", "empty",
-                    "empty", "stick", "empty")));
-            crateCraft("Houe en fer", R.drawable.question_item_iron_hoe, new ArrayList<>(Arrays.asList(
-                    "iron_ingot", "iron_ingot", "empty",
-                    "empty", "stick", "empty",
-                    "empty", "stick", "empty")));
-            crateCraft("Escalier en pierre", R.drawable.question_item_cobblestone_stairs, new ArrayList<>(Arrays.asList(
-                    "empty", "empty", "cobblestone",
-                    "empty", "cobblestone", "cobblestone",
-                    "cobblestone", "cobblestone", "cobblestone")));
+            crateCraft("Pain", R.drawable.question_item_bread, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "empty",
+                            "wheat", "wheat", "wheat",
+                            "empty", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "wheat", "wheat", "wheat",
+                            "empty", "empty", "empty",
+                            "empty", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "empty",
+                            "empty", "empty", "empty",
+                            "wheat", "wheat", "wheat"))
+            )));
 
+            crateCraft("Epee en fer", R.drawable.question_item_iron_sword, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "iron_ingot", "empty",
+                            "empty", "iron_ingot", "empty",
+                            "empty", "stick", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "empty", "empty",
+                            "iron_ingot", "empty", "empty",
+                            "stick", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "iron_ingot",
+                            "empty", "empty", "iron_ingot",
+                            "empty", "empty", "stick"))
+            )));
+
+            crateCraft("Casque en fer", R.drawable.question_item_iron_helmet, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "iron_ingot", "iron_ingot",
+                            "iron_ingot", "empty", "iron_ingot",
+                            "empty", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "empty",
+                            "iron_ingot", "iron_ingot", "iron_ingot",
+                            "iron_ingot", "empty", "iron_ingot"))
+            )));
+
+            crateCraft("Plastron en fer", R.drawable.question_item_iron_chestplate, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "empty", "iron_ingot",
+                            "iron_ingot", "iron_ingot", "iron_ingot",
+                            "iron_ingot", "iron_ingot", "iron_ingot"))
+            )));
+
+            crateCraft("Pantalon en fer", R.drawable.question_item_iron_leggings, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "iron_ingot", "iron_ingot",
+                            "iron_ingot", "empty", "iron_ingot",
+                            "iron_ingot", "empty", "iron_ingot"))
+            )));
+
+            crateCraft("Bottes en fer", R.drawable.question_item_iron_boots, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "empty", "iron_ingot",
+                            "iron_ingot", "empty", "iron_ingot",
+                            "empty", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "empty",
+                            "iron_ingot", "empty", "iron_ingot",
+                            "iron_ingot", "empty", "iron_ingot"))
+            )));
+
+            crateCraft("Fourneau", R.drawable.question_item_furnace, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "cobblestone", "cobblestone", "cobblestone",
+                            "cobblestone", "empty", "cobblestone",
+                            "cobblestone", "cobblestone", "cobblestone"))
+            )));
+
+            crateCraft("Hache en fer", R.drawable.question_item_iron_axe, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "iron_ingot", "empty",
+                            "iron_ingot", "stick", "empty",
+                            "empty", "stick", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "iron_ingot", "iron_ingot",
+                            "empty", "stick", "iron_ingot",
+                            "empty", "stick", "empty"))
+            )));
+
+            crateCraft("Pioche en fer", R.drawable.question_item_iron_pickaxe, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "iron_ingot", "iron_ingot",
+                            "empty", "stick", "empty",
+                            "empty", "stick", "empty"))
+            )));
+
+            crateCraft("Pelle en fer", R.drawable.question_item_iron_shovel, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "iron_ingot", "empty",
+                            "empty", "stick", "empty",
+                            "empty", "stick", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "empty", "empty",
+                            "stick", "empty", "empty",
+                            "stick", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "iron_ingot",
+                            "empty", "empty", "stick",
+                            "empty", "empty", "stick"))
+            )));
+
+            crateCraft("Houe en fer", R.drawable.question_item_iron_hoe, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "iron_ingot", "empty",
+                            "empty", "stick", "empty",
+                            "empty", "stick", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "iron_ingot", "iron_ingot",
+                            "empty", "stick", "empty",
+                            "empty", "stick", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "iron_ingot", "iron_ingot", "empty",
+                            "stick", "empty", "empty",
+                            "stick", "empty", "empty")),
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "iron_ingot", "iron_ingot",
+                            "empty", "empty", "stick",
+                            "empty", "empty", "stick"))
+            )));
+
+            crateCraft("Escalier en pierre", R.drawable.question_item_cobblestone_stairs, new ArrayList<ArrayList<String>>(Arrays.asList(
+                    new ArrayList<>(Arrays.asList(
+                            "empty", "empty", "cobblestone",
+                            "empty", "cobblestone", "cobblestone",
+                            "cobblestone", "cobblestone", "cobblestone")),
+                    new ArrayList<>(Arrays.asList(
+                            "cobblestone", "empty", "empty",
+                            "cobblestone", "cobblestone", "empty",
+                            "cobblestone", "cobblestone", "cobblestone"))
+            )));
         }
 
         public static ArrayList<Craft> getCraftList(){
