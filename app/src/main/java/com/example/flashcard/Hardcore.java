@@ -68,6 +68,9 @@ public class Hardcore extends AppCompatActivity {
     private RpgPlayer player;
     private ArrayList<RpgQuestion> questions = new ArrayList<>();
 
+    private ImageView image;
+    private TextView text;
+
     // shared preferences Success
     //SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
     //SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
@@ -78,6 +81,17 @@ public class Hardcore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hardcore);
+
+        // Hide image + text handler
+
+        image = findViewById(R.id.imageIntroImageView);
+        text = findViewById(R.id.textIntrotextView);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                hideImage();
+            }
+        }, 20000);
 
         // View recovery
         // player stats
@@ -468,6 +482,13 @@ public class Hardcore extends AppCompatActivity {
         });
 
 
+    }
+
+    private void hideImage() {
+        if (image != null && text != null) {
+            image.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+        }
     }
 
     private void nextQuestion()

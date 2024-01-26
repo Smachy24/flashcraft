@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * The AboutActivity class represents the activity that displays information about the application.
+ */
 public class AboutActivity extends AppCompatActivity {
 
     @Override
@@ -17,12 +20,13 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        TextView aboutVersion  = findViewById(R.id.aboutVersion);
+        // Find the TextView for displaying the app version
+        TextView aboutVersion = findViewById(R.id.aboutVersion);
 
+        // Retrieve the app version name and set it to the TextView
         Context context = getApplicationContext();
         PackageManager packageManager = context.getPackageManager();
         String packageName = context.getPackageName();
-
         String myVersionName = "not available";
 
         try {
@@ -33,14 +37,14 @@ public class AboutActivity extends AppCompatActivity {
 
         aboutVersion.setText(myVersionName);
 
-        Button closeButton = (Button) findViewById(R.id.homeButton);
-
+        // Set up the close button and its click listener
+        Button closeButton = findViewById(R.id.homeButton);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Close the current activity when the button is clicked
                 finish();
             }
         });
-
     }
 }

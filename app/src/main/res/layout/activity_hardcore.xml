@@ -362,4 +362,31 @@
         app:layout_constraintStart_toStartOf="@+id/achievementImageView"
         tools:text="TextAchiev" />
 
+
+    <ImageView
+        android:id="@+id/imageIntroImageView"
+        android:layout_width="416dp"
+        android:layout_height="800dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_texture_background" />
+
+    <TextView
+        android:id="@+id/textIntrotextView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/regular"
+        android:text="Finalement est ce que toute vie, toute aventures n'est pas comme un jeu de flash card.\n La pensé cartésienne existentialiste nous ammene a penser la vie comme un succesion de question ou chaque réponse nous pousse a enrichir notre sensibilité et connaissance morale et humaine.\n\nChaque question que nous impose la vie nous pousse a grandir et apprendre L'équilibre est alors pour nous la clé de toute chose.\n\nComme la dit un jour Karis (je crois) : Toute connaissance provient de l'expérience, donc commence a Farmer des slime tout de suite boloss "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
