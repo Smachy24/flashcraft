@@ -71,6 +71,7 @@ public class SuccessActivity extends AppCompatActivity {
         achievements.add(sharedPreferences.getBoolean("isGuardianBeaten", false));
         achievements.add(sharedPreferences.getBoolean("isEatherUnlocked", false));
         achievements.add(sharedPreferences.getBoolean("isGodBeaten", false));
+        achievements.add(sharedPreferences.getBoolean("isFirstGame", false));
 
         for (int i = 0; i < greenMarks.size(); i++) {
             if (achievements.get(i) == false) {

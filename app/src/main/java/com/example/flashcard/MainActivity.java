@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements Utils.OnQuestions
         });
 
         SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
-        boolean isGodBeaten = sharedPreferences.getBoolean("isGodBeaten", false);
+        boolean isGodBeaten = sharedPreferences.getBoolean("isGodBeaten", true);
 
         Log.i("isGodBeaten", "Valeur actuelle : " + isGodBeaten);
 

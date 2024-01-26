@@ -1,5 +1,6 @@
 package com.example.flashcard;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -86,12 +87,27 @@ public class Hardcore extends AppCompatActivity {
 
         image = findViewById(R.id.imageIntroImageView);
         text = findViewById(R.id.textIntrotextView);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                hideImage();
-            }
-        }, 20000);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+        boolean isFirstGame = sharedPreferences.getBoolean("isFirstGame", true);
+        if (isFirstGame)
+        {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    hideImage();
+                }
+            }, 5000);
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isFirstGame", false);
+            editor.apply();
+        }
+        else
+        {
+            hideImage();
+        }
+
 
         // View recovery
         // player stats
