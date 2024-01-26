@@ -325,7 +325,7 @@ public class Hardcore extends AppCompatActivity {
                     RpgUtils.loadWaterTempleQuestionsInGameQuestionPool(game.getQuestions());
                     achievementImage.setImageResource(R.drawable.water_temple_achiev);
                     achievementImage.setVisibility(View.VISIBLE);
-                    achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
+                    achievementText.setText("Les portes du temple de la mer\n s'ouvrent revelant les secrets marins ");
                 }
 
                 // AETHER
@@ -351,7 +351,7 @@ public class Hardcore extends AppCompatActivity {
                     RpgUtils.loadEatherQuestionsInGameQuestionPool(game.getQuestions());
                     achievementImage.setImageResource(R.drawable.aether_achiev);
                     achievementImage.setVisibility(View.VISIBLE);
-                    achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
+                    achievementText.setText("Un paradis inattendu se devoile");
                 }
 
                 // check for boss success
@@ -404,7 +404,7 @@ public class Hardcore extends AppCompatActivity {
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE GUARDIAN!", Snackbar.LENGTH_LONG).show();
                             achievementImage.setImageResource(R.drawable.guardian_achiev);
                             achievementImage.setVisibility(View.VISIBLE);
-                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
+                            achievementText.setText("Le Guardian meurt libérant\n les eaux de ses malifices");
                         }
                         else
                         {
@@ -422,7 +422,7 @@ public class Hardcore extends AppCompatActivity {
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE LE WARDEN!", Snackbar.LENGTH_LONG).show();
                             achievementImage.setImageResource(R.drawable.warden_achiev);
                             achievementImage.setVisibility(View.VISIBLE);
-                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
+                            achievementText.setText("Le Warden succombe enfin\n à la resolution du heros !");
                         }
                         else
                         {
@@ -440,7 +440,7 @@ public class Hardcore extends AppCompatActivity {
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "FELICITATION VOUS AVEZ VAINCU NOTRE JEU!", Snackbar.LENGTH_LONG).show();
                             achievementImage.setImageResource(R.drawable.god_achiev);
                             achievementImage.setVisibility(View.VISIBLE);
-                            achievementText.setText("Les cris terrifiants du Wither s'éteignent\n la tranquillité revient !");
+                            achievementText.setText("?????????????????????");
                         }
                         else
                         {
