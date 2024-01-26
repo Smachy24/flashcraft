@@ -1,7 +1,5 @@
 package com.example.flashcard;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -9,13 +7,18 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.flashcard.models.RpgAnswer;
 import com.example.flashcard.models.RpgGame;
@@ -225,6 +228,20 @@ public class Hardcore extends AppCompatActivity {
                     }
 
                     // change current game settings
+                    LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                    View popupView = inflater.inflate(R.layout.nether_portal, null);
+                    PopupWindow popupWindow = new PopupWindow(
+                            popupView,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            true
+                    );
+                    int xPosition = 100;
+                    int yPosition = 100;
+
+                    popupWindow.showAtLocation(findViewById(R.id.evenementLayoutFrameLayout), Gravity.NO_GRAVITY, xPosition, yPosition);
+
+
                     game.setNetherUnlocked(true);
                     RpgUtils.loadNetherQuestionsInGameQuestionPool(game.getQuestions());
                 }
