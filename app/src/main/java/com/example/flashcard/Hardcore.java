@@ -3,7 +3,9 @@ package com.example.flashcard;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -19,6 +21,7 @@ import com.example.flashcard.models.RpgAnswer;
 import com.example.flashcard.models.RpgGame;
 import com.example.flashcard.models.RpgPlayer;
 import com.example.flashcard.models.RpgQuestion;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -56,6 +59,11 @@ public class Hardcore extends AppCompatActivity {
     private RpgGame game;
     private RpgPlayer player;
     private ArrayList<RpgQuestion> questions = new ArrayList<>();
+
+    // shared preferences Success
+    //SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+    //SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+
 
 
     @Override
@@ -128,6 +136,9 @@ public class Hardcore extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SharedPreferences sharedPreferences = getSharedPreferences("Achievements", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 String finalAnswer = checkedRadioButton.getText().toString();
                 Log.i("ANSWER", "DEFINITIVE CHOISE IS : " + finalAnswer);
 
@@ -147,6 +158,7 @@ public class Hardcore extends AppCompatActivity {
                     }
                 }
 
+                // TOAST OF THE MORAL
                 Toast.makeText(Hardcore.this, game.getCurrentQuestion().getMoral(), Toast.LENGTH_SHORT).show();
                 game.incrementScoreByOne();
 
@@ -157,10 +169,33 @@ public class Hardcore extends AppCompatActivity {
                 //Toast.makeText(Hardcore.this, "Vous etes sur ? douter !", Toast.LENGTH_SHORT).show();
 
 
+                // check for progression
+                // NETHER
                 if(game.getScore() > 5 && !game.isNetherUnlocked())
                 {
+                    // check if first time reaching nether
+                    if (!sharedPreferences.getBoolean("isNetherUnlocked", false))
+                    {
+                        editor.putBoolean("isNetherUnlocked", true);
+                        editor.apply();
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
+                        mediaPlayer.start();
+                    }
+                    else
+                    {
+                        final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_nether_portal);
+                        mediaPlayer.start();
+                        //Toast.makeText(Hardcore.this, "VOS AMIS DU NETHER ARRIVENT", Toast.LENGTH_SHORT).show();
+
+                        Snackbar snackbar = Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOS AMIS DU NETHER ARRIVENT !", Snackbar.LENGTH_LONG);
+                        snackbar.show();
+
+                        // Change duration before nextQuestion
+                    }
+
+
+
                     game.setNetherUnlocked(true);
-                    Toast.makeText(Hardcore.this, "VOS AMIS DU NETHER ARRIVENT", Toast.LENGTH_SHORT).show();
                     RpgUtils.loadNetherQuestionsInGameQuestionPool(game.getQuestions());
                 }
 
