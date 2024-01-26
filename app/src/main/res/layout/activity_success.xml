@@ -428,4 +428,22 @@
         app:layout_constraintStart_toEndOf="@+id/imageView29"
         app:srcCompat="@drawable/green_mark" />
 
+    <Button
+        android:id="@+id/clearSuccessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="50dp"
+        android:text="Reset les Succes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHomeFromSuccessToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        app:layout_constraintStart_toStartOf="@+id/clearSuccessButton"
+        app:layout_constraintTop_toBottomOf="@+id/clearSuccessButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

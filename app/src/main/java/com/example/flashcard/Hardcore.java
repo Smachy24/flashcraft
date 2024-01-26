@@ -7,12 +7,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.PopupWindow;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -153,6 +150,9 @@ public class Hardcore extends AppCompatActivity {
         radioButton3.setText(game.getCurrentQuestion().getAnswers().get(2).getPrompt());
         //radioButton4.setText(game.getCurrentQuestion().getAnswers().get().getPrompt());
 
+        ImageView achievementImage = findViewById(R.id.achievementImageView);
+        TextView achievementText = findViewById(R.id.textAchievTextView);
+
 
 
 
@@ -226,21 +226,9 @@ public class Hardcore extends AppCompatActivity {
 
                         // Change duration before nextQuestion
                     }
-
                     // change current game settings
-                    LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                    View popupView = inflater.inflate(R.layout.nether_portal, null);
-                    PopupWindow popupWindow = new PopupWindow(
-                            popupView,
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            true
-                    );
-                    int xPosition = 100;
-                    int yPosition = 100;
 
-                    popupWindow.showAtLocation(findViewById(R.id.evenementLayoutFrameLayout), Gravity.NO_GRAVITY, xPosition, yPosition);
-
+                    achievementImage.setVisibility(View.VISIBLE);
 
                     game.setNetherUnlocked(true);
                     RpgUtils.loadNetherQuestionsInGameQuestionPool(game.getQuestions());
@@ -275,6 +263,9 @@ public class Hardcore extends AppCompatActivity {
                     // change current game settings
                     game.setEndUnlocked(true);
                     RpgUtils.loadEndQuestionsInGameQuestionPool(game.getQuestions());
+
+                    achievementImage.setImageResource(R.drawable.end_portal_achiev);
+                    achievementImage.setVisibility(View.VISIBLE);
                 }
 
                 // WATER TEMPLE
@@ -351,6 +342,10 @@ public class Hardcore extends AppCompatActivity {
                             final MediaPlayer mediaPlayer = MediaPlayer.create(Hardcore.this,R.raw.sound_effect_challenge_complete);
                             mediaPlayer.start();
                             Snackbar.make(findViewById(R.id.hardcoreRootLayout2), "VOUS AVEZ BATTUE L'ENDER DRAGON!", Snackbar.LENGTH_LONG).show();
+
+                            achievementImage.setImageResource(R.drawable.ender_dragon_achiev);
+                            achievementImage.setVisibility(View.VISIBLE);
+                            achievementText.setText("L'Ender Dragon est tombe \nla victoire est tienne !");
                         }
                         else
                         {

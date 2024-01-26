@@ -1,9 +1,11 @@
 package com.example.flashcard;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +25,9 @@ public class SuccessActivity extends AppCompatActivity {
         List<ImageView> greenMarks = new ArrayList<>();
         List<Boolean> achievements = new ArrayList<>();
         List<TextView> titleAchievements = new ArrayList<>();
+        Button clearSuccess = findViewById(R.id.clearSuccessButton);
+        Button homeButtonfromSuccessToMain = findViewById(R.id.buttonHomeFromSuccessToMain);
+
 
 
         logoAchievements.add(findViewById(R.id.netherPortalImageView));
@@ -82,6 +87,32 @@ public class SuccessActivity extends AppCompatActivity {
                 titleAchievements.get(i).setTextColor(android.graphics.Color.GREEN);
             }
         }
+
+        clearSuccess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isNetherUnlocked", false);
+                editor.putBoolean("isEndUnlocked", false);
+                editor.putBoolean("isEnderDragonBeaten", false);
+                editor.putBoolean("isWitherBeaten", false);
+                editor.putBoolean("isWardenBeaten", false);
+                editor.putBoolean("isWaterTempleUnlocked", false);
+                editor.putBoolean("isGuardianBeaten", false);
+                editor.putBoolean("isEatherUnlocked", false);
+                editor.putBoolean("isGodBeaten", false);
+                editor.apply();
+
+                startActivity(new Intent(SuccessActivity.this, SuccessActivity.class));
+            }
+        });
+        homeButtonfromSuccessToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SuccessActivity.this, MainActivity.class));
+            }
+        });
+
 
     }
 }

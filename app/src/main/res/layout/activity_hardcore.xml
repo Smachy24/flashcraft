@@ -13,14 +13,6 @@
         android:layout_height="match_parent"
         tools:context=".Hardcore">
 
-        <FrameLayout
-            android:id="@+id/evenementLayoutFrameLayout"
-            android:layout_width="220dp"
-            android:layout_height="319dp"
-            tools:layout_editor_absoluteX="83dp"
-            tools:layout_editor_absoluteY="78dp">
-
-        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -314,5 +306,30 @@
         app:layout_constraintStart_toEndOf="@+id/resourceImageView5"
         app:layout_constraintTop_toTopOf="@+id/resourceImageView5"
         tools:text="9" />
+
+    <ImageView
+        android:id="@+id/achievementImageView"
+        android:layout_width="407dp"
+        android:layout_height="501dp"
+        android:layout_marginTop="30dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nether_portal_achiev" />
+
+    <TextView
+        android:id="@+id/textAchievTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/regular"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/achievementImageView"
+        app:layout_constraintEnd_toEndOf="@+id/achievementImageView"
+        app:layout_constraintStart_toStartOf="@+id/achievementImageView"
+        tools:text="TextAchiev" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
