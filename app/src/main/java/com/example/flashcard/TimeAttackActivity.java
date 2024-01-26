@@ -26,6 +26,8 @@ public class TimeAttackActivity extends AppCompatActivity {
     public final int timerLimit = 45;
     public int roundTime = 0;
     public int totalSeconds = 0;
+
+    CountDownTimer countDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,22 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
+
     private void playRound(TimeAttackGame game){
         roundTime = 0;
         ArrayList<Craft>craftList = game.getCrafts();
@@ -86,7 +104,7 @@ public class TimeAttackActivity extends AppCompatActivity {
             Button validateCraftButton = findViewById(R.id.validateCraftButton);
             TextView timerTextView = findViewById(R.id.timerTextView);
 
-            CountDownTimer countDownTimer = new CountDownTimer(timerLimit*1000, 1000) {
+            countDownTimer = new CountDownTimer(timerLimit*1000, 1000) {
                // Add one second to timer info
                 public void onTick(long millisUntilFinished) {
                     timerTextView.setText(millisUntilFinished /1000 + "s");
@@ -99,6 +117,7 @@ public class TimeAttackActivity extends AppCompatActivity {
                     Intent intent = new Intent(TimeAttackActivity.this, TimeAttackLoseActivity.class);
                     startActivity(intent);
                 }
+
             };
 
             countDownTimer.start();
