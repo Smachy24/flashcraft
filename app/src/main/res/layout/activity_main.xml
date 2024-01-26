@@ -41,13 +41,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/summaryButton"
+        android:id="@+id/successButton"
         android:layout_width="342dp"
         android:layout_height="43dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_minecraft"
         android:fontFamily="@font/regular"
-        android:text="SUMMARY"
+        android:text="SUCCESS"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -63,9 +63,9 @@
         android:fontFamily="@font/regular"
         android:text="STAT"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/summaryButton"
-        app:layout_constraintStart_toStartOf="@+id/summaryButton"
-        app:layout_constraintTop_toBottomOf="@+id/summaryButton" />
+        app:layout_constraintEnd_toEndOf="@+id/successButton"
+        app:layout_constraintStart_toStartOf="@+id/successButton"
+        app:layout_constraintTop_toBottomOf="@+id/successButton" />
 
     <Button
         android:id="@+id/hardcoreButton"

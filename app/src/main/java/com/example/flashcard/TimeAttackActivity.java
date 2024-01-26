@@ -88,7 +88,8 @@ public class TimeAttackActivity extends AppCompatActivity {
 
                 public void onFinish() {
                     timerTextView.setText("Temps écoulé !");
-                    startActivity(new Intent(TimeAttackActivity.this, MainActivity.class));
+                    Intent intent = new Intent(TimeAttackActivity.this, TimeAttackLoseActivity.class);
+                    startActivity(intent);
 
                 }
             };
@@ -110,7 +111,8 @@ public class TimeAttackActivity extends AppCompatActivity {
         }
 
         else {
-            startActivity(new Intent(TimeAttackActivity.this, MainActivity.class));
+            Intent intent = new Intent(TimeAttackActivity.this, TimeAttackScores.class);
+            startActivity(intent);
         }
 
     }

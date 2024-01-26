@@ -157,7 +157,7 @@ public class Utils {
                     "iron_ingot", "iron_ingot", "empty",
                     "empty", "stick", "empty",
                     "empty", "stick", "empty")));
-            crateCraft("Escalier en pierre", R.drawable.question_item_wooden_sword, new ArrayList<>(Arrays.asList(
+            crateCraft("Escalier en pierre", R.drawable.question_item_cobblestone_stairs, new ArrayList<>(Arrays.asList(
                     "empty", "empty", "cobblestone",
                     "empty", "cobblestone", "cobblestone",
                     "cobblestone", "cobblestone", "cobblestone")));

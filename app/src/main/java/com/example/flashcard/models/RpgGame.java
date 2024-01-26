@@ -136,7 +136,7 @@ public class RpgGame implements Parcelable {
 
     public void nextQuestion()
     {
-        currentQuestionIndex ++;
+        //currentQuestionIndex ++;
         currentQuestion = questions.get(currentQuestionIndex);
     }
 
